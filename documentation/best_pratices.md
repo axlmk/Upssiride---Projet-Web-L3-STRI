@@ -1,18 +1,19 @@
+
 # GIT
-## Pour les branches à utiliser
+## The branches to use
 
-- commit : on va publier dessus uniquement lorsqu'une version sans bug, montrable en tant que démo, est réalisée
-- develop : branche principale d'où l'on fork les branches features et les branches releases
-- release-*x* : branche où l'on prépare un push sur master, visant à débugger develop (càd on ajoute de feature)
-- *features_name* : branche où l'on va développer une feature précise
-- hotfix-*x* : branche fork depuis master où on va réparer rapidement un défaut trouvé sur un commit de master
+- commit: we will publish on it only when a bug-free version is available
+- develop: main branch from where we will fork the feature and release branches
+- release-*x*: branch used to prepare a push on the master. We can't add any feature while working on this branch
+- *features_name*: branch where we will create new precise features
+- hotfix-*x*: forked branch from master where we will do quick fixes to repair a bug found on a master commit
 
->Lors d'un merge toujours utiliser l'option `--no-ff`  pour forcer la création d'un commit sur la branche qui reçoit le merge.
+> Always use the `--no-ff` option during a merge to force the creation of a new commit.
 
-## Convention de nommage des commits
+## Commits naming convention
 
-- Sont écrits in english
-- Respecte la syntaxe :
+- Are written in english
+- Must observe the following syntax:
 ```
 type(scope/subscope/...): subject
 
@@ -20,57 +21,66 @@ body
 
 footer
 ```
-> Les champs `(scope/subscope/...)`, `body` et `footer` son **optionnels**.
+> Fields `(scope/subscope/...)`, `body` and `footer` are **optional**.
 
-## Liste des types
+## Types list
 
-- feat: une nouvelle fonctionnalité
-- fix: une correction de bug
-- docs: un changement uniquement dans la documentation
-- style: un changement qui n’affecte pas le sens du code (espace, reformattage, alignements dans le code…)
-- refactor: un changement qui n’est ni une correction de bug ni une évolution
-- perf: un changement qui améliore la performance
-- test: un ajout de tests manquants
-- merge: commit de merge
+- feat: a new feature
+- fix: a bug fix
+- docs: a change in the documentation
+- style: a change that doesn't affect the meaning of the code (spacing, alignment in the code...)
+- refactor: a change which isn't a bug fix nor an improvement
+- perf: a change improving the performances
+- test: a addition of a missing test
+- merge: a merge commit
 
-## Sujet du message
+## Message's subject
 
-- Commence par une majuscule
-- Ne termine **pas** par un point
-- Contient 50 caractères max
-- Conjugé à l'impératif
-- Le corps du message explique ce qu'il fait et en pourquoi il le fait, pas comment
+- Start with an upper letter
+- Does**n't** end with a point
+- Is 50 characters max length
+- Written at the imperative tense
+- The message's body explains what it does and why it does it, not how
 
-## Exemple
+## Example
 
-`feat(account): Add creation of admin accounts`
+✅ `feat(account): Add creation of admin accounts`
+❌ `account refactoring`
 
 # WEB
 
-## Convention de nommage en PHP
+## PHP naming conventions
 
 - Classes : PascalCase
 - Interfaces : PascalCase
-- Fonctions et méthodes : camelCase
+- Functions and methods : camelCase
 - Variables : camelCase
-- Constantes : ALL_CAPS
+- Constants : ALL_CAPS
 
-## Convention de nommage MYSQL
+## MYSQL naming conventions
 
-- En minuscule
+- Lower letters
 - snake_case
-- Pas d’abréviation
-- Un seul mot quand c'est possible,
-- Décrit le contenu
-- A préfixer du nom de la table.
+- No abbreviations
+- One word when possible
+- Describe the content
+- To prefix with the table name
 
-## Convention de nommage CSS / HTML
+## HTML / CSS naming conventions
 
-Même idée que pour PHP
+Same ideas as PHP
 
-## Convention d’écriture
+## Writing conventions
+Everything that as to be written can can belong to one of those four groups: documentation, code, user interface and specification.
+Ces éléments seront rédigés en :
+| Group | Language |
+|--------|--------|
+|Documentation|English|
+|Code|English
+|User interface| English|
+|Specification| English||
 
-Avoir aussi bien le code que ce qui va être affiché sur le site **en anglais**.
+
 
 # Sources
 - [Nommer ses commits - 1](https://www.dotnetdojo.com/git-commit/)
