@@ -45,6 +45,7 @@ footer
 ## Example
 
 ✅ `feat(account): Add creation of admin accounts`
+
 ❌ `account refactoring`
 
 # WEB
@@ -72,8 +73,9 @@ Same ideas as PHP
 
 ## Writing conventions
 Everything that as to be written can can belong to one of those four groups: documentation, code, user interface and specification.
-Ces éléments seront rédigés en :
-| Group | Language |
+
+These elements will be written in:
+| Group | Language 
 |--------|--------|
 |Documentation|English|
 |Code|English
