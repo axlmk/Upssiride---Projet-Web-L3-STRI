@@ -75,12 +75,13 @@ Same ideas as PHP
 Everything that as to be written can can belong to one of those four groups: documentation, code, user interface and specification.
 
 These elements will be written in:
-| Group | Language 
-|--------|--------|
-|Documentation|English|
-|Code|English
-|User interface| English|
-|Specification| English||
+
+| Group             | Language  |
+|-------------------|-----------|
+| Documentation     | English   |
+| Code              | English   |
+| User interface    | English   |
+| Specification     | English   |
 
 
 
