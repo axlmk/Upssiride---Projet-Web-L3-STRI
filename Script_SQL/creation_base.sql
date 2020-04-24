@@ -8,6 +8,9 @@
 -- DROP TABLE Ride CASCADE;
 -- DROP TABLE State CASCADE;
 -- DROP TABLE Place CASCADE;
+-- DROP TABLE Participate CASCADE;
+-- DROP TABLE Recquire CASCADE;
+-- DROP TABLE consult_contact_details CASCADE;
 
 CREATE TABLE Account(
    IdAccount INT,
@@ -17,12 +20,13 @@ CREATE TABLE Account(
    Password VARCHAR(50),
    PictureProfil VARCHAR(300),
    Email VARCHAR(50),
-   Phone VARCHAR(50),
+   Phone VARCHAR(30),
    Birthdate DATE,
-   Address VARCHAR(50),
    AdminRights INT,
-   RegistrationDate VARCHAR(50),
+   RegistrationDate DATE,
    Description TEXT,
+   CHECK (Gender ='M' OR Gender ='F'),
+   CHECK (AdminRights = '0' OR AdminRights = '1'),
    PRIMARY KEY(IdAccount)
 );
 
@@ -47,7 +51,7 @@ CREATE TABLE Place(
 
 CREATE TABLE State(
    IdState INT,
-   Etat VARCHAR(50),
+   Label VARCHAR(50),
    PRIMARY KEY(IdState)
 );
 
@@ -72,6 +76,10 @@ CREATE TABLE Ride(
    IdPlace INT NOT NULL,
    IdPlace_1 INT NOT NULL,
    IdAccount INT NOT NULL,
+   CHECK (MaxPassengersNb <= 8),
+   CHECK (Music = '0' OR Music = '1'),
+   CHECK (Pets = '0' OR Pets = '1'),
+   CHECK (Smoker = '0' OR Smoker = '1'),
    PRIMARY KEY(IdRide),
    FOREIGN KEY(IdState) REFERENCES State(IdState),
    FOREIGN KEY(IdPlace) REFERENCES Place(IdPlace),
