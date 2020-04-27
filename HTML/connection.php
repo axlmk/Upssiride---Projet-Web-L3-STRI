@@ -14,12 +14,12 @@
         }
     }
 
-    require_once 'auth.php';
+    require_once 'functions/auth.php';
     if (is_connected()){
         header("Location: dashboard.php");
     }
 
-    include_once 'header.php'
+    require_once 'header.php'
 ?>
 
 <!DOCTYPE html>
