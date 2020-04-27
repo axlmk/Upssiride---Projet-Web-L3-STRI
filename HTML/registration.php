@@ -13,6 +13,7 @@
             <div id='formUp'>
                 <form class="" action="placeholder.html" method="post" >
                     <h2>Information</h2>
+                    <hr>
                     <div>
                         <label for="">Gender * </label>
                         <input type="radio" onclick="" name="value">G
@@ -28,6 +29,7 @@
                      <label for = "rZip">ZIP * </label><input type="text" name="rZip" value="" placeholder="ZIP *"> <label for = "rCity">City * </label><input type="text" name="rCity" value="" placeholder="City *"></br>
 
                     <h2>Password</h2>
+                    <hr>
                     <label for = "rPass">Password * </label><input type="password" name="rPass" value="" placeholder="Password *"></br>
                     <label for = "rConfirmPass">Confirm password * </label><input type="password" name="rConfirmPass" value="" placeholder="Confirm password *"></br>
                     <input type="submit" name="cSubmit" value="Confirm">

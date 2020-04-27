@@ -25,7 +25,9 @@ a:active{
 }
 
 nav{
+    margin-left: -20px;
     float: right;
+    right: 0;
 }
 
 nav li{
@@ -34,21 +36,32 @@ nav li{
     margin-right: 15px;
 }
 
+hr{
+    border: none;
+    border-top: 2px solid #1B191E;
+    color: #1B191E;
+    height: 5px;
+    width: 50%;
+}
+
+.header{
+    position: static;
+}
+
 #logo{
     height: 50px;
     width :auto;
+    padding-right: -20px;
     float: left;
 }
 
 #formUp {
     text-align: center;
+    clear: both;
 }
 
 #formUp h2{
-    border: 0 solid #1B191E;
-    border-bottom-width: 2px;
-    width: 33%;
-    margin-left: 20%;
-    padding-right: 20%;
+    margin: auto;
+    margin-top: 40px;
 }
 

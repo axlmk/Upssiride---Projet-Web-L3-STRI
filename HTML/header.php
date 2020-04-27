@@ -2,9 +2,10 @@
     require_once 'functions/auth.php';
 ?>
     <link rel="stylesheet" href="style/style.css"/>
-     <head>
-     </head>
-        <a href="#" title="logo">
+    <div class='header'>
+         <head>
+         </head>
+         <a href="#" title="logo">
             <div id="logo">
              <img src="Pictures_site/logo_resized.png" alt="logo">
             </div>
@@ -22,3 +23,4 @@
                 <?php endif ?>
             </ul>
         </nav>
+    </div>
