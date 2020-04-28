@@ -9,6 +9,11 @@ html {
     font-size: 20px;
 }
 
+body{
+    top: 1000px;
+    text-align: center;
+}
+
 a {
     color: #1B191E;
     text-decoration: none;
@@ -46,6 +51,7 @@ hr{
 
 .header{
     position: static;
+    overflow: hidden;
 }
 
 #logo{
@@ -65,3 +71,58 @@ hr{
     margin-top: 40px;
 }
 
+.ride{
+    margin-top: 20px;
+    margin-left: 15%;
+    margin-right: 15%;
+    float: none;
+    border: 4px solid #C26500;
+    border-radius: 25px;
+    border-width: 3px;
+
+    /*FlexBox*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.pic{
+    margin-top: 20px;
+}
+.pic img{
+    height: 200px;
+    width: auto;
+    right: 0px;
+}
+
+.pic a{
+    height: 200px;
+    width: auto;
+    right: 0px;    
+}
+
+#sponsor{
+    margin-left: 15%;
+    margin-right: 15%;
+    border: 4px solid #C26500;
+    border-radius: 25px;
+    border-width: 3px;
+}
+
+.company{
+    margin-top: 50px;
+
+    /*FlexBox*/
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.company img{
+    height: 100px;
+    width: auto;
+}
