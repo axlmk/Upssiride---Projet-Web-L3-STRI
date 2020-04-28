@@ -1,1 +1,0 @@
-insert into account values(0,'acila','vincent','M','passwordtest','','acila@upssiride.net','0607080910','2020/1/1',1,'2020/04/23','compte test');
