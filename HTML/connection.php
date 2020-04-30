@@ -1,9 +1,11 @@
 <?php
-    
-    $erreur =null;
+    require_once 'functions/auth.php';
+    #$erreur =null;
 
     if (isset($_POST['login'], $_POST['pass'])){
-        if ($_POST["login"] === "admin" && $_POST["pass"] === "admin"){
+        $login = $_POST['login'];
+        $pass = $_POST['pass'];
+        if (account_auth($login,$pass)){
             session_start();
             $_SESSION['connected'] = 1;
             $_SESSION['id'] = $_POST['login'];
@@ -14,7 +16,7 @@
         }
     }
 
-    require_once 'functions/auth.php';
+    
     if (is_connected()){
         header("Location: dashboard.php");
     }
