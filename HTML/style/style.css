@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'LEMONMILK';
-    src: url("../font/otf/LEMONMILK-Bold.otf");
+    src: url("../../font/otf/LEMONMILK-Bold.otf");
 }
 
 html {
-    background-color: #F7EDD0;
+    background-color: #f9f6f1;
     font-family: 'LEMONMILK', Arial;
     font-size: 20px;
 }
@@ -15,7 +15,7 @@ body{
 }
 
 a {
-    color: #1B191E;
+    color: #191A1C;
     text-decoration: none;
     transition-property: color;
     transition-duration: 0.5s;
