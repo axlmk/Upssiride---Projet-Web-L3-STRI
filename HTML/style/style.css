@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'LEMONMILK';
-    src: url("../font/otf/LEMONMILK-Bold.otf");
+    src: url("../../font/otf/LEMONMILK-Bold.otf");
 }
 
 html {
@@ -19,6 +19,10 @@ a {
     text-decoration: none;
     transition-property: color;
     transition-duration: 0.5s;
+}
+
+ul {
+    list-style: none;
 }
 
 a:hover{
@@ -73,8 +77,8 @@ hr{
 
 .ride{
     margin-top: 20px;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 10%;
+    margin-right: 10%;
     float: none;
     border: 4px solid #C26500;
     border-radius: 25px;
@@ -101,6 +105,27 @@ hr{
     height: 200px;
     width: auto;
     right: 0px;
+}
+
+.options{
+    width: 40px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.options img{
+    height: 30px;
+    width: 30px;
+}
+
+#menu_opt{
+    display: none;
+}
+
+#menu_opt li{
+    background-color: #E4AA4E;
+    border: 1px solid #1B191E;
 }
 
 #sponsor{
