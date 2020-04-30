@@ -1,6 +1,5 @@
 <?php
     require_once 'functions/auth.php';
-    #$erreur =null;
 
     if (isset($_POST['login'], $_POST['pass'])){
         $login = $_POST['login'];
@@ -12,10 +11,9 @@
             header("Location: dashboard.php");
         }
         else {
-            $erreur = "Identification failure";
+            $erreur_auth = 1;
         }
     }
-
     
     if (is_connected()){
         header("Location: dashboard.php");
@@ -33,9 +31,12 @@
     <body>
         <div class="">
             <form action="connection.php" method="post"> 
-                <label for = "cLogin">Login</label><input type="text" name="login" value="">
-                <label for = "cPass">Password</label><input type="text" name="pass" value="">
+                <input type="text" name="login" placeholder="Email adress">
+                <input type="password" name="pass" value="" placeholder="Password">
                 <input type="submit" name="cSubmit" value="Log in">
+                <?php if (isset($erreur_auth)):?>
+                    <a class="" id=""><br/>Identification failure</a>  <!-- CSS A AJOUTER : TEXTE EN ROUGE DE PREFERENCE, modifiez les balises si vous voulez >-->
+                <?php endif ?>
             </form>
         </div>
         <div class="">
