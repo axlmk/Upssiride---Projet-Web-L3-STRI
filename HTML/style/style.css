@@ -151,3 +151,58 @@ hr{
     height: 100px;
     width: auto;
 }
+
+#profile{
+    vertical-align: baseline;
+}
+
+#profile img{
+    vertical-align: bottom;
+}
+
+.information{
+    vertical-align: auto;
+}
+
+.information img{
+    height: 150px;
+    width: auto;
+}
+
+.preferences {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.preferences img{
+    height: 60px;
+    width: auto;
+}
+
+.stats{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.registered{
+    padding: 15px;
+}
+
+.ridesCompleted{
+    padding: 15px;
+}
+
+.vertical_line{
+    width: 2px;
+    border-left: 2px solid #1B191E;
+    height : 250px;
+}
+
+.little_vertical_line{
+    width: 2px;
+    border-left: 2px solid #1B191E;
+    height : 60px;
+}

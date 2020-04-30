@@ -30,6 +30,8 @@
                 </div>
             </a>
 
+            <div class=vertical_line> </div>
+
             <div class=pic>
                 <! -- Info à rentrer en php -->
                 <a href="#">
@@ -80,6 +82,8 @@
                     <p>Durée approximative du trajet : 2h00</p>
                 </div>
             </a>
+
+            <div class=vertical_line> </div>
 
             <div class=pic>
                 <! -- Info à rentrer en php -->
