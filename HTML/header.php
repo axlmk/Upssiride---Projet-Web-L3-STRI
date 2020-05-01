@@ -12,8 +12,8 @@
         </a>
         <nav>
             <ul>
-                <li><a href="dashboard.php">New Ride</a></li>
-                <li><a href="my_rides">My Rides</a></li>
+                <li><a href="index.php">New Ride</a></li>
+                <li><a href="my_rides.php">My Rides</a></li>
                 <li><a href="sponsors.php">Sponsors</a></li>
                 <?php if (is_connected()): ?>
                     <li><a href="my_account.php">Account</a></li>

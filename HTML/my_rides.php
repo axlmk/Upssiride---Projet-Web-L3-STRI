@@ -92,7 +92,7 @@
                     <p>Nom du mec</p>
                 </a>
             </div>
-
+ 
         </div>
         
 
@@ -100,7 +100,11 @@
         <! -- script popping menu -->
         <script>
             function popMenu() {
-                document.getElementById("menu_opt").style.display = 'block';
+                if(document.getElementById("menu_opt").style.display == 'none')
+                    document.getElementById("menu_opt").style.display = 'block';
+                else{
+                    document.getElementById("menu_opt").style.display = 'none';
+                }
             }
         </script>
 

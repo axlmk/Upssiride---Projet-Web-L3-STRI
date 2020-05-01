@@ -65,6 +65,21 @@ hr{
     float: left;
 }
 
+#login{
+    display: flex;
+    flex-direction: column;
+}
+
+.serverResponse {
+    color: red;
+}
+
+input{
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
 #formUp {
     text-align: center;
     clear: both;
@@ -117,10 +132,12 @@ hr{
 .options img{
     height: 30px;
     width: 30px;
+    position: static;
 }
 
 #menu_opt{
     display: none;
+    position: relative;
 }
 
 #menu_opt li{
@@ -128,12 +145,26 @@ hr{
     border: 1px solid #1B191E;
 }
 
-#sponsor{
+#sponsor1{
     margin-left: 15%;
     margin-right: 15%;
+    margin-bottom: 40px;
     border: 4px solid #C26500;
     border-radius: 25px;
     border-width: 3px;
+    display: flex;
+    flex-direction: row;
+}
+
+#sponsor2{
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 40px;
+    border: 4px solid #C26500;
+    border-radius: 25px;
+    border-width: 3px;
+    display: flex;
+    flex-direction: row-reverse;
 }
 
 .company{
@@ -141,7 +172,7 @@ hr{
 
     /*FlexBox*/
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;

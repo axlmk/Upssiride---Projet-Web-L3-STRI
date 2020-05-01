@@ -29,9 +29,10 @@
 
                     <h2>Password</h2>
                     <hr>
-                    <label for = "rPass">Password * </label><input type="password" name="pass" value="" placeholder="Password *"></br>
-                    <label for = "rConfirmPass">Confirm password * </label><input type="password" name="confirmPass" value="" placeholder="Confirm password *"></br>
+                    <label for = "rPass"></label><input type="password" name="pass" value="" placeholder="Password *"></br>
+                    <label for = "rConfirmPass"></label><input type="password" name="confirmPass" value="" placeholder="Confirm password *"></br>
                     <input type="submit" name="submit" value="Confirm">
+                    <p>* Required fields</p>
                 </form>
             </div>
         </section>

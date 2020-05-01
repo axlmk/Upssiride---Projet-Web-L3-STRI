@@ -28,22 +28,24 @@
         <meta charset="utf-8">
         <title>Connection</title>
     </head>
-    <body>
-        <div class="">
-            <form action="connection.php" method="post"> 
-                <input type="text" name="login" placeholder="Email adress">
-                <input type="password" name="pass" value="" placeholder="Password">
-                <input type="submit" name="cSubmit" value="Log in">
-                <?php if (isset($erreur_auth)):?>
-                    <a class="" id=""><br/>Identification failure</a>  <!-- CSS A AJOUTER : TEXTE EN ROUGE DE PREFERENCE, modifiez les balises si vous voulez >-->
-                <?php endif ?>
-            </form>
-        </div>
-        <div class="">
-            <p>You already have an account?</p>
-            <form action="registration.php" method="post">
-                <input type="submit" name="cSignUp" value="Sign up"> <!-- REPLACE PLACEHOLDER.HTML BY THE PROPER PHP SCRIPT >-->
-            </form>
+    <body> 
+        <div id=login>
+            <div class="formLogIn">
+                <form action="connection.php" method="post"> 
+                    <input type="text" name="login" placeholder="Email adress">
+                    <input type="password" name="pass" value="" placeholder="Password">
+                    <input type="submit" name="cSubmit" value="Log in">
+                    <?php if (isset($erreur_auth)):?>
+                        <p class="serverResponse"><br/>Identification failure</p>  <!-- CSS A AJOUTER : TEXTE EN ROUGE DE PREFERENCE, modifiez les balises si vous voulez >-->
+                    <?php endif ?>
+                </form>
+            </div>
+            <div class="">
+                <p>You already have an account?</p>
+                <form action="registration.php" method="post">
+                    <input type="submit" name="cSignUp" value="Sign up"> <!-- REPLACE PLACEHOLDER.HTML BY THE PROPER PHP SCRIPT >-->
+                </form>
+            </div>
         </div>
     </body>
 </html>
