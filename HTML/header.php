@@ -1,16 +1,15 @@
 <?php
     require_once 'functions/auth.php';
 ?>
-    <link rel="stylesheet" href="style/style.css"/>
+    <head>
+        <link rel="stylesheet" href="style/style.css"/>
+    </head>
+
     <div class='header'>
-         <head>
-         </head>
-         <a href="#" title="logo">
-            <div id="logo">
-             <img src="Pictures_site/logo_resized.png" alt="logo">
-            </div>
-        </a>
-        <nav>
+         <a href="index.php" title="logo">
+             <img src="Pictures_site/logo.svg" alt="logo" id="logo">
+         </a>
+         <nav>
             <ul>
                 <li><a href="index.php">New Ride</a></li>
                 <li><a href="my_rides.php">My Rides</a></li>
@@ -24,4 +23,7 @@
                 <?php endif ?>
             </ul>
         </nav>
+    </div>
+    <div class="empty_block">
+        &nbsp;
     </div>

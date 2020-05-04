@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Index</title>
         <link rel="stylesheet" href="style/tab_style.css"/>
     </head>
     <body>
@@ -12,12 +12,12 @@
 
         <div class="choose_ride">
             <div class="tab">
-                <button class="tablinks" onclick="openCity(event, 'offer_ride')" id="default">Offer a ride</button>
-                <button class="tablinks" onclick="openCity(event, 'find_ride')">Find a ride</button>
+                <button class="tablinks" onclick="openTab(event, 'offer_ride')" id="default">Offer a ride</button>
+                <button class="tablinks" onclick="openTab(event, 'find_ride')">Find a ride</button>
             </div>
 
             <div id="offer_ride" class="content">
-                <form class="" action="index.html" method="post">
+                <form class="" action="index.php" method="post">
                     <label>Where are you leaving from?</label>
                     <input type="text" name="source_address" value=""></br>
                     <label>Where are you going?</label>
@@ -118,7 +118,7 @@
 
             document.getElementById("default").click();
 
-            function openCity(evt, tabName) {
+            function openTab(evt, tabName) {
                 var i;
                 var tabcontent;
                 var tablinks;

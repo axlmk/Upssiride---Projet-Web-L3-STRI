@@ -7,106 +7,224 @@
     <head>
         <meta charset="utf-8">
         <title>My rides</title>
+        <link rel="stylesheet" href="style/my_rides.css"/>
     </head>
     <body>
         <h2>Rides to come</h2>
-        <hr>
 
-        <! -- Un trajet -->
+        <!-- Un trajet -->
         <div class=ride>
-            <a href ="#">
-                <div class=info>
-                    <! -- Info à rentrer en php -->
-                    <p>28/04/2020</p>
-                    <p>15h30</p>
+            <div class=info>
+                <!-- Info à rentrer en php -->
+                <div class="pic_label">
+                    <img src="Pictures_site/calendar.svg" alt="calendar" width="40"/>
+                    <label for="" style="">25/05/2020</label>
                 </div>
-            </a>
 
-            <a href="#">
-                <div class=rideResume>
-                    <! -- Info à rentrer en php -->
-                    <p>Toulouse - - - Montpellier</p>
-                    <p>Durée approximative du trajet : 2h00</p>
+                <div class="end_pic_label">
+                    <img src="Pictures_site/clock.svg" alt="clock" width="40"/>
+                    <label for="">15h03</label>
                 </div>
-            </a>
-
-            <div class=vertical_line> </div>
-
-            <div class=pic>
-                <! -- Info à rentrer en php -->
-                <a href="#">
-                    <img src="Pictures_site/test.jpg" alt="ppDriver">
-                    <p>Nom du mec</p>
-                </a>
             </div>
 
-            <div class="options">
-                <! -- option button -->
-                <div id="optButton" onclick="popMenu()">
-                    <img src="Pictures_site/bttn_opt.png" alt="Option button"></img>
-                </div>
-                <div id="menu_opt">
-                    <ul>
-                        <! -- Requète SQL dans php -->
-                        <! -- Si on est passager -->
-                        <li>Cancel</li>
-                        <! -- Si on est conducteur -->
-                        <li>Remove</li>
-                        <li>Modify</li>
-                        <li><a href="#">Participation request</a>
-                    </ul>
-                </div>
+            <div class=rideResume>
+                <!-- Info à rentrer en php -->
+                <label for="">
+                    Toulouse
+                </label>
+                <img src="Pictures_site/city_sep.svg" alt="city" width="50">
+                <label for="">
+                    Montpellier
+                </label>
+            </div>
 
+            <!-- <div class=vertical_line> </div> -->
+
+            <div class=pic>
+                <!-- Info à rentrer en php -->
+                <img src="Pictures_site/test2.jpg" alt="ppDriver">
+                <p>Nom du mec</p>
+            </div>
+
+            <div class="dropdown">
+              <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
+              <div class="dropdown-content">
+                <a href="#">Cancel</a>
+                <a href="#">Remove</a>
+                <a href="#">Modify</a>
+              </div>
+          </div>
+      </div>
+
+        <div class=ride>
+              <div class=info>
+                  <!-- Info à rentrer en php -->
+                  <div class="pic_label">
+                      <img src="Pictures_site/calendar.svg" alt="calendar" width="40"/>
+                      <label for="" style="">25/05/2020</label>
+                  </div>
+
+                  <div class="end_pic_label">
+                      <img src="Pictures_site/clock.svg" alt="clock" width="40"/>
+                      <label for="">15h03</label>
+                  </div>
+              </div>
+
+              <div class=rideResume>
+                  <!-- Info à rentrer en php -->
+                  <label for="">
+                      Toulouse
+                  </label>
+                  <img src="Pictures_site/city_sep.svg" alt="city" width="50">
+                  <label for="">
+                      Montpellier
+                  </label>
+              </div>
+
+              <!-- <div class=vertical_line> </div> -->
+
+              <div class=pic>
+                  <!-- Info à rentrer en php -->
+                  <img src="Pictures_site/test2.jpg" alt="ppDriver">
+                  <p>Nom du mec</p>
+              </div>
+
+              <div class="dropdown">
+                <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
+                <div class="dropdown-content">
+                  <a href="#">Cancel</a>
+                  <a href="#">Remove</a>
+                  <a href="#">Modify</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class=ride>
+              <div class=info>
+                  <!-- Info à rentrer en php -->
+                  <div class="pic_label">
+                      <img src="Pictures_site/calendar.svg" alt="calendar" width="40"/>
+                      <label for="" style="">25/05/2020</label>
+                  </div>
+
+                  <div class="end_pic_label">
+                      <img src="Pictures_site/clock.svg" alt="clock" width="40"/>
+                      <label for="">15h03</label>
+                  </div>
+              </div>
+
+              <div class=rideResume>
+                  <!-- Info à rentrer en php -->
+                  <label for="">
+                      Toulouse
+                  </label>
+                  <img src="Pictures_site/city_sep.svg" alt="city" width="50">
+                  <label for="">
+                      Montpellier
+                  </label>
+              </div>
+
+              <!-- <div class=vertical_line> </div> -->
+
+              <div class=pic>
+                  <!-- Info à rentrer en php -->
+                  <img src="Pictures_site/test2.jpg" alt="ppDriver">
+                  <p>Nom du mec</p>
+              </div>
+
+              <div class="dropdown">
+                <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
+                <div class="dropdown-content">
+                  <a href="#">Cancel</a>
+                  <a href="#">Remove</a>
+                  <a href="#">Modify</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class=ride>
+              <div class=info>
+                  <!-- Info à rentrer en php -->
+                  <div class="pic_label">
+                      <img src="Pictures_site/calendar.svg" alt="calendar" width="40"/>
+                      <label for="" style="">25/05/2020</label>
+                  </div>
+
+                  <div class="end_pic_label">
+                      <img src="Pictures_site/clock.svg" alt="clock" width="40"/>
+                      <label for="">15h03</label>
+                  </div>
+              </div>
+
+              <div class=rideResume>
+                  <!-- Info à rentrer en php -->
+                  <label for="">
+                      Toulouse
+                  </label>
+                  <img src="Pictures_site/city_sep.svg" alt="city" width="50">
+                  <label for="">
+                      Montpellier
+                  </label>
+              </div>
+
+              <!-- <div class=vertical_line> </div> -->
+
+              <div class=pic>
+                  <!-- Info à rentrer en php -->
+                  <img src="Pictures_site/test2.jpg" alt="ppDriver">
+                  <p>Nom du mec</p>
+              </div>
+
+              <div class="dropdown">
+                <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
+                <div class="dropdown-content">
+                  <a href="#">Cancel</a>
+                  <a href="#">Remove</a>
+                  <a href="#">Modify</a>
+                </div>
             </div>
 
         </div>
 
 
         <h2>Rides recently completed</h2>
-        <hr>
 
-        <! -- Un trajet -->
         <div class=ride>
-            <a href ="#">
-                <div class=info>
-                    <! -- Info à rentrer en php -->
-                    <p>28/04/2020</p>
-                    <p>15h30</p>
-                </div>
-            </a>
+              <div class=info>
+                  <!-- Info à rentrer en php -->
+                  <div class="pic_label">
+                      <img src="Pictures_site/calendar.svg" alt="calendar" width="40"/>
+                      <label for="" style="">25/05/2020</label>
+                  </div>
 
-            <a href="#">
-                <div class=rideResume>
-                    <! -- Info à rentrer en php -->
-                    <p>Toulouse - - - Montpellier</p>
-                    <p>Durée approximative du trajet : 2h00</p>
-                </div>
-            </a>
+                  <div class="end_pic_label">
+                      <img src="Pictures_site/clock.svg" alt="clock" width="40"/>
+                      <label for="">15h03</label>
+                  </div>
+              </div>
 
-            <div class=vertical_line> </div>
+              <div class=rideResume>
+                  <!-- Info à rentrer en php -->
+                  <label for="">
+                      Toulouse
+                  </label>
+                  <img src="Pictures_site/city_sep.svg" alt="city" width="50">
+                  <label for="">
+                      Montpellier
+                  </label>
+              </div>
 
-            <div class=pic>
-                <! -- Info à rentrer en php -->
-                <a href="#">
-                    <img src="Pictures_site/test.jpg" alt="ppDriver">
-                    <p>Nom du mec</p>
-                </a>
-            </div>
- 
+              <!-- <div class=vertical_line> </div> -->
+
+              <div class=pic>
+                  <!-- Info à rentrer en php -->
+                  <img src="Pictures_site/test2.jpg" alt="ppDriver">
+                  <p>Nom du mec</p>
+              </div>
+
         </div>
-        
-
-
-        <! -- script popping menu -->
-        <script>
-            function popMenu() {
-                if(document.getElementById("menu_opt").style.display == 'none')
-                    document.getElementById("menu_opt").style.display = 'block';
-                else{
-                    document.getElementById("menu_opt").style.display = 'none';
-                }
-            }
-        </script>
 
     </body>
 
