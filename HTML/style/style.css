@@ -102,47 +102,9 @@ input{
     clear: both;
 }
 
-#formUp h2{
+#formUp h2 {
     margin: auto;
     margin-top: 40px;
-}
-
-#sponsor1{
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-bottom: 40px;
-    border: 4px solid #C26500;
-    border-radius: 25px;
-    border-width: 3px;
-    display: flex;
-    flex-direction: row;
-}
-
-#sponsor2{
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-bottom: 40px;
-    border: 4px solid #C26500;
-    border-radius: 25px;
-    border-width: 3px;
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-.company{
-    margin-top: 50px;
-
-    /*FlexBox*/
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.company img{
-    height: 100px;
-    width: auto;
 }
 
 #profile{

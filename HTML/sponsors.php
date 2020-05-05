@@ -7,6 +7,7 @@
     <head>
         <meta charset="utf-8">
         <title>Sponsors</title>
+        <link rel="stylesheet" href="style/sponsor.css"/>
     </head>
     <body>
         <h1> They support us : </h1>

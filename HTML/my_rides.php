@@ -49,9 +49,9 @@
             <div class="dropdown">
               <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
               <div class="dropdown-content">
-                <a href="#">Cancel</a>
                 <a href="#">Remove</a>
                 <a href="#">Modify</a>
+                <a href="#">Approve passenger</a>
               </div>
           </div>
       </div>
@@ -92,9 +92,9 @@
               <div class="dropdown">
                 <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
                 <div class="dropdown-content">
-                  <a href="#">Cancel</a>
                   <a href="#">Remove</a>
                   <a href="#">Modify</a>
+                  <a href="#">Approve passenger</a>
                 </div>
             </div>
 
@@ -136,9 +136,9 @@
               <div class="dropdown">
                 <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
                 <div class="dropdown-content">
-                  <a href="#">Cancel</a>
                   <a href="#">Remove</a>
                   <a href="#">Modify</a>
+                  <a href="#">Approve passenger</a>
                 </div>
             </div>
 
@@ -180,9 +180,9 @@
               <div class="dropdown">
                 <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
                 <div class="dropdown-content">
-                  <a href="#">Cancel</a>
                   <a href="#">Remove</a>
                   <a href="#">Modify</a>
+                  <a href="#">Approve passenger</a>
                 </div>
             </div>
 
