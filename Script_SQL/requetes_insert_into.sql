@@ -4,7 +4,9 @@
     
     -- Example
 
-    INSERT INTO account VALUES(0,'acila','vincent','M','passwordtest','','acila@upssiride.net','0607080910','2020/1/1',1,'2020/04/23','compte test');
+    INSERT INTO account VALUES(default,'acila','vincent','M','passwordtest','','acila@upssiride.net','0607080910','2020/1/1',1,'2020/04/23','compte test');
+    INSERT INTO account VALUES(default,'bonnet','hugo','M','password','','bonnet@upssiride.net','0607080911','2020/1/1',1,'2020/05/1','compte test');
+
 
 -- Addition of a new vehicle in the BdD under the entity 'vehicule' with the IDAccount of the user
 
