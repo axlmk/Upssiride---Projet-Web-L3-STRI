@@ -5,8 +5,7 @@
     require_once 'scripts/registration.php';
     if (is_connected()){
         header("Location: dashboard.php");
-    } 
-    
+    }
     if (isset($_POST['submit'])){
         $gender = $_POST['gender'];
         $name = htmlentities(trim($_POST['name']));
@@ -75,11 +74,6 @@
         if (empty($birth)){
             
             $err_birth = "Enter your birthdate";
-            $valid = 0;
-        }
-        else if (!check_date($birth)){
-            //check date format
-            $err_birth = "Invalid format";
             $valid = 0;
         }
         else if (!check_birthdate($birth)){
@@ -171,55 +165,55 @@
                     <hr>
                     <div>
                         <label for="">Gender * </label>
-                        <input type="radio" onclick="" name="gender" value="F">F
+                        <input type="radio" onclick="" name="gender" value="F" checked="checked">F
                         <input type="radio" onclick="" name="gender" value="M">M
                     </div>
                     <?php if (isset($err_gender)): ?>
                         <a><?php echo $err_gender; ?>
                     <?php endif ?></br>
-                    <input type="text" name="name" value="a" placeholder="Name *"></br>
+                    <input type="text" name="name" value="" placeholder="Name *"></br>
                     <?php if (isset($err_name)): ?>
                         <a><?php echo $err_name; ?>
                     <?php endif ?></br>
-                    <input type="text" name="firstname" value="a" placeholder="Firstname *"></br>
+                    <input type="text" name="firstname" value="" placeholder="Firstname *"></br>
                     <?php if (isset($err_fname)): ?>
                         <a><?php echo $err_fname; ?>
                     <?php endif ?></br>
-                    <input type="text" name="email" value="a@a.com" placeholder="Email adress *"></br>
+                    <input type="text" name="email" value="" placeholder="Email adress *"></br>
                     <?php if (isset($err_email)): ?>
                         <a><?php echo $err_email; ?>
                     <?php endif ?></br>
-                    <input type="text" name="phone" value="a" placeholder="Phone number"></br>
+                    <input type="text" name="phone" value="" placeholder="Phone number"></br>
                     <?php if (isset($err_phone)): ?>
                         <a><?php echo $err_phone; ?>
                     <?php endif ?></br>
-                    <input type="text" name="birth" value="01/01/2000" placeholder="Date of birth *"></br>
+                     <label>Birthdate</label><input type="date" name="birth" value=""></br>
                     <?php if (isset($err_birth)): ?>
-                        <a><?php echo $err_birth ?>
+                        <a><?php echo $err_birth, $birth ?>
                     <?php endif ?></br>
-                    <input type="text" name="address" value="a" placeholder="Adress *"></br>
+                    <input type="text" name="address" value="" placeholder="Adress *"></br>
                     <?php if (isset($err_adress)): ?>
                         <a><?php echo $err_adress ?>
                     <?php endif ?></br>
-                    <input type="text" name="zip" value="a" placeholder="ZIP *"><input type="text" name="city" value="a" placeholder="City *"></br>
+                    <input type="text" name="zip" value="" placeholder="ZIP *"><input type="text" name="city" value="" placeholder="City *"></br>
                     <?php if (isset($err_zip)): ?>
                         <a><?php echo $err_zip ?>
                     <?php endif ?>
                     <?php if (isset($err_city)): ?>
                         <a><?php echo $err_city ?>
                     <?php endif ?></br>
-                    <input type="text" name="country" value="a" placeholder="Country *"></br>
+                    <input type="text" name="country" value="" placeholder="Country *"></br>
                     <?php if (isset($err_country)): ?>
                         <a><?php echo $err_country ?>
                     <?php endif ?></br>
                     <h2>Password</h2>
                     <hr>
 
-                    <input type="password" name="pass" value="a" placeholder="Password *"></br>
+                    <input type="password" name="pass" value="" placeholder="Password *"></br>
                     <?php if (isset($err_pass)): ?>
                         <a><?php echo $err_pass ?>
                     <?php endif ?></br>
-                    <input type="password" name="confirmPass" value="a" placeholder="Confirm password *"></br>
+                    <input type="password" name="confirmPass" value="" placeholder="Confirm password *"></br>
                     <?php if (isset($err_conf_pass)): ?>
                         <a><?php echo $err_conf_pass ?>
                     <?php endif ?></br>
