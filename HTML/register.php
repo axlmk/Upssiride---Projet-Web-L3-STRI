@@ -5,8 +5,7 @@
     require_once 'scripts/registration.php';
     if (is_connected()){
         header("Location: dashboard.php");
-    } 
-    
+    }
     if (isset($_POST['submit'])){
         $gender = $_POST['gender'];
         $name = htmlentities(trim($_POST['name']));
@@ -75,11 +74,6 @@
         if (empty($birth)){
             
             $err_birth = "Enter your birthdate";
-            $valid = 0;
-        }
-        else if (!check_date($birth)){
-            //check date format
-            $err_birth = "Invalid format";
             $valid = 0;
         }
         else if (!check_birthdate($birth)){
@@ -171,7 +165,7 @@
                     <hr>
                     <div>
                         <label for="">Gender * </label>
-                        <input type="radio" onclick="" name="gender" value="F">F
+                        <input type="radio" onclick="" name="gender" value="F" checked="checked">F
                         <input type="radio" onclick="" name="gender" value="M">M
                     </div>
                     <?php if (isset($err_gender)): ?>
@@ -193,9 +187,9 @@
                     <?php if (isset($err_phone)): ?>
                         <a><?php echo $err_phone; ?>
                     <?php endif ?></br>
-                    <input type="text" name="birth" value="01/01/2000" placeholder="Date of birth *"></br>
+                     <input type="date" name="birth" value=""></br>
                     <?php if (isset($err_birth)): ?>
-                        <a><?php echo $err_birth ?>
+                        <a><?php echo $err_birth, $birth ?>
                     <?php endif ?></br>
                     <input type="text" name="address" value="a" placeholder="Adress *"></br>
                     <?php if (isset($err_adress)): ?>

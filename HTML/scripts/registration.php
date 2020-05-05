@@ -6,7 +6,7 @@
             echo $e->getMessage();
             return false;
         }
-        
+        //$birth = date('Y-m-d', strtotime($birth));
         $date = date("Y-m-d");
         $stmt = $myPDO->prepare('INSERT INTO account VALUES(default,:uname,:firstname,:gender,:upassword,:photo,:email,:phone,:birth,0,:udate,:udescription)');
         $stmt->bindValue(':uname', $name);
