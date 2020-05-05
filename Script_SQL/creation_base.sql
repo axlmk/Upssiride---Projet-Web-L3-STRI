@@ -13,7 +13,7 @@
 -- DROP TABLE consult_contact_details CASCADE;
 
 CREATE TABLE Account(
-   IdAccount INT,
+   IdAccount serial,
    Name VARCHAR(50),
    FirstName VARCHAR(50),
    Gender VARCHAR(1),
