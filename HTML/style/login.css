@@ -1,0 +1,34 @@
+#login_connection {
+    margin-top: 100px;
+    max-height: 500px;
+}
+
+.login_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.pic_input {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.pic_input img {
+    width: 30px;
+    height: 30px;
+}
+
+.submit_button {
+    width: 120px;
+}
+
+.input_button {
+    width: 100%;
+    margin-top: 0;
+}

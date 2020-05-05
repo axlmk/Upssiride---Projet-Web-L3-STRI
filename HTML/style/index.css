@@ -41,17 +41,6 @@
     border-top-right-radius: 20px;
 }
 
-.content input {
-    padding-left:10px;
-    padding-top:5px;
-    padding-bottom: 5px;
-    outline-width: 0;
-    border:none;
-    border-radius: 12px;
-    font-family: 'LEMONMILK', Arial;
-    width: 50%;
-}
-
 .content select {
     outline-width: 0;
     border:none;
@@ -121,4 +110,8 @@
 .getTime {
     display:inline-block;
     text-align:left;
+}
+
+.submit_button {
+    width: 120px;
 }

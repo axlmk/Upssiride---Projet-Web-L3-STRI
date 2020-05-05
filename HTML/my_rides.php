@@ -13,7 +13,7 @@
         <h2>Rides to come</h2>
 
         <!-- Un trajet -->
-        <div class=ride>
+        <div class="ride">
             <div class=info>
                 <!-- Info à rentrer en php -->
                 <div class="pic_label">

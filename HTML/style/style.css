@@ -161,3 +161,44 @@ input{
     border-left: 2px solid #1B191E;
     height : 60px;
 }
+
+/* ------------------------------ */
+
+.input_button {
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: 'LEMONMILK', Arial;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.submit_button {
+    border: none;
+    border-radius: 20px;
+    background-color: #c26400;
+    color: #f9f6f1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'LEMONMILK', Arial;
+    text-align: center;
+}
+
+.submit_button:hover {
+    filter: brightness(140%);
+    cursor: pointer;
+}
+
+.tile {
+    border-radius: 20px;
+    background-color: #f3ddc6;
+    width: 33%;
+    margin-left: 33%;
+    margin-right: 33%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+}

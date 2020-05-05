@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Index</title>
-        <link rel="stylesheet" href="style/tab_style.css"/>
+        <link rel="stylesheet" href="style/index.css"/>
     </head>
     <body>
         <?php
@@ -19,11 +19,11 @@
             <div id="offer_ride" class="content">
                 <form class="" action="index.php" method="post">
                     <label>Where are you leaving from?</label>
-                    <input type="text" name="source_address" value=""></br>
+                    <input type="text" name="source_address" value="" class="input_button"></br>
                     <label>Where are you going?</label>
-                    <input type="text" name="destination_address" value=""></br>
+                    <input type="text" name="destination_address" value="" class="input_button"></br>
                     <label for="">When?</label>
-                    <input type="date" name="date_ride" value=""></br>
+                    <input type="date" name="date_ride" value="" class="input_button"></br>
                     <label for="">At what time?</label>
                     <div class="getTime">
                         <select class="" name="">
@@ -63,7 +63,7 @@
                         <option value="">5</option>
                     </select></br>
                     <div class="submit_div">
-                        <input type="submit" name="search" value="Search" id="submit_ride">
+                        <input type="submit" name="search" value="Search" class="submit_button">
                     </div>
                 </form>
             </div>
@@ -72,11 +72,11 @@
                 <form class="" action="index.html" method="post">
                     <form class="" action="index.html" method="post">
                         <label>Where are you leaving from?</label>
-                        <input type="text" name="source_address" value=""></br>
+                        <input type="text" name="source_address" value="" class="input_button"></br>
                         <label>Where do you want to go?</label>
-                        <input type="text" name="destination_address" value=""></br>
+                        <input type="text" name="destination_address" value="" class="input_button"></br>
                         <label for="">Which day?</label>
-                        <input type="date" name="date_ride" value=""></br>
+                        <input type="date" name="date_ride" value="" class="input_button"></br>
                         <label for="">Around what time?</label>
                         <div class="getTime">
                             <select class="" name="">
@@ -107,7 +107,7 @@
                             </select>
                         </div></br>
                         <div class="submit_div">
-                            <input type="submit" name="search" value="Search" id="submit_ride">
+                            <input type="submit" name="search" value="Search" class="submit_button">
                         </div>
                 </form>
             </div>
