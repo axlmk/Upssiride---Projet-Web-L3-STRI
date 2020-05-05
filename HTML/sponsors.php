@@ -36,12 +36,12 @@
 
         <div class="tile">
             <div class="pic_container">
-                <span class="helper"></span><img src="Pictures_site/spacex.jpg" alt="logo Space X">
+                <span class="helper"></span><img src="Pictures_site/spacex.png" alt="logo Space X">
             </div>
             <div class="description">
                 <h3>Space X</h3>
                 <p>Space Exploration Technologies Corp., trading as SpaceX, is a private American aerospace manufacturer and space transportation services company headquartered in Hawthorne, California.
-                    It was founded in 2002 by Elon Musk with the goal of reducing space transportation costs to enable the colonization of Mars.[7][8][9] SpaceX has developed several launch vehicles and the Dragon spacecraft.</p>
+                    It was founded in 2002 by Elon Musk with the goal of reducing space transportation costs to enable the colonization of Mars. SpaceX has developed several launch vehicles and the Dragon spacecraft.</p>
             </div>
         </div>
     </body>
