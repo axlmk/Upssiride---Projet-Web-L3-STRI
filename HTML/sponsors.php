@@ -13,30 +13,36 @@
         <h1> They support us: </h1>
 
         <div class="tile">
-            <div>
-                <a href="https://stri-online.net/FTLV/">
-                    <img src="Pictures_site/logo_stri.jpg" alt="logo STRI">
-                    <h2>STRI</h2>
-                </a>
+            <div class="pic_container">
+                <span class="helper"></span><img src="Pictures_site/logo_stri.jpg" alt="logo STRI">
             </div>
-            <p class="description">"Systèmes de Télécommunications & Réseaux Informatiques" is french formation based in Toulouse which teaches network, telecommunication and essentially computer science</p>
+            <div class="description">
+                <h3>STRI</h3>
+                <p>"Systèmes de Télécommunications & Réseaux Informatiques" is a french training based in Toulouse which teaches networking, telecommunications and mainly computer sciences.</p>
+            </div>
         </div>
 
         <div class="tile">
-
-            <div class=company>
-                <div class=logoComp>
-                    <a href="https://stri-online.net/FTLV/">
-                            <img src="Pictures_site/logo_stri.jpg" alt="logo STRI">
-                            <h2>STRI</h2>
-                    </a>
-                </div>
-
-                <div class=resumeComp>
-                    <p>"Systèmes de Télécommunications & Réseaux Informatiques" is french formation based in Toulouse which teaches network, telecommunication and essentially computer science</p>
-                </div>
+            <div class="pic_container">
+                <span class="helper"></span><img src="Pictures_site/stark.jpg" alt="logo Stark Industries">
             </div>
-
+            <div class="description">
+                <h3>Stark Industries</h3>
+                <p>Stark Industries is a multinational industrial company and the largest tech conglomerate in the world. Founded in 1940 by Howard Stark,
+                     the elder Stark ran the company from its inception up until his death in 1991, after which Obadiah Stane was appointed interim CEO, with Tony Stark officially
+                     assuming the position shortly after at the age of twenty one.</p>
+            </div>
         </div>
 
+        <div class="tile">
+            <div class="pic_container">
+                <span class="helper"></span><img src="Pictures_site/spacex.jpg" alt="logo Space X">
+            </div>
+            <div class="description">
+                <h3>Space X</h3>
+                <p>Space Exploration Technologies Corp., trading as SpaceX, is a private American aerospace manufacturer and space transportation services company headquartered in Hawthorne, California.
+                    It was founded in 2002 by Elon Musk with the goal of reducing space transportation costs to enable the colonization of Mars.[7][8][9] SpaceX has developed several launch vehicles and the Dragon spacecraft.</p>
+            </div>
+        </div>
     </body>
+</html>

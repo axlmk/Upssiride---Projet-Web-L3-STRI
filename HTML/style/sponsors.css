@@ -11,22 +11,57 @@ h1 {
     padding-right: 40px;
 
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
-    align-items: center;
     vertical-align: top;
 }
 
-.tile img {
-    height: 100px;
-    width: auto;
-    max-width: 400px;
+.tile:nth-child(odd) {
+    flex-direction: row;
+}
+
+.tile:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.pic_container {
+    height: 200px;
+    width: 200px;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
+    background-color: #f9f6f1;
+    padding: 4px;
+}
+
+.pic_container img {
+    width: inherit;
+    vertical-align: middle;
+}
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
 }
 
 .description {
-    margin-left: 40px;
-    text-align: left;
-    font-size: 15px;
+    margin-left: 60px;
+    margin-right: 60px;
     height: 100%;
-    vertical-align: top;
+    text-align: justify;
+}
+
+.tile:nth-child(odd) h3 {
+    text-align: left;
+}
+
+.tile:nth-child(even) h3 {
+    text-align: right;
+}
+
+.description p {
+    font-family: 'LEMONMILK';
+    font-size: 13px;
+}
+
+.description h3 {
+    font-size: 18px;
 }
