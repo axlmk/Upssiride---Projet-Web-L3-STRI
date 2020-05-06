@@ -208,3 +208,14 @@ input{
     display: flex;
     flex-direction: column;
 }
+
+.pic_label {
+    display: flex;
+    flex-direction: row;
+    vertical-align: center;
+    margin-bottom: 20px;
+}
+
+.pic_label img {
+    margin-right: 20px;
+}

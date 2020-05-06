@@ -7,16 +7,17 @@
     <head>
         <meta charset="utf-8">
         <title> <! -- Nom de la personne --> </title>
+        <link rel="stylesheet" href="style/profile.css"/>
     </head>
     <body>
 
-    <div id=profile>
+    <div id=profile class="tile">
 
         <div class=pic>
             <! -- Info à rentrer en php -->
             <a href="#">
-                <img src="Pictures_site/test.jpg" alt="profile picture">
-                <p>Nom du mec</p>
+                <img src="Pictures_site/test.jpg" alt="profile picture", class="picture_profile">
+                <p>Jean-Didier Bulbon De La Villardière</p>
             </a>
         </div>
 
@@ -24,33 +25,26 @@
             <hr>
             <h2>Description</h2>
             <!-- <img src="Pictures_site/quotes.png" alt="quotes logo">-->
-            <h3>blablaablablablablabalabl</h3>
+            <p>J'adore manger des carottes tôt le matin. Les balades en forêt sont mon quotidien.
+            Bien qu'un peu bouleversé par le confinnement je prend toujours la voiture et propose mes trajets à de potentiels covitureurs.
+        Il est évident que l'état nous ment depuis le début de cette crise et je refuse de troquer ma joie de vivre contre de l'enfumage politique.
+    Je joue à Mario Kart.</p>
         </div>
-        <br>
-        <br>
 
-        <div class=preferences>
-            <div class=music>
-                <img src="Pictures_site/music.png" alt="music">
-                    <! -- A modif en fonction des préférences -->
-                I love to listen to music
-                <br>
+        <div class="preferences">
+            <div class="pic_label">
+                <img src="Pictures_site/music.svg" alt="music">
+                <label>I love to listen to music</label>
             </div>
-            <div class=talk>
-                <img src="Pictures_site/talk.png" alt="talk">
-                    <! -- A modif en fonction des préférences -->
-                I don't like to talk
-                <br>
+            <div class=pic_label>
+                <img src="Pictures_site/tchat.svg" alt="talk">
+                <label>I don't like to talk</label>
             </div>
-            <div class=cigarette>
-                <img src="Pictures_site/cigarette.png" alt="cigarette">
-                    <! -- A modif en fonction des préférences -->
-                I don't smoke
-                <br>
+            <div class=pic_label>
+                <img src="Pictures_site/cigarette.svg" alt="cigarette">
+                <label>I don't smoke</label>
             </div>
         </div>
-        <br>
-        <br>
 
         <! -- A compléter en PHP -- >
         <div class=stats>
