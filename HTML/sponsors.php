@@ -1,5 +1,7 @@
 <?php
     require_once 'header.php';
+    require 'functions/sql_sponsors.php';
+    $sponsors = get_sponsors();
 ?>
 
 <!DOCTYPE html>
@@ -11,17 +13,18 @@
     </head>
     <body>
         <h1> They support us: </h1>
-
+        <?php foreach ($sponsors as $row): ?>
         <div class="tile">
             <div class="pic_container">
-                <span class="helper"></span><img src="Pictures_site/logo_stri.jpg" alt="logo STRI">
+                <span class="helper"></span><img src=<?=$row['pictureprofile']?> alt=<?=$row["name"]?>>
             </div>
             <div class="description">
-                <h3>STRI</h3>
-                <p>"Systèmes de Télécommunications & Réseaux Informatiques" is a french training based in Toulouse which teaches networking, telecommunications and mainly computer sciences.</p>
+                <h3><?=$row["name"]?></h3>
+                <p><?=$row["description"]?></p>
             </div>
         </div>
-
+        <?php endforeach?>
+<!-- 
         <div class="tile">
             <div class="pic_container">
                 <span class="helper"></span><img src="Pictures_site/stark.jpg" alt="logo Stark Industries">
@@ -33,16 +36,16 @@
                      assuming the position shortly after at the age of twenty one.</p>
             </div>
         </div>
-
+        
         <div class="tile">
             <div class="pic_container">
                 <span class="helper"></span><img src="Pictures_site/spacex.png" alt="logo Space X">
             </div>
             <div class="description">
-                <h3>Space X</h3>
-                <p>Space Exploration Technologies Corp., trading as SpaceX, is a private American aerospace manufacturer and space transportation services company headquartered in Hawthorne, California.
-                    It was founded in 2002 by Elon Musk with the goal of reducing space transportation costs to enable the colonization of Mars. SpaceX has developed several launch vehicles and the Dragon spacecraft.</p>
+                <input type="text"><br/>
+                <textarea></textarea>
             </div>
         </div>
+        -->
     </body>
 </html>

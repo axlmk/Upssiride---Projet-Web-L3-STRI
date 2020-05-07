@@ -1,4 +1,7 @@
 <?php
+
+    require_once 'functions/pgsql_connect.php';
+    
     function is_connected (): bool {
         if (session_status()===PHP_SESSION_NONE){
             session_start();
@@ -6,23 +9,23 @@
         return !empty($_SESSION['connected']);
     }
 
-    function account_auth($login, $pass): bool{
-        try {
-            $myPDO = new PDO('pgsql:host=192.168.1.62;dbname=upssiride', 'adm-vincent', '22cyril');
-        }catch(PDOException $e){
-            echo $e->getMessage();
+    //Permet de s'authentifier dans la base de données, retourne l'id du compte ou 0 en cas d'échec
+    function account_auth($login, $pass){
+        $myPDO = connect_db();
+        if ($myPDO==null){
             return false;
         }
-        $query = 'SELECT * FROM account WHERE email=? AND password=?';
+        $query = 'SELECT idaccount FROM account WHERE email=? AND password=?';
         $stmt = $myPDO->prepare($query);
         $stmt->execute(array($login, $pass));
-        $result = $stmt->fetchAll();
-        if (count($result)>0){
-            $stmt->closeCursor();
-            return true;
-        }
+        $result = $stmt->fetch();
         $stmt->closeCursor();
-        return false;
+        if (count($result)>0){
+            return $result['idaccount'];
+        }
+        
+        return 0;
     }
+
 ?>
 

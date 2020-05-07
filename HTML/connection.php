@@ -4,10 +4,11 @@
     if (isset($_POST['login'], $_POST['pass'])){
         $login = $_POST['login'];
         $pass = md5($_POST['pass']);
-        if (account_auth($login,$pass)){
+        $id = account_auth($login,$pass);
+        if ($id>0){
             session_start();
             $_SESSION['connected'] = 1;
-            $_SESSION['id'] = $_POST['login'];
+            $_SESSION['id'] = $id;
             header("Location: dashboard.php");
         }
         else {

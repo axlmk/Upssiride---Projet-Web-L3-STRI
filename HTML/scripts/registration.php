@@ -1,9 +1,7 @@
 <?php
     function send_registration($gender,$name, $firstname, $email, $phone, $birth, $adress, $ZIP, $city, $country, $pass){
-        try {
-            $myPDO = new PDO('pgsql:host=192.168.1.62;dbname=upssiride', 'adm-vincent', '22cyril');
-        }catch(PDOException $e){
-            echo $e->getMessage();
+        $myPDO = connect_db();
+        if ($myPDO==null){
             return false;
         }
         //$birth = date('Y-m-d', strtotime($birth));
