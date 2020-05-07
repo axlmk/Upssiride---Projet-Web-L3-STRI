@@ -164,63 +164,64 @@
                     <div class="tile">
                         <h2>Information</h2>
                         <hr>
-                        <div>
+                        <?php if (isset($err_gender)): ?>
+                            <span class="error"><?php echo $err_gender; ?></span>
+                        <?php endif ?>
+                        <div id="gender">
                             <label for="">Gender * </label>
                             <input type="radio" onclick="" name="gender" value="F" checked="checked">F
                             <input type="radio" onclick="" name="gender" value="M">M
                         </div>
-                        <?php if (isset($err_gender)): ?>
-                            <a><?php echo $err_gender; ?>
+                        <?php if (isset($err_name)): ?>
+                            <span class="error"><?php echo $err_name; ?></span>
                         <?php endif ?>
                         <input type="text" name="name" value="" placeholder="Name *" class="input_button">
-                        <?php if (isset($err_name)): ?>
-                            <a><?php echo $err_name; ?>
+                        <?php if (isset($err_fname)): ?>
+                            <span class="error"><?php echo $err_fname; ?></span>
                         <?php endif ?>
                         <input type="text" name="firstname" value="" placeholder="Firstname *" class="input_button">
-                        <?php if (isset($err_fname)): ?>
-                            <a><?php echo $err_fname; ?>
+                        <?php if (isset($err_email)): ?>
+                            <span class="error"><?php echo $err_email; ?></span>
                         <?php endif ?>
                         <input type="text" name="email" value="" placeholder="Email adress *" class="input_button">
-                        <?php if (isset($err_email)): ?>
-                            <a><?php echo $err_email; ?>
+                        <?php if (isset($err_phone)): ?>
+                            <span class="error"><?php echo $err_phone; ?></span>
                         <?php endif ?>
                         <input type="text" name="phone" value="" placeholder="Phone number" class="input_button">
-                        <?php if (isset($err_phone)): ?>
-                            <a><?php echo $err_phone; ?>
-                        <?php endif ?>
-                         <label>Birthdate</label><input type="date" name="birth" value="" class="input_button">
-                        <?php if (isset($err_birth)): ?>
-                            <a><?php echo $err_birth, $birth ?>
-                        <?php endif ?>
+                         <label>Birthdate</label>
+                         <?php if (isset($err_birth)): ?>
+                             <span class="error"><?php echo $err_birth, $birth ?></span>
+                         <?php endif ?>
+                         <input type="date" name="birth" value="" class="input_button">
+                         <?php if (isset($err_adress)): ?>
+                             <span class="error"><?php echo $err_adress ?></span>
+                         <?php endif ?>
                         <input type="text" name="address" value="" placeholder="Address *" class="input_button">
-                        <?php if (isset($err_adress)): ?>
-                            <a><?php echo $err_adress ?>
+                        <?php if (isset($err_zip)): ?>
+                            <span class="error"><?php echo $err_zip ?></span>
                         <?php endif ?>
                         <input type="text" name="zip" value="" placeholder="ZIP *" class="input_button">
-                        <input type="text" name="city" value="" placeholder="City *" class="input_button">
-                        <?php if (isset($err_zip)): ?>
-                            <a><?php echo $err_zip ?>
-                        <?php endif ?>
                         <?php if (isset($err_city)): ?>
-                            <a><?php echo $err_city ?>
+                            <span class="error"><?php echo $err_city ?></span>
+                        <?php endif ?>
+                        <input type="text" name="city" value="" placeholder="City *" class="input_button">
+                        <?php if (isset($err_country)): ?>
+                            <span class="error"><?php echo $err_country ?></span>
                         <?php endif ?>
                         <input type="text" name="country" value="" placeholder="Country *" class="input_button">
-                        <?php if (isset($err_country)): ?>
-                            <a><?php echo $err_country ?>
-                        <?php endif ?>
                     </div>
 
                     <div class="tile">
                         <h2>Password</h2>
                         <hr>
-                        <input type="password" name="pass" value="" placeholder="Password *" class="input_button">
                         <?php if (isset($err_pass)): ?>
-                            <a><?php echo $err_pass ?>
+                            <span class="error"><?php echo $err_pass ?></span>
+                        <?php endif ?>
+                        <input type="password" name="pass" value="" placeholder="Password *" class="input_button">
+                        <?php if (isset($err_conf_pass)): ?>
+                            <span class="error"><?php echo $err_conf_pass ?></span>
                         <?php endif ?>
                         <input type="password" name="confirmPass" value="" placeholder="Confirm password *" class="input_button">
-                        <?php if (isset($err_conf_pass)): ?>
-                            <a><?php echo $err_conf_pass ?>
-                        <?php endif ?>
                         <div class="submit_div">
                             <input type="submit" name="submit" value="Confirm" class="submit_button">
                         </div>

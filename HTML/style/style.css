@@ -74,6 +74,10 @@ hr{
     z-index: 3;
 }
 
+.header nav ul li a {
+    position: relative;
+}
+
 .empty_block {
     display: block;
     background-color: #f3ddc6;
@@ -220,6 +224,7 @@ input{
     margin-right: 20px;
 }
 
+<<<<<<< HEAD
 .modalDialog {
     position: fixed;
     font-family: 'LEMONMILK-BOLD','Arial';
@@ -271,3 +276,17 @@ input{
 .close:hover {
     background: #1B191E;
 }
+=======
+.notification {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+}
+
+#notified:hover .notification {
+    filter: brightness(140%);
+    transition-duration: 0.5s;
+}
+>>>>>>> 787a60d372297170a49ea76e33b110565f632abd

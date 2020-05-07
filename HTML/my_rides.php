@@ -1,5 +1,10 @@
 <?php
+    require_once 'functions/auth.php';
     require_once 'header.php';
+    
+    if (!is_connected()){
+        header("Location: connection.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -11,8 +16,12 @@
     </head>
     <body>
         <h2>Rides to come</h2>
-
         <!-- Un trajet -->
+<!-- Debut du div-->
+<!-- foreach ($result as $row) {
+        print $row["id"] . "-" . $row["value"] ."<br/>";
+    } -->
+        <?php ?>
         <div class="ride">
             <div class=info>
                 <!-- Info à rentrer en php -->
@@ -98,6 +107,7 @@
               </div>
           </div>
       </div>
+<<<<<<< HEAD
 
         <!-- Un trajet -->
         <div class="ride">
@@ -113,6 +123,32 @@
                     <label for="">15h03</label>
                 </div>
             </div>
+=======
+<!-- Fin du div -->
+        <div class=ride>
+              <div class=info>
+                  <!-- Info à rentrer en php -->
+                  <div class="pic_label">
+                      <img src="Pictures_site/calendar.svg" alt="calendar" width="40"/>
+                      <label for="" style="">25/05/2020</label>
+                  </div>
+
+                  <div class="end_pic_label">
+                      <img src="Pictures_site/clock.svg" alt="clock" width="40"/>
+                      <label for="">15h03</label>
+                  </div>
+              </div>
+              <div class=rideResume>
+                  <!-- Info à rentrer en php -->
+                  <label for="">
+                      Toulouse
+                  </label>
+                  <img src="Pictures_site/city_sep.svg" alt="city" width="50">
+                  <label for="">
+                      Montpellier
+                  </label>
+              </div>
+>>>>>>> 787a60d372297170a49ea76e33b110565f632abd
 
             <div class=rideResume>
                 <!-- Info à rentrer en php -->
