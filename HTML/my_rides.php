@@ -1,5 +1,10 @@
 <?php
+    require_once 'functions/auth.php';
     require_once 'header.php';
+    
+    if (!is_connected()){
+        header("Location: connection.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -11,8 +16,12 @@
     </head>
     <body>
         <h2>Rides to come</h2>
-
         <!-- Un trajet -->
+<!-- Debut du div-->
+<!-- foreach ($result as $row) {
+        print $row["id"] . "-" . $row["value"] ."<br/>";
+    } -->
+        <?php ?>
         <div class="ride">
             <div class=info>
                 <!-- Info à rentrer en php -->
@@ -55,7 +64,7 @@
               </div>
           </div>
       </div>
-
+<!-- Fin du div -->
         <div class=ride>
               <div class=info>
                   <!-- Info à rentrer en php -->
@@ -69,7 +78,6 @@
                       <label for="">15h03</label>
                   </div>
               </div>
-
               <div class=rideResume>
                   <!-- Info à rentrer en php -->
                   <label for="">
