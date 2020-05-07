@@ -114,3 +114,30 @@ h2 {
     color: #c26516;
     filter: brightness(140%);
 }
+
+.choice img{
+    height: 40px;
+    width: auto;
+}
+
+.aRequest{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#conteneurPopup{
+    width: 100%;
+    height: auto;
+}
+
+.description {
+    margin: 20px;
+}
+
+.choice {
+    margin: 20px;
+}

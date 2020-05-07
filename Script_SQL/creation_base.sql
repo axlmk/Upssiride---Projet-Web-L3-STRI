@@ -103,6 +103,7 @@ CREATE TABLE Participate(
 CREATE TABLE Recquire(
    IdAccount INT,
    IdRide INT,
+   state_request VARCHAR(10),                                        -- 3 states differents accepted / processing / refused
    PRIMARY KEY(IdAccount, IdRide),
    FOREIGN KEY(IdAccount) REFERENCES Account(IdAccount),
    FOREIGN KEY(IdRide) REFERENCES Ride(IdRide)
