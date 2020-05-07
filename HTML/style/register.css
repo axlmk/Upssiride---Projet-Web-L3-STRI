@@ -1,0 +1,46 @@
+.input_button {
+    width: 70%;
+    margin-right: 15%;
+    margin-left: 15%;
+    margin-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.submit_button {
+    width: 120px;
+    margin-right: 16%;
+}
+
+.tile h2 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.tile {
+    margin-top: 100px;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding-bottom: 50;
+    text-align: left;
+}
+
+.tile hr {
+    margin-top: 0px;
+    margin-bottom: 40px;
+}
+
+.tile label {
+    padding-left: 16%;
+}
+
+.submit_div {
+    text-align: right;
+}
+
+#required_field {
+    padding-left: 16%;
+    font-size: 16px;
+}

@@ -1,11 +1,16 @@
 @font-face {
     font-family: 'LEMONMILK';
+    src: url("../../font/otf/LEMONMILK-Regular.otf");
+}
+
+@font-face {
+    font-family: 'LEMONMILK-BOLD';
     src: url("../../font/otf/LEMONMILK-Bold.otf");
 }
 
 html {
     background-color: #f9f6f1;
-    font-family: 'LEMONMILK', Arial;
+    font-family: 'LEMONMILK-BOLD', Arial;
     font-size: 20px;
     height: 100%;
     margin: 0;
@@ -66,6 +71,7 @@ hr{
     height: 90px;
     width: 100%;
     box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.2);
+    z-index: 3;
 }
 
 .empty_block {
@@ -168,7 +174,7 @@ input{
     border: none;
     border-radius: 10px;
     font-size: 14px;
-    font-family: 'LEMONMILK', Arial;
+    font-family: 'LEMONMILK-BOLD', Arial;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
@@ -182,7 +188,7 @@ input{
     color: #f9f6f1;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-family: 'LEMONMILK', Arial;
+    font-family: 'LEMONMILK-BOLD', Arial;
     text-align: center;
 }
 
@@ -201,4 +207,15 @@ input{
     padding-bottom: 30px;
     display: flex;
     flex-direction: column;
+}
+
+.pic_label {
+    display: flex;
+    flex-direction: row;
+    vertical-align: center;
+    margin-bottom: 20px;
+}
+
+.pic_label img {
+    margin-right: 20px;
 }

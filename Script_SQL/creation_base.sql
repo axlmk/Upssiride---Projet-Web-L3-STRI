@@ -41,7 +41,7 @@ CREATE TABLE Vehicule(
 );
 
 CREATE TABLE Place(
-   IdPlace INT,
+   IdPlace serial,
    Address VARCHAR(50),
    Postcode VARCHAR(50),
    City VARCHAR(50),
@@ -55,8 +55,13 @@ CREATE TABLE State(
    PRIMARY KEY(IdState)
 );
 
+INSERT INTO state VALUES(default,'coming');
+INSERT INTO state VALUES(default,'processing');
+INSERT INTO state VALUES(default,'completed');
+INSERT INTO state VALUES(default,'canceled');
+
 CREATE TABLE Sponsors(
-   IdSponsors VARCHAR(50),
+   IdSponsors serial,
    Name VARCHAR(50),
    Description TEXT,
    PictureProfile VARCHAR(50),
@@ -64,7 +69,7 @@ CREATE TABLE Sponsors(
 );
 
 CREATE TABLE Ride(
-   IdRide INT,
+   IdRide serial,
    DepartureDate DATE,
    DepartureTime TIME,
    Comment TEXT,

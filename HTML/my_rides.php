@@ -48,12 +48,13 @@
             </div>
 
             <!-- <div class=vertical_line> </div> -->
-
-            <div class=pic>
-                <!-- Info à rentrer en php -->
-                <img src="Pictures_site/test2.jpg" alt="ppDriver">
-                <p>Nom du mec</p>
-            </div>
+            <a href="profile.php">
+                <div class=pic>
+                    <!-- Info à rentrer en php -->
+                    <img src="Pictures_site/test2.jpg" alt="ppDriver">
+                    <p>Nom du mec</p>
+                </div>
+            </a>
 
             <div class="dropdown">
               <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
@@ -91,11 +92,13 @@
 
               <!-- <div class=vertical_line> </div> -->
 
-              <div class=pic>
-                  <!-- Info à rentrer en php -->
-                  <img src="Pictures_site/test2.jpg" alt="ppDriver">
-                  <p>Nom du mec</p>
-              </div>
+              <a href="profile.php">
+                  <div class=pic>
+                      <!-- Info à rentrer en php -->
+                      <img src="Pictures_site/test2.jpg" alt="ppDriver">
+                      <p>Nom du mec</p>
+                  </div>
+              </a>
 
               <div class="dropdown">
                 <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
@@ -135,11 +138,13 @@
 
               <!-- <div class=vertical_line> </div> -->
 
-              <div class=pic>
-                  <!-- Info à rentrer en php -->
-                  <img src="Pictures_site/test2.jpg" alt="ppDriver">
-                  <p>Nom du mec</p>
-              </div>
+              <a href="profile.php">
+                  <div class=pic>
+                      <!-- Info à rentrer en php -->
+                      <img src="Pictures_site/test2.jpg" alt="ppDriver">
+                      <p>Nom du mec</p>
+                  </div>
+              </a>
 
               <div class="dropdown">
                 <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
@@ -179,11 +184,13 @@
 
               <!-- <div class=vertical_line> </div> -->
 
-              <div class=pic>
-                  <!-- Info à rentrer en php -->
-                  <img src="Pictures_site/test2.jpg" alt="ppDriver">
-                  <p>Nom du mec</p>
-              </div>
+              <a href="profile.php">
+                  <div class=pic>
+                      <!-- Info à rentrer en php -->
+                      <img src="Pictures_site/test2.jpg" alt="ppDriver">
+                      <p>Nom du mec</p>
+                  </div>
+              </a>
 
               <div class="dropdown">
                 <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
@@ -226,11 +233,13 @@
 
               <!-- <div class=vertical_line> </div> -->
 
-              <div class=pic>
-                  <!-- Info à rentrer en php -->
-                  <img src="Pictures_site/test2.jpg" alt="ppDriver">
-                  <p>Nom du mec</p>
-              </div>
+              <a href="profile.php">
+                  <div class=pic>
+                      <!-- Info à rentrer en php -->
+                      <img src="Pictures_site/test2.jpg" alt="ppDriver">
+                      <p>Nom du mec</p>
+                  </div>
+              </a>
 
         </div>
 
