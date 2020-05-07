@@ -46,6 +46,7 @@ h1 {
     margin-left: 60px;
     margin-right: 60px;
     height: 100%;
+    width: 100%;
     text-align: justify;
 }
 
@@ -64,4 +65,64 @@ h1 {
 
 .description h3 {
     font-size: 18px;
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+    color: #191A1C;
+    margin-bottom: 40px;
+    border: none;
+    border-radius: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: 'LEMONMILK', 'Arial';
+    width: 100%;
+    margin-top: 20px;
+}
+
+.dropbtn {
+    border: none;
+    height: 30px;
+    width: 30px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right:0px;
+    font-size: 16px;
+    background-color: #f9f6f1;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #191A1C;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn{
+    cursor: pointer;
+    filter: brightness(140%);
+}
+
+.dropdown-content a:hover {
+    color: #c26516;
+    filter: brightness(140%);
+    cursor: pointer;
 }

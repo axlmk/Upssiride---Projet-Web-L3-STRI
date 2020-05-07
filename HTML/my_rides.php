@@ -1,7 +1,7 @@
 <?php
     require_once 'functions/auth.php';
     require_once 'header.php';
-    
+
     if (!is_connected()){
         header("Location: connection.php");
     }
