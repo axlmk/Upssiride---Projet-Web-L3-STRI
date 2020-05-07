@@ -12,7 +12,11 @@
          <nav>
             <ul>
                 <li><a href="index.php">New Ride</a></li>
-                <li><a href="my_rides.php">My Rides</a></li>
+                <li>
+                    <a href="my_rides.php" id="notified">
+                        My Rides<img src="Pictures_site/notification.svg" alt="notification" class="notification">
+                    </a>
+                </li>
                 <li><a href="sponsors.php">Sponsors</a></li>
                 <?php if (is_connected()): ?>
                     <li><a href="my_account.php">Account</a></li>
