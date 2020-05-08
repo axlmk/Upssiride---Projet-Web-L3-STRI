@@ -239,10 +239,12 @@ input{
     transition: opacity 400ms ease-in;
     pointer-events: none;
 }
+
 .modalDialog:target {
     opacity:1;
     pointer-events: visible;
 }
+
 .modalDialog > div {
     width: 80%;
     height: auto;
@@ -272,6 +274,7 @@ input{
     -webkit-box-shadow: 1px 1px 3px #000;
     box-shadow: 1px 1px 3px #000;
 }
+
 .close:hover {
     background: #1B191E;
 }
@@ -316,4 +319,15 @@ input{
     margin-bottom: 10px;
     background-color: #c26516;
     border-radius: 15px;
+}
+
+.choice button {
+    border: none;
+    background-color: inherit;
+}
+
+.choice button:hover {
+    cursor: pointer;
+    filter: brightness(120%);
+    transition-duration: 0.3s;
 }

@@ -1,7 +1,7 @@
 <?php
     require_once 'functions/auth.php';
     require_once 'header.php';
-    
+
     if (!is_connected()){
         header("Location: connection.php");
     }
@@ -225,10 +225,10 @@
                             <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
                         </div>
                         <div class="choice">
-                            <button action="" method="POST"><img src="pictures_site/OK.png"></img></button><!--PHP : Requête passager accepté-->
+                            <button action="" method="POST"><img src="pictures_site/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
                         </div>
                         <div class="choice">
-                            <button action="" method="POST"><img src="pictures_site/NOK.png"></img></button><!--PHP : Requête passager refusé-->
+                            <button action="" method="POST"><img src="pictures_site/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
                         </div>
                     </div>
 
@@ -243,10 +243,10 @@
                             <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
                         </div>
                         <div class="choice">
-                            <button action="" method="POST"><img src="pictures_site/OK.png"></img></button><!--PHP : Requête passager accepté-->
+                            <button action="" method="POST"><img src="pictures_site/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
                         </div>
                         <div class="choice">
-                            <button action="" method="POST"><img src="pictures_site/NOK.png"></img></button><!--PHP : Requête passager refusé-->
+                            <button action="" method="POST"><img src="pictures_site/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
                         </div>
                     </div>
 
@@ -261,10 +261,10 @@
         <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/OK.png"></img></button><!--PHP : Requête passager accepté-->
+        <button action="" method="POST"><img src="pictures_site/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/NOK.png"></img></button><!--PHP : Requête passager refusé-->
+        <button action="" method="POST"><img src="pictures_site/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
     </div>
 </div>
 
@@ -279,10 +279,10 @@
         <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/OK.png"></img></button><!--PHP : Requête passager accepté-->
+        <button action="" method="POST"><img src="pictures_site/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/NOK.png"></img></button><!--PHP : Requête passager refusé-->
+        <button action="" method="POST"><img src="pictures_site/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
     </div>
 </div>
 
@@ -297,10 +297,10 @@
         <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/OK.png"></img></button><!--PHP : Requête passager accepté-->
+        <button action="" method="POST"><img src="pictures_site/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/NOK.png"></img></button><!--PHP : Requête passager refusé-->
+        <button action="" method="POST"><img src="pictures_site/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
     </div>
 </div>
 
@@ -315,10 +315,10 @@
         <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/OK.png"></img></button><!--PHP : Requête passager accepté-->
+        <button action="" method="POST"><img src="pictures_site/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/NOK.png"></img></button><!--PHP : Requête passager refusé-->
+        <button action="" method="POST"><img src="pictures_site/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
     </div>
 </div>
 
@@ -333,10 +333,10 @@
         <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/OK.png"></img></button><!--PHP : Requête passager accepté-->
+        <button action="" method="POST"><img src="pictures_site/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/NOK.png"></img></button><!--PHP : Requête passager refusé-->
+        <button action="" method="POST"><img src="pictures_site/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
     </div>
 </div>
 
@@ -351,10 +351,10 @@
         <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/OK.png"></img></button><!--PHP : Requête passager accepté-->
+        <button action="" method="POST"><img src="pictures_site/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/NOK.png"></img></button><!--PHP : Requête passager refusé-->
+        <button action="" method="POST"><img src="pictures_site/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
     </div>
 </div>
                 <div id="btnClose">
