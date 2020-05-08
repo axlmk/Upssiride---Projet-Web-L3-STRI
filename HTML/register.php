@@ -213,18 +213,28 @@
                         <?php if (isset($err_pass)): ?>
                             <span class="error"><?php echo $err_pass ?></span>
                         <?php endif ?>
-                        <input type="password" name="pass" value="" placeholder="Password *" class="input_button">
-                        <?php if (isset($err_conf_pass)): ?>
-                            <span class="error"><?php echo $err_conf_pass ?></span>
-                        <?php endif ?>
-                        <input type="password" name="confirmPass" value="" placeholder="Confirm password *" class="input_button">
+                        <div class="password_errors">
+                            <span id="minlen">At least 6 digits</span>
+                            <span id="upper">At least 1 Upperletter</span>
+                            <span id="special">At least 1 special characters (+@,;:!)</span>
+                            <span id="number">At least 1 number</span>
+                        </div>
+                        <input type="password" name="pass" value="" placeholder="Password *" class="input_button" id="password_button" onkeyup="checkConstraints()">
+                        <div class="password_errors">
+                            <?php if (isset($err_conf_pass)): ?>
+                                <span class="error"><?php echo $err_conf_pass ?></span>
+                            <?php endif ?>
+                            <span id="equal">Passwords are not equals</span>
+                        </div>
+                        <input type="password" name="confirmPass" value="" placeholder="Confirm password *" class="input_button" id="password_confirm_button" onkeyup="checkEquality()">
                         <div class="submit_div">
                             <input type="submit" name="submit" value="Confirm" class="submit_button">
                         </div>
                         <p id="required_field">* Required fields</p>
                     </div>
                 </form>
-                
+
         </section>
+        <script src="javascript/register.js" type="text/javascript"></script>
     </body>
 </html>
