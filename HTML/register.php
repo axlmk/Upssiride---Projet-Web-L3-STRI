@@ -46,20 +46,8 @@
         }
 
         //email
-        if (empty($email)){
-            $err_email = "Enter your email adress";
-            $valid = 0;
-        }
-        else if (iconv_strlen($email, "UTF-8")>50){
-            $err_email = "Email too long";
-            $valid = 0;
-        }
-        else if (!check_email_format($email)){
-            $err_email = "Invalid format";
-            $valid = 0;
-        }
-        else if (check_email_already_exist($email)){
-            $err_email = "This email already has an account";
+        $err_email = check_email($email);
+        if ($err_email!=null){
             $valid = 0;
         }
 
@@ -82,6 +70,7 @@
             $err_birth = "You must be 18";
             $valid = 0;
         }
+        /*
         //adress
         if (empty($address)){
             $err_adress = "Enter your home address";
@@ -120,7 +109,7 @@
             $err_country = "Country too long";
             $valid = 0;
         }
-
+        */
         //password
         if (empty($pass)){
             $err_pass = "Enter a password";
@@ -160,6 +149,13 @@
     </head>
     <body>
         <section>
+                    <?php if (isset($result) && $result): ?>
+                    <!-- POP UP qui confirme l'inscription -->
+                    <p> Your account has been created! You can log in now!</p>
+                    <?php elseif (isset($result) && !$result): ?>
+                    <p> Sorry, an error has occured, please retry later</p>
+                    <!-- POP UP erreur -->
+                    <?php endif ?>
                 <form action="register.php" method="post" >
                     <div class="tile">
                         <h2>Information</h2>
@@ -196,7 +192,7 @@
                          <?php if (isset($err_adress)): ?>
                              <span class="error"><?php echo $err_adress ?></span>
                          <?php endif ?>
-                        <input type="text" name="address" value="" placeholder="Address *" class="input_button">
+                    <!--    <input type="text" name="address" value="" placeholder="Address *" class="input_button">
                         <?php if (isset($err_zip)): ?>
                             <span class="error"><?php echo $err_zip ?></span>
                         <?php endif ?>
@@ -208,7 +204,7 @@
                         <?php if (isset($err_country)): ?>
                             <span class="error"><?php echo $err_country ?></span>
                         <?php endif ?>
-                        <input type="text" name="country" value="" placeholder="Country *" class="input_button">
+                        <input type="text" name="country" value="" placeholder="Country *" class="input_button"> -->
                     </div>
 
                     <div class="tile">
@@ -223,37 +219,12 @@
                         <?php endif ?>
                         <input type="password" name="confirmPass" value="" placeholder="Confirm password *" class="input_button">
                         <div class="submit_div">
-                            <input type="submit" name="submit" value="Confirm" class="submit_button" onclick="openModal()">
+                            <input type="submit" name="submit" value="Confirm" class="submit_button">
                         </div>
                         <p id="required_field">* Required fields</p>
                     </div>
                 </form>
-                <?php if (isset($result)): ?>
-                <!-- POP UP qui confirme l'inscription -->
-                <!--Boite modale-->
-                <div id="modal">
-                    <h1>Your account was succesfully created !</h1>
-                    <hr>
-                    <p>An email confirmation was sent to your email adress</p>
-
-                    <div id="btnClose">
-                        <button id="close" onclick="closeModal()">Close</button>
-                    </div>
-                </div>
-                <?php else: ?>
-                <!-- POP UP erreur -->
-                <!--Boite modale-->
-                <div id="modal">
-                    <h1>Database error</h1>
-                    <hr>
-                    <p>Please retry later</p>
-
-                    <div id="btnClose">
-                        <button id="close" onclick="closeModal()">Close</button>
-                    </div>
-                </div>
-                <?php endif ?>
+                
         </section>
-
     </body>
 </html>

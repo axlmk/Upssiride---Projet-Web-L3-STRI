@@ -21,12 +21,10 @@
         $stmt->closeCursor();
 
         if ($insert){
-            echo "OK";
-            return(true);
+            return true;
         }
         else {
-            echo "pas OK";
-            return(false);
+            return false;
         }
     }
 ?>
