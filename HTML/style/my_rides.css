@@ -130,7 +130,7 @@ h2 {
 }
 
 #conteneurPopup{
-    width: 100%;
+    width: 80%;
     height: auto;
 }
 
@@ -140,4 +140,29 @@ h2 {
 
 .choice {
     margin: 20px;
+}
+
+.choice {
+    background-color: rgba(0,0,0,0);
+}
+
+#btnClose button {
+    border: none;
+    border-radius: 5px;
+    font-family: 'LEMONMILK-BOLD', 'Arial';
+    font-size: 14px;
+    background-color: #c26400;
+    color: #f9f6f1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 15%;
+    margin-top: 10px;
+}
+
+#btnClose button:hover {
+    color: #f9f6f1;
+    filter: brightness(120%);
+    cursor: pointer;
 }

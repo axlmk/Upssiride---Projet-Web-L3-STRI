@@ -50,7 +50,7 @@
             </form>
             <div class="sign_up_tile">
                 <p>You don't have an account?</br>Let's register!</p>
-                <form action="registration.php" method="post">
+                <form action="register.php" method="post">
                     <input type="submit" name="cSignUp" value="Sign up" class="submit_button"> <!-- REPLACE PLACEHOLDER.HTML BY THE PROPER PHP SCRIPT >-->
                 </form>
             </div>

@@ -23,6 +23,27 @@
         return false;
     }
 
+    function check_email($email){
+        $err_email = null;
+        if (empty($email)){
+            $err_email = "Enter your email adress";
+            $valid = 0;
+        }
+        else if (iconv_strlen($email, "UTF-8")>50){
+            $err_email = "Email too long";
+            $valid = 0;
+        }
+        else if (!check_email_format($email)){
+            $err_email = "Invalid format";
+            $valid = 0;
+        }
+        else if (check_email_already_exist($email)){
+            $err_email = "This email already has an account";
+            $valid = 0;
+        }
+        return $err_email;
+    }
+
     function check_date($date){
         return preg_match("/^(\d{1,2}\/){2}\d{4}$/", $date);
            

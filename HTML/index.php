@@ -63,7 +63,7 @@
                         <option value="">5</option>
                     </select></br>
                     <div class="submit_div">
-                        <input type="submit" name="search" value="Search" class="submit_button">
+                        <input type="submit" name="search" value="Search" class="submit_button" onclick=openModal()>
                     </div>
                 </form>
             </div>
@@ -113,8 +113,13 @@
             </div>
         </div>
 
+            <!--Boite modale
+            <div id="modal">
+                <h2>Your ride has been created</h2>
+                <button id="close" onclick="closeModal()">Close</button>
+            </div>-->
 
-        <script type="text/javascript">
+        <script src="javascript/modal.js" type="text/javascript">
 
             document.getElementById("default").click();
 

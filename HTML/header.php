@@ -1,5 +1,6 @@
 <?php
     require_once 'functions/auth.php';
+    require_once 'functions/sql_ride.php';
 ?>
     <head>
         <link rel="stylesheet" href="style/style.css"/>
@@ -14,7 +15,10 @@
                 <li><a href="index.php">New Ride</a></li>
                 <li>
                     <a href="my_rides.php" id="notified">
-                        My Rides<img src="Pictures_site/notification.svg" alt="notification" class="notification">
+                        My Rides
+                        <?php if (is_connected() && check_notification($_SESSION['id'])==true):?>
+                            <img src="Pictures_site/notification.svg" alt="notification" class="notification">
+                        <?php endif ?>
                     </a>
                 </li>
                 <li><a href="sponsors.php">Sponsors</a></li>
