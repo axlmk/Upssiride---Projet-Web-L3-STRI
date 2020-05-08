@@ -1,7 +1,7 @@
 <?php
     require_once 'functions/auth.php';
     require_once 'header.php';
-    
+
     if (!is_connected()){
         header("Location: connection.php");
     }
@@ -67,7 +67,7 @@
                 <div id="openModal" class="modalDialog">
 
                     <div><a href="#close" title="Close" class="close">X</a>
-                        
+
                         <div id="conteneurPopup">
                             <h2>New request</h2>
                             <!--Une requête-->
@@ -94,7 +94,7 @@
                         </div>
                     </div>
 
-                    <script>    
+                    <script>
                         if(document.getElementsByClassName('modalDialog').style.opacity != "0"){
                             document.getElementsByClassName('header').style.opacity = "0";
                         } else {
@@ -107,23 +107,6 @@
               </div>
           </div>
       </div>
-<<<<<<< HEAD
-
-        <!-- Un trajet -->
-        <div class="ride">
-            <div class=info>
-                <!-- Info à rentrer en php -->
-                <div class="pic_label">
-                    <img src="Pictures_site/calendar.svg" alt="calendar" width="40"/>
-                    <label for="" style="">25/05/2020</label>
-                </div>
-
-                <div class="end_pic_label">
-                    <img src="Pictures_site/clock.svg" alt="clock" width="40"/>
-                    <label for="">15h03</label>
-                </div>
-            </div>
-=======
 <!-- Fin du div -->
         <div class=ride>
               <div class=info>
@@ -148,7 +131,6 @@
                       Montpellier
                   </label>
               </div>
->>>>>>> 787a60d372297170a49ea76e33b110565f632abd
 
             <div class=rideResume>
                 <!-- Info à rentrer en php -->
@@ -181,7 +163,7 @@
                 <div id="openModal" class="modalDialog">
 
                     <div><a href="#close" title="Close" class="close">X</a>
-                        
+
                         <div id="conteneurPopup">
                             <h2>New request</h2>
                             <!--Une requête-->
