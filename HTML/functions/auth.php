@@ -11,12 +11,12 @@
 
     //Permet de s'authentifier dans la base de données, retourne l'id du compte ou 0 en cas d'échec
     function account_auth($login, $pass){
-        $myPDO = connect_db();
-        if ($myPDO==null){
+        $bdd = connect_db();
+        if ($bdd==null){
             return false;
         }
         $query = 'SELECT idaccount FROM account WHERE email=? AND password=?';
-        $stmt = $myPDO->prepare($query);
+        $stmt = $bdd->prepare($query);
         $stmt->execute(array($login, $pass));
         $result = $stmt->fetch();
         $stmt->closeCursor();
@@ -27,5 +27,22 @@
         return 0;
     }
 
+    function is_admin($id){
+        $bdd = connect_db();
+        if ($bdd==null){
+            return false;
+        }
+        $query = 'SELECT idaccount FROM account WHERE idaccount=? and admin=1';
+        $stmt = $bdd->prepare($query);
+        $stmt->execute(array($id));
+        $result = $stmt->fetch();
+        $stmt->closeCursor();
+        if (count($result)>0){
+            return true;
+        }
+        
+        return false;
+    }
+    
 ?>
 

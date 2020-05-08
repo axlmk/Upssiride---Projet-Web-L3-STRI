@@ -9,6 +9,12 @@
             session_start();
             $_SESSION['connected'] = 1;
             $_SESSION['id'] = $id;
+            if (is_admin($id)){
+                $_SESSION['admin']=1;
+            }
+            else{
+                $_SESSION['admin']=0;
+            }
             header("Location: dashboard.php");
         }
         else {
