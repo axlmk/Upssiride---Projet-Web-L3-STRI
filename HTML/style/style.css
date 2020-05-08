@@ -292,9 +292,10 @@ input{
 #modal{
     width: 80%;
     height: auto;
-    left: 10%;
+    max-height: 50%;
+    left: -50%;
     right: 10%;
-    top: 10%;
+    top: 25%;
     background-color: #f3ddc6;
     border-radius: 10px;
     position: fixed;
@@ -305,6 +306,7 @@ input{
     z-index: 7;
     transition: 0.3s ease-in-out;
     visibility: hidden;
+    overflow: scroll;
 }
 
 .close{

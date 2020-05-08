@@ -223,16 +223,37 @@
                         <?php endif ?>
                         <input type="password" name="confirmPass" value="" placeholder="Confirm password *" class="input_button">
                         <div class="submit_div">
-                            <input type="submit" name="submit" value="Confirm" class="submit_button">
+                            <input type="submit" name="submit" value="Confirm" class="submit_button" onclick="openModal()">
                         </div>
                         <p id="required_field">* Required fields</p>
                     </div>
                 </form>
                 <?php if (isset($result)): ?>
                 <!-- POP UP qui confirme l'inscription -->
+                <!--Boite modale-->
+                <div id="modal">
+                    <h1>Your account was succesfully created !</h1>
+                    <hr>
+                    <p>An email confirmation was sent to your email adress</p>
+
+                    <div id="btnClose">
+                        <button id="close" onclick="closeModal()">Close</button>
+                    </div>
+                </div>
                 <?php else: ?>
                 <!-- POP UP erreur -->
+                <!--Boite modale-->
+                <div id="modal">
+                    <h1>Database error</h1>
+                    <hr>
+                    <p>Please retry later</p>
+
+                    <div id="btnClose">
+                        <button id="close" onclick="closeModal()">Close</button>
+                    </div>
+                </div>
                 <?php endif ?>
         </section>
+
     </body>
 </html>

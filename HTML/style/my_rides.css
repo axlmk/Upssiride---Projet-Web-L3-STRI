@@ -164,4 +164,5 @@ h2 {
 #btnClose button:hover {
     color: #f9f6f1;
     filter: brightness(120%);
-    cursor: pointer
+    cursor: pointer;
+}

@@ -22,9 +22,11 @@
 
         if ($insert){
             echo "OK";
+            return(true);
         }
         else {
             echo "pas OK";
+            return(false);
         }
     }
 ?>
