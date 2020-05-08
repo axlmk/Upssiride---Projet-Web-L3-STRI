@@ -67,6 +67,12 @@ h1 {
     font-size: 18px;
 }
 
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 textarea {
     height: 100px;
     resize: none;
@@ -83,6 +89,32 @@ textarea {
     margin-top: 20px;
 }
 
+.modifyButton , .saveButton, .cancelButton {
+    border: none;
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'LEMONMILK-BOLD', 'Arial';
+    background-color: #c26400;
+    color: #f9f6f1;
+}
+
+.modifyButton:hover , .saveButton:hover, .cancelButton:hover {
+    cursor: pointer;
+}
+
+.saveButton {
+    display: none;
+    background-color: green;
+}
+
+.cancelButton {
+    display: none;
+    background-color: red;
+}
+/*
 .dropbtn {
     border: none;
     height: 30px;
@@ -126,3 +158,4 @@ textarea {
     filter: brightness(140%);
     cursor: pointer;
 }
+*/
