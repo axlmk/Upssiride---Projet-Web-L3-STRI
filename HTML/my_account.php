@@ -1,60 +1,149 @@
+<?php 
+    require_once 'header.php';
+    require_once 'functions/sql_account.php';
+    require_once 'functions/check_registration.php';
+    if (!is_connected()){
+        header("Location: connection.php");
+    }
+    
+    //Save user information
+    if (isset($_POST['saveSubmit'])){
+        //email
+        $user_info['email'] = htmlentities(trim($_POST['emailField']));
+        $user_info['phone'] = htmlentities(trim($_POST['phoneField']));
+        $user_info['description'] = htmlentities(trim($_POST['descriptionField']));
+
+        if (strcmp($user_info['email'],get_email($_SESSION['id']))){
+            $err_email = check_email($user_info['email']);
+            if ($err_email!=null){
+                $valid = 0;
+            }
+        }
+        //phone
+        if (!empty($user_info['phone'])){
+            if (iconv_strlen( $user_info['phone'], "UTF-8")>20){
+            $err_phone = "Number too long";
+            $valid = 0;
+            }
+        }
+        if (!isset($valid)){
+            $saveInfo = save_info_account($user_info, $_SESSION['id']);
+            if ($saveInfo){
+                $returnMessage = "Your information has been saved";
+            }
+            else {
+                $returnMessage = "An error has occured, please retry later";
+            }     
+        }
+    }
+
+    if (isset($_POST['passwordSubmit'])){
+        echo "OK";
+        //email
+        $pass = htmlentities($_POST['passwordField']);
+        $confirmPass = htmlentities($_POST['confirmField']);
+        $previousPass = htmlentities($_POST['previousField']);
+        echo $previousPass;
+        $previousPass = md5($previousPass);
+        //if the field is empty or the password is incorrect
+        echo "<br/> retour ".!verify_password($_SESSION['id'],$previousPass)."<br/>";
+        if (empty($previousPass) || !verify_password($_SESSION['id'],$previousPass)){
+            $err_previousPass = "Your password is incorrect";
+            $valid = 0;
+        }
+        //if fields are empty
+        if (empty($pass) && empty($confirmPass)){
+            $err_pass = "Enter a password";
+            $valid = 0;
+        }
+        else if ($pass!=$confirmPass){    //else if new passwords are not de same
+            $err_pass = "The passwords are different";
+            $valid = 0;
+        }
+
+        if (!isset($valid)){
+            $result = save_new_password(md5($pass),$_SESSION['id']);
+            if ($result){
+                $returnPassword = "Your password has been changed";
+            }
+            else{
+                $returnPassword = "An error has occured, please retry later";
+            }
+        }
+        
+    }
+
+    $info = get_account_info($_SESSION['id']);
+    
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
-        <?php
-            include_once('header.php');
-        ?>
         <meta charset="utf-8">
-        <title></title>
+        <title><?=$info['name']?> <?=$info['firstname']?> | Account</title>
         <link rel="stylesheet" href="style/my_account.css"/>
     </head>
     <body>
         <div class="entire_body">
             <aside class="tile" id="side_settings">
                 <div class="image_container">
-                    <img src="Pictures_site/test2.jpg" alt="">
+                    <img src=<?=$info['pictureprofil']?>    alt="picture profile">
                 </div>
                 <div class="">
-                    <button class="tab_button" onClick="openTab(event, 'global_information')" type="button" name="button" id="default_tab">Information</button>
-                    <button class="tab_button" onClick="openTab(event, 'password_information')" type="button" name="button">Change password</button>
+                    <button class="tab_button" onClick="openTab(event, 'global_information')" type="button" name="button" >Information</button>
+                    <button class="tab_button" onClick="openTab(event, 'password_information')" type="button" name="button" id="default_tab" >Change password</button>
                     <button class="tab_button" onClick="openTab(event, 'vehicles_information')" type="button" name="button">Vehicles</button>
                 </div>
             </aside>
 
             <div class="tile" id="main_settings">
                 <div id="global_information" class="tab_content">
+                    <?php if (isset($returnMessage)):?>
+                        <label><?=$returnMessage?></label>
+                    <?php endif ?>
                     <h2>Information</h2>
-                    <h3>Michel GARNIER</h3>
-                    <form class="form_container" action="placeholder.php" method="post">
+                    <h3><?=$info['name']?> <?=$info['firstname']?></h3>
+                    <form class="form_container" action="my_account.php" method="post">
                         <div class="label_input">
-                            <textarea class="input_button" id="description_field" rows="4">Michou</textarea>
+                            <textarea class="input_button" name="descriptionField" id="description_field" rows="4"><?=$info['description']?></textarea>
                         </div>
                         <div class="label_input">
                             <label for="emailField">Email address *<br></label>
-                            <input class="input_button" type="text" name="emailField" value="wouaw@tropfort.biff">
+                            <input class="input_button" type="text" name="emailField" value=<?=$info['email']?>>
+                            <?php if (isset($err_email)): ?>
+                                 <span class="error"><?php echo $err_email; ?></span>
+                             <?php endif ?>
                         </div>
                         <div class="label_input">
                             <label for="phoneField">Phone number *<br></label>
-                            <input class="input_button" type="text" name="phoneField" value="0123456789">
+                            <input class="input_button" type="text" name="phoneField" value=<?=$info['phone']?>>
+                            <?php if (isset($err_phone)): ?>
+                                <span class="error"><?php echo $err_phone ?></span>
+                            <?php endif ?>
                         </div>
-                        <div class="label_input">
-                            <label for="addressField">Address *<br></label>
-                            <input class="input_button" type="text" name="addressField" value="Avenue Diste">
-                        </div>
-                        <p></p>
                         <input class="submit_button" type="submit" name="saveSubmit" value="Save">
                     </form>
                     <p>* Required fields<br>
-                    ** To change your birthdate, please contact an administrator.</p>
+                    ** To change your name, firstname or birthdate, please contact an administrator.</p>
                 </div>
 
                 <div id="password_information" class="tab_content">
+                    <?php if (isset($returnPassword)):?>
+                        <label><?=$returnPassword?></label>
+                    <?php endif ?>
                     <h2>Change my password</h2>
-                    <form class="" action="placeholder.php" method="post">
-                        <input class="input_button" id="previous" type="text" name="passwordField" placeholder="Previous password">
+                    <form class="" action="my_account.php" method="post">
+                        <input class="input_button" id="previous" type="text" name="previousField" placeholder="Previous password">
+                        <?php if (isset($err_previousPass)): ?>
+                                <span class="error"><?php echo $err_previousPass?></span>
+                        <?php endif ?>
                         <input class="input_button" type="text" name="passwordField" placeholder="New password">
                         <input class="input_button" type="text" name="confirmField" placeholder="Confirm password">
-                        <input class="submit_button" type="submit" name="confirmSubmit" value="Confirm">
+                        <?php if (isset($err_pass)): ?>
+                        <span class="error"><?php echo $err_pass ?></span>
+                         <?php endif ?>
+                        <input class="submit_button" type="submit" name="passwordSubmit" value="Confirm">
+                        
                     </form>
                 </div>
 
