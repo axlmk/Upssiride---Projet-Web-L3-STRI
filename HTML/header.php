@@ -11,7 +11,10 @@
              <img src="Pictures_site/logo.svg" alt="logo" id="logo">
          </a>
          <nav>
-            <ul>
+            <ul>  
+                <?php if (is_connected() && $_SESSION['admin']==1): ?>
+                    <li><a href="admin.php">Admin</a></li>
+                <?php endif ?>
                 <li><a href="index.php">New Ride</a></li>
                 <li>
                     <a href="my_rides.php" id="notified">
