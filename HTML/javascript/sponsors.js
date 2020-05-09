@@ -24,16 +24,16 @@ function openTab(it) {
 
 function modify(it) {
     if(panel_open == false) {
-        var desc_title = document.getElementById('description_title_' + it);
+        var old_title = document.getElementById('description_title_' + it);
         for (var i = 0; i < it; i++) {
-            desc_title = document.getElementById('description_title_' + it);
+            old_title = document.getElementById('description_title_' + it);
         }
 
         var new_title = document.createElement('input');
-        new_title.setAttribute('value', desc_title.innerHTML);
-        previous_title = desc_title.innerHTML; //save
-        desc_title.parentNode.insertBefore(new_title, desc_title);
-        desc_title.parentNode.removeChild(desc_title);
+        new_title.setAttribute('value', old_title.innerHTML);
+        previous_title = old_title.innerHTML; //save
+        old_title.parentNode.insertBefore(new_title, old_title);
+        old_title.parentNode.removeChild(old_title);
         new_title.setAttribute('type', 'text');
         new_title.setAttribute('class', 'input_button');
         new_title.setAttribute('id', 'description_title_' + it);
@@ -58,14 +58,14 @@ function modify(it) {
 function save(it) {
     // add save features
     if(selected_id == it) {
-        var desc_title = document.getElementById('description_title_' + it);
+        var old_title = document.getElementById('description_title_' + it);
         for (var i = 0; i < it; i++) {
-            desc_title = document.getElementById('description_title_' + it);
+            old_title = document.getElementById('description_title_' + it);
         }
         var new_title = document.createElement('h3');
-        new_title.innerHTML = desc_title.value;
-        desc_title.parentNode.insertBefore(new_title, desc_title);
-        desc_title.parentNode.removeChild(desc_title);
+        new_title.innerHTML = old_title.value;
+        old_title.parentNode.insertBefore(new_title, old_title);
+        old_title.parentNode.removeChild(old_title);
         new_title.setAttribute('id', 'description_title_' + it);
 
         //paragraph
@@ -80,19 +80,39 @@ function save(it) {
         e.parentNode.insertBefore(d, e);
         e.parentNode.removeChild(e);
         panel_open = false;
+
+        //form creation
+        var form = document.createElement("form");
+        form.style.display = 'none';
+        form.method = "POST";
+        form.action = "sponsors.php";
+        document.body.appendChild(form);
+        var form_title = document.createElement("input")
+        form_title.name = "new_title_form";
+        form_title.value = new_title.innerHTML;
+        var form_desc = document.createElement("input")
+        form_desc.name = "new_desc_form";
+        form_desc.value = d.innerHTML;
+        var form_id = document.createElement("input")
+        form_id.name = "new_id_form";
+        form_id.value = it;
+        form.appendChild(form_title);
+        form.appendChild(form_desc);
+        form.appendChild(form_id);
+        form.submit();
     }
 }
 
 function cancel(it) {
     if(selected_id == it) {
-        var desc_title = document.getElementById('description_title_' + it);
+        var old_title = document.getElementById('description_title_' + it);
         for (var i = 0; i < it; i++) {
-            desc_title = document.getElementById('description_title_' + it);
+            old_title = document.getElementById('description_title_' + it);
         }
         var new_title = document.createElement('h3');
         new_title.innerHTML = previous_title;
-        desc_title.parentNode.insertBefore(new_title, desc_title);
-        desc_title.parentNode.removeChild(desc_title);
+        old_title.parentNode.insertBefore(new_title, old_title);
+        old_title.parentNode.removeChild(old_title);
         new_title.setAttribute('id', 'description_title_' + it);
 
         //paragraph
@@ -106,6 +126,7 @@ function cancel(it) {
         d.id = "description_paragraph_" + it;
         e.parentNode.insertBefore(d, e);
         e.parentNode.removeChild(e);
+
         panel_open = false;
     }
 }

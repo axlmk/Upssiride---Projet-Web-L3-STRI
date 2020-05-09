@@ -2,6 +2,12 @@
     require_once 'header.php';
     require 'functions/sql_sponsors.php';
     $sponsors = get_sponsors();
+    if (isset($_POST['new_desc_form']) && isset($_POST['new_title_form']) && isset($_POST['new_id_form'])) {
+        echo $_POST['new_desc_form'].'\n'.$_POST['new_title_form'].'\n'.($_POST['new_id_form']+1);
+        set_sponsor($_POST['new_id_form'] + 1, $_POST['new_title_form'], $_POST['new_desc_form']);
+    } else {
+        echo "npqsdfuiqslkjdfqsd";
+    }
 ?>
 
 <!DOCTYPE html>

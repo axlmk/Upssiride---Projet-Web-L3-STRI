@@ -15,7 +15,7 @@
             else{
                 $_SESSION['admin']=0;
             }
-            header("Location: dashboard.php");
+            header("Location: index.php");
         }
         else {
             $erreur_auth = 1;
@@ -23,7 +23,7 @@
     }
 
     if (is_connected()){
-        header("Location: dashboard.php");
+        header("Location: index.php");
     }
 
     require_once 'header.php'
