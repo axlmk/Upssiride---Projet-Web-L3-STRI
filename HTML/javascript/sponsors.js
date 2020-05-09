@@ -5,9 +5,9 @@ var previous_text;
 var previous_title;
 
 function openTab(it) {
-    var mdfButton = document.getElementsByClassName("modifyButton")[it];
-    var calButton = document.getElementsByClassName("cancelButton")[it];
-    var savButton = document.getElementsByClassName("saveButton")[it];
+    var mdfButton = document.getElementsByClassName("modifyButton")[it-1];
+    var calButton = document.getElementsByClassName("cancelButton")[it-1];
+    var savButton = document.getElementsByClassName("saveButton")[it-1];
 
     if(mdfButton.style.display != 'none') {
         if(panel_open == false) {
@@ -25,7 +25,7 @@ function openTab(it) {
 function modify(it) {
     if(panel_open == false) {
         var old_title = document.getElementById('description_title_' + it);
-        for (var i = 0; i < it; i++) {
+        for (var i = 1; i <= it; i++) {
             old_title = document.getElementById('description_title_' + it);
         }
 
@@ -41,7 +41,7 @@ function modify(it) {
         // paragraph
         var e = document.getElementById('description_paragraph_' + it);
         previous_text = e.innerHTML; //save
-        for (var i = 0; i < it; i++) {
+        for (var i = 1; i <= it; i++) {
             e = document.getElementById('description_paragraph_' + it);
         }
         var d = document.createElement('textarea');
@@ -59,7 +59,7 @@ function save(it) {
     // add save features
     if(selected_id == it) {
         var old_title = document.getElementById('description_title_' + it);
-        for (var i = 0; i < it; i++) {
+        for (var i = 1; i <= it; i++) {
             old_title = document.getElementById('description_title_' + it);
         }
         var new_title = document.createElement('h3');
@@ -70,7 +70,7 @@ function save(it) {
 
         //paragraph
         var e = document.getElementById('description_paragraph_' + it);
-        for (var i = 0; i < it; i++) {
+        for (var i = 1; i <= it; i++) {
             e = document.getElementById('description_paragraph_' + it);
         }
         var d = document.createElement('p');
@@ -106,7 +106,7 @@ function save(it) {
 function cancel(it) {
     if(selected_id == it) {
         var old_title = document.getElementById('description_title_' + it);
-        for (var i = 0; i < it; i++) {
+        for (var i = 1; i <= it; i++) {
             old_title = document.getElementById('description_title_' + it);
         }
         var new_title = document.createElement('h3');
@@ -117,7 +117,7 @@ function cancel(it) {
 
         //paragraph
         var e = document.getElementById('description_paragraph_' + it);
-        for (var i = 0; i < it; i++) {
+        for (var i = 1; i <= it; i++) {
             e = document.getElementById('description_paragraph_' + it);
         }
         var d = document.createElement('p');
