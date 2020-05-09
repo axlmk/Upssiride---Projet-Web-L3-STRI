@@ -8,16 +8,19 @@
 
     <div class='header'>
          <a href="index.php" title="logo">
-             <img src="Pictures_site/logo.svg" alt="logo" id="logo">
+             <img src="svg/logo.svg" alt="logo" id="logo">
          </a>
          <nav>
             <ul>
+                <?php if (is_connected() && $_SESSION['admin']==1): ?>
+                    <li><a href="admin.php">Admin</a></li>
+                <?php endif ?>
                 <li><a href="index.php">New Ride</a></li>
                 <li>
                     <a href="my_rides.php" id="notified">
                         My Rides
                         <?php if (is_connected() && check_notification($_SESSION['id'])==true):?>
-                            <img src="Pictures_site/notification.svg" alt="notification" class="notification">
+                            <img src="svg/notification.svg" alt="notification" class="notification">
                         <?php endif ?>
                     </a>
                 </li>
