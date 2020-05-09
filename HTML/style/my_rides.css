@@ -5,8 +5,10 @@
     margin-left: 10%;
     margin-right: 10%;
     float: none;
-    border-radius: 40px;
-    max-height: 170px;
+    border-radius: 20px;
+    min-height: 140px;
+    max-height: 160px;
+    /*max-height: 170px;*/
     background-color: #f3ddc6;
 
     display: flex;
@@ -46,12 +48,15 @@
 
 .pic{
     margin-top: 20px;
+    display: flex;
+    flex-direction: row;
 }
 
 
 .pic img {
-    border-radius: 25px;
-    border: solid 8px #191A1C;
+    border-radius: 50%;;
+    /*border: solid 4px #191A1C;*/
+    border: none;
     height: 70px;
     width: auto;
     right: 0px;
@@ -59,7 +64,8 @@
 
 .pic p {
     max-width: 150px;
-    font-size: 18px;
+    font-size: 16px;
+    margin-left: 20px;
 }
 
 .pic a{

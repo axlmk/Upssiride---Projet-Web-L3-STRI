@@ -17,7 +17,7 @@
     <body>
 
         <div class="title_div">
-            <img src="Pictures_site/hourglass.svg"/>
+            <img src="svg/hourglass.svg"/>
             <h2>Request sent</h2>
         </div>
 
@@ -25,12 +25,12 @@
             <div class=info>
                 <!-- Info à rentrer en php -->
                 <div class="pic_label">
-                    <img src="Pictures_site/calendar.svg" alt="calendar" width="40"/>
+                    <img src="svg/calendar.svg" alt="calendar" width="40"/>
                     <label for="" style="">25/05/2020</label>
                 </div>
 
                 <div class="end_pic_label">
-                    <img src="Pictures_site/clock.svg" alt="clock" width="40"/>
+                    <img src="svg/clock.svg" alt="clock" width="40"/>
                     <label for="">15h03</label>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                 <label for="">
                     Toulouse
                 </label>
-                <img src="Pictures_site/city_sep.svg" alt="city" width="50">
+                <img src="svg/city_sep.svg" alt="city" width="50">
                 <label for="">
                     Montpellier
                 </label>
@@ -51,12 +51,12 @@
                 <div class=pic>
                     <!-- Info à rentrer en php -->
                     <img src="Pictures_site/test2.jpg" alt="ppDriver">
-                    <p>Nom du mec</p>
+                    <p>Marie-Noël Bernes Heuga</p>
                 </div>
             </a>
 
             <div class="dropdown">
-              <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
+              <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
               <div class="dropdown-content">
                 <a href="#">Remove</a>
                 <a href="#">Modify</a>
@@ -68,7 +68,7 @@
         </div>
 
         <div class="title_div">
-            <img src="Pictures_site/car.svg"/>
+            <img src="svg/car.svg"/>
             <h2>Rides to come</h2>
         </div>
         <!-- Un trajet -->
@@ -82,12 +82,12 @@
             <div class=info>
                 <!-- Info à rentrer en php -->
                 <div class="pic_label">
-                    <img src="Pictures_site/calendar.svg" alt="calendar" width="40"/>
+                    <img src="svg/calendar.svg" alt="calendar" width="40"/>
                     <label for="" style="">25/05/2020</label>
                 </div>
 
                 <div class="end_pic_label">
-                    <img src="Pictures_site/clock.svg" alt="clock" width="40"/>
+                    <img src="svg/clock.svg" alt="clock" width="40"/>
                     <label for="">15h03</label>
                 </div>
             </div>
@@ -97,7 +97,7 @@
                 <label for="">
                     Toulouse
                 </label>
-                <img src="Pictures_site/city_sep.svg" alt="city" width="50">
+                <img src="svg/city_sep.svg" alt="city" width="50">
                 <label for="">
                     Montpellier
                 </label>
@@ -113,7 +113,7 @@
             </a>
 
             <div class="dropdown">
-              <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
+              <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
               <div class="dropdown-content">
                 <a href="#">Remove</a>
                 <a href="#">Modify</a>
@@ -129,12 +129,12 @@
             <div class=info>
                 <!-- Info à rentrer en php -->
                 <div class="pic_label">
-                    <img src="Pictures_site/calendar.svg" alt="calendar" width="40"/>
+                    <img src="svg/calendar.svg" alt="calendar" width="40"/>
                     <label for="" style="">25/05/2020</label>
                 </div>
 
                 <div class="end_pic_label">
-                    <img src="Pictures_site/clock.svg" alt="clock" width="40"/>
+                    <img src="svg/clock.svg" alt="clock" width="40"/>
                     <label for="">15h03</label>
                 </div>
             </div>
@@ -144,7 +144,7 @@
                 <label for="">
                     Toulouse
                 </label>
-                <img src="Pictures_site/city_sep.svg" alt="city" width="50">
+                <img src="svg/city_sep.svg" alt="city" width="50">
                 <label for="">
                     Montpellier
                 </label>
@@ -160,54 +160,7 @@
             </a>
 
             <div class="dropdown">
-              <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
-              <div class="dropdown-content">
-                <a href="#">Remove</a>
-                <a href="#">Modify</a>
-                <div class="button_container">
-                    <a href="#" onclick="openModal()">Approve passenger</a>
-                </div>
-              </div>
-          </div>
-      </div>
-
-        <!-- Un trajet -->
-        <div class="ride">
-            <div class=info>
-                <!-- Info à rentrer en php -->
-                <div class="pic_label">
-                    <img src="Pictures_site/calendar.svg" alt="calendar" width="40"/>
-                    <label for="" style="">25/05/2020</label>
-                </div>
-
-                <div class="end_pic_label">
-                    <img src="Pictures_site/clock.svg" alt="clock" width="40"/>
-                    <label for="">15h03</label>
-                </div>
-            </div>
-
-            <div class=rideResume>
-                <!-- Info à rentrer en php -->
-                <label for="">
-                    Toulouse
-                </label>
-                <img src="Pictures_site/city_sep.svg" alt="city" width="50">
-                <label for="">
-                    Montpellier
-                </label>
-            </div>
-
-            <!-- <div class=vertical_line> </div> -->
-            <a href="profile.php">
-                <div class=pic>
-                    <!-- Info à rentrer en php -->
-                    <img src="Pictures_site/test2.jpg" alt="ppDriver">
-                    <p>Nom du mec</p>
-                </div>
-            </a>
-
-            <div class="dropdown">
-              <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
+              <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
               <div class="dropdown-content">
                 <a href="#">Remove</a>
                 <a href="#">Modify</a>
@@ -223,12 +176,12 @@
             <div class=info>
                 <!-- Info à rentrer en php -->
                 <div class="pic_label">
-                    <img src="Pictures_site/calendar.svg" alt="calendar" width="40"/>
+                    <img src="svg/calendar.svg" alt="calendar" width="40"/>
                     <label for="" style="">25/05/2020</label>
                 </div>
 
                 <div class="end_pic_label">
-                    <img src="Pictures_site/clock.svg" alt="clock" width="40"/>
+                    <img src="svg/clock.svg" alt="clock" width="40"/>
                     <label for="">15h03</label>
                 </div>
             </div>
@@ -238,7 +191,7 @@
                 <label for="">
                     Toulouse
                 </label>
-                <img src="Pictures_site/city_sep.svg" alt="city" width="50">
+                <img src="svg/city_sep.svg" alt="city" width="50">
                 <label for="">
                     Montpellier
                 </label>
@@ -254,7 +207,54 @@
             </a>
 
             <div class="dropdown">
-              <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
+              <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
+              <div class="dropdown-content">
+                <a href="#">Remove</a>
+                <a href="#">Modify</a>
+                <div class="button_container">
+                    <a href="#" onclick="openModal()">Approve passenger</a>
+                </div>
+              </div>
+          </div>
+      </div>
+
+        <!-- Un trajet -->
+        <div class="ride">
+            <div class=info>
+                <!-- Info à rentrer en php -->
+                <div class="pic_label">
+                    <img src="svg/calendar.svg" alt="calendar" width="40"/>
+                    <label for="" style="">25/05/2020</label>
+                </div>
+
+                <div class="end_pic_label">
+                    <img src="svg/clock.svg" alt="clock" width="40"/>
+                    <label for="">15h03</label>
+                </div>
+            </div>
+
+            <div class=rideResume>
+                <!-- Info à rentrer en php -->
+                <label for="">
+                    Toulouse
+                </label>
+                <img src="svg/city_sep.svg" alt="city" width="50">
+                <label for="">
+                    Montpellier
+                </label>
+            </div>
+
+            <!-- <div class=vertical_line> </div> -->
+            <a href="profile.php">
+                <div class=pic>
+                    <!-- Info à rentrer en php -->
+                    <img src="Pictures_site/test2.jpg" alt="ppDriver">
+                    <p>Nom du mec</p>
+                </div>
+            </a>
+
+            <div class="dropdown">
+              <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
               <div class="dropdown-content">
                 <a href="#">Remove</a><!--PHP : Supprimer la trajet séléctionné-->
                 <a href="#">Modify</a><!--PHP : Modifier le trajet séléctionné-->
@@ -271,7 +271,7 @@
                 <hr>
                     <div class="aRequest"><!--PHP : Récupérer info du trajet séléctionné-->
                         <div class="pic">
-                        <a href=""><img src="pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
+                        <a href=""><img src="Pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
                         </div>
                         <div class="namePassenger">
                             <a href=""><h3>Cyril Decaud</h3></a><!--PHP : Nom du passager-->
@@ -280,16 +280,16 @@
                             <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
                         </div>
                         <div class="choice">
-                            <button action="" method="POST"><img src="pictures_site/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
+                            <button action="" method="POST"><img src="svg/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
                         </div>
                         <div class="choice">
-                            <button action="" method="POST"><img src="pictures_site/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
+                            <button action="" method="POST"><img src="svg/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
                         </div>
                     </div>
 
                     <div class="aRequest"><!--PHP : Récupérer info du trajet séléctionné-->
                         <div class="pic">
-                        <a href=""><img src="pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
+                        <a href=""><img src="Pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
                         </div>
                         <div class="namePassenger">
                             <a href=""><h3>Cyril Decaud</h3></a><!--PHP : Nom du passager-->
@@ -298,16 +298,16 @@
                             <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
                         </div>
                         <div class="choice">
-                            <button action="" method="POST"><img src="pictures_site/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
+                            <button action="" method="POST"><img src="svg/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
                         </div>
                         <div class="choice">
-                            <button action="" method="POST"><img src="pictures_site/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
+                            <button action="" method="POST"><img src="svg/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
                         </div>
                     </div>
 
 <div class="aRequest"><!--PHP : Récupérer info du trajet séléctionné-->
     <div class="pic">
-    <a href=""><img src="pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
+    <a href=""><img src="Pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
     </div>
     <div class="namePassenger">
         <a href=""><h3>Cyril Decaud</h3></a><!--PHP : Nom du passager-->
@@ -316,16 +316,16 @@
         <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
+        <button action="" method="POST"><img src="svg/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
+        <button action="" method="POST"><img src="svg/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
     </div>
 </div>
 
 <div class="aRequest"><!--PHP : Récupérer info du trajet séléctionné-->
     <div class="pic">
-    <a href=""><img src="pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
+    <a href=""><img src="Pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
     </div>
     <div class="namePassenger">
         <a href=""><h3>Cyril Decaud</h3></a><!--PHP : Nom du passager-->
@@ -334,16 +334,16 @@
         <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
+        <button action="" method="POST"><img src="svg/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
+        <button action="" method="POST"><img src="svg/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
     </div>
 </div>
 
 <div class="aRequest"><!--PHP : Récupérer info du trajet séléctionné-->
     <div class="pic">
-    <a href=""><img src="pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
+    <a href=""><img src="Pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
     </div>
     <div class="namePassenger">
         <a href=""><h3>Cyril Decaud</h3></a><!--PHP : Nom du passager-->
@@ -352,16 +352,16 @@
         <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
+        <button action="" method="POST"><img src="svg/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
+        <button action="" method="POST"><img src="svg/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
     </div>
 </div>
 
 <div class="aRequest"><!--PHP : Récupérer info du trajet séléctionné-->
     <div class="pic">
-    <a href=""><img src="pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
+    <a href=""><img src="Pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
     </div>
     <div class="namePassenger">
         <a href=""><h3>Cyril Decaud</h3></a><!--PHP : Nom du passager-->
@@ -370,16 +370,16 @@
         <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
+        <button action="" method="POST"><img src="svg/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
+        <button action="" method="POST"><img src="svg/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
     </div>
 </div>
 
 <div class="aRequest"><!--PHP : Récupérer info du trajet séléctionné-->
     <div class="pic">
-    <a href=""><img src="pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
+    <a href=""><img src="Pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
     </div>
     <div class="namePassenger">
         <a href=""><h3>Cyril Decaud</h3></a><!--PHP : Nom du passager-->
@@ -388,16 +388,16 @@
         <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
+        <button action="" method="POST"><img src="svg/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
+        <button action="" method="POST"><img src="svg/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
     </div>
 </div>
 
 <div class="aRequest"><!--PHP : Récupérer info du trajet séléctionné-->
     <div class="pic">
-    <a href=""><img src="pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
+    <a href=""><img src="Pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
     </div>
     <div class="namePassenger">
         <a href=""><h3>Cyril Decaud</h3></a><!--PHP : Nom du passager-->
@@ -406,10 +406,10 @@
         <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
+        <button action="" method="POST"><img src="svg/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
     </div>
     <div class="choice">
-        <button action="" method="POST"><img src="pictures_site/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
+        <button action="" method="POST"><img src="svg/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
     </div>
 </div>
                 <div id="btnClose">
@@ -418,7 +418,7 @@
             </div>
 
         <div class="title_div">
-            <img src="Pictures_site/paper.svg"/>
+            <img src="svg/paper.svg"/>
             <h2>Rides recently completed</h2>
         </div>
 
@@ -426,12 +426,12 @@
               <div class=info>
                   <!-- Info à rentrer en php -->
                   <div class="pic_label">
-                      <img src="Pictures_site/calendar.svg" alt="calendar" width="40"/>
+                      <img src="svg/calendar.svg" alt="calendar" width="40"/>
                       <label for="" style="">25/05/2020</label>
                   </div>
 
                   <div class="end_pic_label">
-                      <img src="Pictures_site/clock.svg" alt="clock" width="40"/>
+                      <img src="svg/clock.svg" alt="clock" width="40"/>
                       <label for="">15h03</label>
                   </div>
               </div>
@@ -441,7 +441,7 @@
                   <label for="">
                       Toulouse
                   </label>
-                  <img src="Pictures_site/city_sep.svg" alt="city" width="50">
+                  <img src="svg/city_sep.svg" alt="city" width="50">
                   <label for="">
                       Montpellier
                   </label>

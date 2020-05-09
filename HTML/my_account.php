@@ -1,11 +1,11 @@
-<?php 
+<?php
     require_once 'header.php';
     require_once 'functions/sql_account.php';
     require_once 'functions/check_registration.php';
     if (!is_connected()){
         header("Location: connection.php");
     }
-    
+
     //Save user information
     if (isset($_POST['saveSubmit'])){
         //email
@@ -33,7 +33,7 @@
             }
             else {
                 $returnMessage = "An error has occured, please retry later";
-            }     
+            }
         }
     }
 
@@ -70,11 +70,11 @@
                 $returnPassword = "An error has occured, please retry later";
             }
         }
-        
+
     }
 
     $info = get_account_info($_SESSION['id']);
-    
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -87,11 +87,11 @@
         <div class="entire_body">
             <aside class="tile" id="side_settings">
                 <div class="image_container">
-                    <img src=<?=$info['pictureprofil']?>    alt="picture profile">
+                    <img src=<?=$info['pictureprofil']?> alt="picture profile">
                 </div>
                 <div class="">
-                    <button class="tab_button" onClick="openTab(event, 'global_information')" type="button" name="button" >Information</button>
-                    <button class="tab_button" onClick="openTab(event, 'password_information')" type="button" name="button" id="default_tab" >Change password</button>
+                    <button class="tab_button" onClick="openTab(event, 'global_information')" type="button" name="button" id="default_tab">Information</button>
+                    <button class="tab_button" onClick="openTab(event, 'password_information')" type="button" name="button"  >Change password</button>
                     <button class="tab_button" onClick="openTab(event, 'vehicles_information')" type="button" name="button">Vehicles</button>
                 </div>
             </aside>
@@ -121,6 +121,48 @@
                                 <span class="error"><?php echo $err_phone ?></span>
                             <?php endif ?>
                         </div>
+                        <div class="radio_input">
+                            <label class="music_val">
+                                <input type="radio" name="music_v" checked>
+                                <img src="svg/music_forbidden.svg"/>
+                            </label>
+                            <label class="music_val">
+                                <input type="radio" name="music_v" >
+                                <img src="svg/music.svg"/>
+                            </label>
+                            <label class="music_val">
+                                <input type="radio" name="music_v">
+                                <img src="svg/music_ok.svg"/>
+                            </label>
+                        </div>
+                        <div class="radio_input">
+                            <label class="tchat_val">
+                                <input type="radio" name="tchat_v" checked>
+                                <img src="svg/tchat_forbidden.svg"/>
+                            </label>
+                            <label class="tchat_val">
+                                <input type="radio" name="tchat_v" >
+                                <img src="svg/tchat.svg"/>
+                            </label>
+                            <label class="tchat_val">
+                                <input type="radio" name="tchat_v">
+                                <img src="svg/tchat_ok.svg"/>
+                            </label>
+                        </div>
+                        <div class="radio_input">
+                            <label class="cigarette_val">
+                                <input type="radio" name="cigarette_v" checked>
+                                <img src="svg/cigarette_forbidden.svg"/>
+                            </label>
+                            <label class="cigarette_val">
+                                <input type="radio" name="cigarette_v" >
+                                <img src="svg/cigarette.svg"/>
+                            </label>
+                            <label class="cigarette_val">
+                                <input type="radio" name="cigarette_v">
+                                <img src="svg/cigarette_ok.svg"/>
+                            </label>
+                        </div>
                         <input class="submit_button" type="submit" name="saveSubmit" value="Save">
                     </form>
                     <p>* Required fields<br>
@@ -143,7 +185,7 @@
                         <span class="error"><?php echo $err_pass ?></span>
                          <?php endif ?>
                         <input class="submit_button" type="submit" name="passwordSubmit" value="Confirm">
-                        
+
                     </form>
                 </div>
 
@@ -151,22 +193,20 @@
                     <h2>My vehicles</h2>
                     <div class="vehiclesList">
                         <div class="vehicleElement">
-                            <img src="" alt="">
+                            <img src="svg/car.svg" alt="">
                             <div class="vehicleDescription">
-                                <p>Porsche<br>
-                                    Panamera Break<br>
-                                    Matte Black
-                                </p>
+                                <span>Porsche</span>
+                                <span>Panamera Break</span>
+                                <span>Matte Black</span>
                             </div>
                         </div>
 
                         <div class="vehicleElement">
-                            <img src="" alt="">
+                            <img src="svg/car.svg" alt="">
                             <div class="vehicleDescription">
-                                <p>Renault<br>
-                                    Trafic<br>
-                                    White
-                                </p>
+                                <span>Renault</span>
+                                <span>Trafic</span>
+                                <span>White</span>
                             </div>
                         </div>
                     </div>

@@ -24,7 +24,7 @@
         <div class=information>
             <hr>
             <h2>Description</h2>
-            <!-- <img src="Pictures_site/quotes.png" alt="quotes logo">-->
+            <!-- <img src="svg/quotes.png" alt="quotes logo">-->
             <p>J'adore manger des carottes tôt le matin. Les balades en forêt sont mon quotidien.
             Bien qu'un peu bouleversé par le confinnement je prend toujours la voiture et propose mes trajets à de potentiels covitureurs.
         Il est évident que l'état nous ment depuis le début de cette crise et je refuse de troquer ma joie de vivre contre de l'enfumage politique.
@@ -33,15 +33,15 @@
 
         <div class="preferences">
             <div class="pic_label">
-                <img src="Pictures_site/music.svg" alt="music">
+                <img src="svg/music.svg" alt="music">
                 <label>I love to listen to music</label>
             </div>
             <div class=pic_label>
-                <img src="Pictures_site/tchat.svg" alt="talk">
+                <img src="svg/tchat.svg" alt="talk">
                 <label>I don't like to talk</label>
             </div>
             <div class=pic_label>
-                <img src="Pictures_site/cigarette.svg" alt="cigarette">
+                <img src="svg/cigarette.svg" alt="cigarette">
                 <label>I don't smoke</label>
             </div>
         </div>
