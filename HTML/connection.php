@@ -42,11 +42,11 @@
             <form action="connection.php" method="post" class="login_form">
                 <h2>LOG IN</h2>
                 <div class="pic_input">
-                    <img src="Pictures_site/human_placeholder.svg" alt="calendar" width="40"/>
+                    <img src="svg/human_placeholder.svg" alt="calendar" width="40"/>
                     <input type="text" name="login" placeholder="Email adress" class="input_button">
                 </div>
                 <div class="pic_input">
-                    <img src="Pictures_site/lock.svg" alt="calendar" width="40"/>
+                    <img src="svg/lock.svg" alt="calendar" width="40"/>
                     <input type="password" name="pass" value="" placeholder="Password" class="input_button">
                 </div>
                 <input type="submit" name="cSubmit" value="Login" class="submit_button">

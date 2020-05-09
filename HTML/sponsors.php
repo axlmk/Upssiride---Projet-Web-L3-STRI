@@ -27,7 +27,7 @@
                 <button class="modifyButton" type="button" <?php echo 'onClick="openTab('.$it.'); modify('.$it.')"' ?>>Edit</button>
                 <button class="cancelButton" type="button" <?php echo 'onClick="openTab('.$it.'); cancel('.$it.')"' ?>>Cancel</button>
                 <button class="saveButton" type="button" <?php echo 'onClick="openTab('.$it.'); save('.$it.')"' ?>>Save</button>
-          </div>
+            </div>
         </div>
             <?php $it = $it + 1?>
         <?php endforeach?>
