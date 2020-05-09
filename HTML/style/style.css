@@ -306,7 +306,7 @@ input{
     z-index: 7;
     transition: 0.3s ease-in-out;
     visibility: hidden;
-    overflow: scroll;
+    overflow-y: auto;
 }
 
 .close{
@@ -316,4 +316,10 @@ input{
     margin-bottom: 10px;
     background-color: #c26516;
     border-radius: 15px;
+}
+
+.error {
+    font-size: 12px;
+    color: #aa1f1f;
+    text-align: center;
 }

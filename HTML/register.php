@@ -151,7 +151,7 @@
         <section>
                     <?php if (isset($result) && $result): ?>
                     <!-- POP UP qui confirme l'inscription -->
-                    <p> Your account has been created! You can log in now!</p>
+                    <p> Your account has been created! You can <a id="login" href="connection.php">log in</a> now!</p>
                     <?php elseif (isset($result) && !$result): ?>
                     <p> Sorry, an error has occured, please retry later</p>
                     <!-- POP UP erreur -->
