@@ -1,10 +1,18 @@
 <?php
     require_once 'functions/auth.php';
-    require_once 'header.php';
+    require_once 'functions/sql_ride.php';
+    require_once 'functions/sql_account.php';
+    require_once 'functions/sql_place.php';
 
     if (!is_connected()){
         header("Location: connection.php");
     }
+
+    $resultride = get_my_rides($_SESSION['id']);
+    $resultrequire = get_my_rides_required($_SESSION['id']);
+    $resultcompleted = get_my_rides_completed($_SESSION['id']);
+    //echo $resultride['idride'];
+    require_once 'header.php';
 ?>
 
 <!DOCTYPE html>
@@ -15,110 +23,122 @@
         <link rel="stylesheet" href="style/my_rides.css"/>
     </head>
     <body>
-
+    <?php if ($resultrequire!=null): ?>
         <div class="title_div">
             <img src="svg/hourglass.svg"/>
             <h2>Request sent</h2>
         </div>
+        
+        <?php foreach ($resultrequire as $require): ?>
+            <?php 
+                $driver_name = get_name_firstname($require['idaccount']);
+                $place_departure = get_place($require['idplace_departure']);
+                $place_arrived = get_place($require['idplace_arrived']);
+                $picture_profile = get_picture_profile($require['idaccount']);
+            ?>
+            <div class="ride">
+                <div class=info>
+                
+                    <div class="pic_label">
+                        <img src="svg/calendar.svg" alt="calendar" width="40"/>
+                        <label for="" style=""><?=$require['departuredate']?></label>
+                    </div>
 
-        <div class="ride">
-            <div class=info>
-                <!-- Info à rentrer en php -->
-                <div class="pic_label">
-                    <img src="svg/calendar.svg" alt="calendar" width="40"/>
-                    <label for="" style="">25/05/2020</label>
+                    <div class="end_pic_label">
+                        <img src="svg/clock.svg" alt="clock" width="40"/>
+                        <label for=""><?=$require['departuretime']?></label>
+                    </div>
                 </div>
 
-                <div class="end_pic_label">
-                    <img src="svg/clock.svg" alt="clock" width="40"/>
-                    <label for="">15h03</label>
-                </div>
-            </div>
-
-            <div class=rideResume>
-                <!-- Info à rentrer en php -->
-                <label for="">
-                    Toulouse
-                </label>
-                <img src="svg/city_sep.svg" alt="city" width="50">
-                <label for="">
-                    Montpellier
-                </label>
-            </div>
-
-            <!-- <div class=vertical_line> </div> -->
-            <a href="profile.php">
-                <div class=pic>
+                <div class=rideResume>
                     <!-- Info à rentrer en php -->
-                    <img src="Pictures_site/test2.jpg" alt="ppDriver">
-                    <p>Marie-Noël Bernes Heuga</p>
+                    <label for="">
+                        <?=$place_departure?>
+                    </label>
+                    <img src="svg/city_sep.svg" alt="city" width="50">
+                    <label for="">
+                        <?=$place_arrived?>
+                    </label>
                 </div>
-            </a>
 
-            <div class="dropdown">
-                <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
-                <div class="dropdown-content">
-                    <a href="#">Cancel</a><!-- PHP : Requête d'annulation de participation -->
+                <!-- <div class=vertical_line> </div> -->
+                <a href="profile.php">
+                    <div class=pic>
+                        <!-- Info à rentrer en php -->
+                        <img src=<?=$picture_profile?> alt="ppDriver">
+                        <p> <?=$driver_name?> </p>
+                    </div>
+                </a>
+
+                <div class="dropdown">
+                    <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
+                    <div class="dropdown-content">
+                        <a href="#">Cancel</a><!-- PHP : Requête d'annulation de participation -->
+                    </div>
                 </div>
             </div>
-        </div>
-
+        <?php endforeach ?>
+    <?php endif ?>   
         <div class="title_div">
             <img src="svg/car.svg"/>
             <h2>Rides to come</h2>
         </div>
         <!-- Un trajet -->
 <!-- Debut du div-->
-<!-- foreach ($result as $row) {
-        print $row["id"] . "-" . $row["value"] ."<br/>";
-    } -->
-        <?php ?>
-        <!-- Un trajet -->
-        <div class="ride">
-            <div class=info>
-                <!-- Info à rentrer en php -->
-                <div class="pic_label">
-                    <img src="svg/calendar.svg" alt="calendar" width="40"/>
-                    <label for="" style="">25/05/2020</label>
-                </div>
-
-                <div class="end_pic_label">
-                    <img src="svg/clock.svg" alt="clock" width="40"/>
-                    <label for="">15h03</label>
-                </div>
-            </div>
-
-            <div class=rideResume>
-                <!-- Info à rentrer en php -->
-                <label for="">
-                    Toulouse
-                </label>
-                <img src="svg/city_sep.svg" alt="city" width="50">
-                <label for="">
-                    Montpellier
-                </label>
-            </div>
-
-            <!-- <div class=vertical_line> </div> -->
-            <a href="profile.php">
-                <div class=pic>
+    <?php if ($resultride!=null): ?>
+        <?php foreach ($resultride as $ride): ?>
+            <?php 
+                    $driver_name = get_name_firstname($ride['idaccount']);
+                    $departure = get_place($ride['idplace_departure']);
+                    $arrived = get_place($ride['idplace_arrived']);
+                    $picture_profile = get_picture_profile($ride['idaccount']);
+            ?>
+            <!-- Un trajet -->
+            <div class="ride">
+                <div class=info>
                     <!-- Info à rentrer en php -->
-                    <img src="Pictures_site/test2.jpg" alt="ppDriver">
-                    <p>Nom du mec</p>
-                </div>
-            </a>
+                    <div class="pic_label">
+                        <img src="svg/calendar.svg" alt="calendar" width="40"/>
+                        <label for="" style=""><?=$ride['departuredate']?></label>
+                    </div>
 
-            <div class="dropdown">
-              <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
-              <div class="dropdown-content">
-                <a href="#">Remove</a>
-                <a href="#">Modify</a>
-                <div class="button_container">
-                    <a href="#" onclick="openModal()">Approve passenger</a>
+                    <div class="end_pic_label">
+                        <img src="svg/clock.svg" alt="clock" width="40"/>
+                        <label for=""><?=$ride['departuretime']?></label>
+                    </div>
+                </div>
+
+                <div class=rideResume>
+                    <!-- Info à rentrer en php -->
+                    <label for="">
+                        <?=$departure?>
+                    </label>
+                    <img src="svg/city_sep.svg" alt="city" width="50">
+                    <label for="">
+                        <?=$arrived?>
+                    </label>
+                </div>
+
+                <!-- <div class=vertical_line> </div> -->
+                <a href="profile.php">
+                    <div class=pic>
+                        <!-- Info à rentrer en php -->
+                        <img src="<?=$picture_profile?>" alt="ppDriver">
+                        <p><?=$driver_name?></p>
+                    </div>
+                </a>
+
+                <div class="dropdown">
+                    <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
+                    <div class="dropdown-content">
+                        <a href="#">Remove</a>
+                        <a href="#">Modify</a>
+                        <div class="button_container">
+                            <a href="#" onclick="openModal()">Approve passenger</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-          </div>
-      </div>
 
             <!--Boite modale-->
             <div id="modal">
@@ -163,49 +183,59 @@
                     <button id="close" onclick="closeModal()">Close</button>
                 </div>
             </div>
-
+        <?php endforeach?>
+    <?php else: ?>
+        <p>Any ride to come! <p>
+    <?php endif ?>
         <div class="title_div">
             <img src="svg/paper.svg"/>
             <h2>Rides recently completed</h2>
         </div>
+    <?php if ($resultcompleted!=null): ?>
+        <?php foreach ($resultcompleted as $completed): ?>
+            <?php 
+                $driver_name = get_name_firstname($completed['idaccount']);
+                $place_departure = get_place($completed['idplace_departure']);
+                $place_arrived = get_place($completed['idplace_arrived']);
+                $picture_profile = get_picture_profile($completed['idaccount']);
+            ?>
+            <div class=ride>
+                <div class=info>
+                    <!-- Info à rentrer en php -->
+                    <div class="pic_label">
+                        <img src="svg/calendar.svg" alt="calendar" width="40"/>
+                        <label for="" style=""><?=$completed['departuredate']?></label>
+                    </div>
 
-        <div class=ride>
-              <div class=info>
-                  <!-- Info à rentrer en php -->
-                  <div class="pic_label">
-                      <img src="svg/calendar.svg" alt="calendar" width="40"/>
-                      <label for="" style="">25/05/2020</label>
-                  </div>
+                    <div class="end_pic_label">
+                        <img src="svg/clock.svg" alt="clock" width="40"/>
+                        <label for=""><?=$completed['departuretime']?></label>
+                    </div>
+                </div>
 
-                  <div class="end_pic_label">
-                      <img src="svg/clock.svg" alt="clock" width="40"/>
-                      <label for="">15h03</label>
-                  </div>
-              </div>
+                <div class=rideResume>
+                    <!-- Info à rentrer en php -->
+                    <label for="">
+                        <?=$place_departure?>
+                    </label>
+                    <img src="svg/city_sep.svg" alt="city" width="50">
+                    <label for="">
+                    <?=$place_arrived?>
+                    </label>
+                </div>
 
-              <div class=rideResume>
-                  <!-- Info à rentrer en php -->
-                  <label for="">
-                      Toulouse
-                  </label>
-                  <img src="svg/city_sep.svg" alt="city" width="50">
-                  <label for="">
-                      Montpellier
-                  </label>
-              </div>
+                <!-- <div class=vertical_line> </div> -->
 
-              <!-- <div class=vertical_line> </div> -->
-
-              <a href="profile.php">
-                  <div class=pic>
-                      <!-- Info à rentrer en php -->
-                      <img src="Pictures_site/test2.jpg" alt="ppDriver">
-                      <p>Nom du mec</p>
-                  </div>
-              </a>
-
-        </div>
-
+                <a href="profile.php">
+                    <div class=pic>
+                        <!-- Info à rentrer en php -->
+                        <img src=<?=$picture_profile?> alt="ppDriver">
+                        <p><?=$driver_name?></p>
+                    </div>
+                </a>
+            </div>
+        <?php endforeach?>
+    <?php endif?>
         <script src="javascript/modal.js" type="text/javascript"></script>
 
     </body>

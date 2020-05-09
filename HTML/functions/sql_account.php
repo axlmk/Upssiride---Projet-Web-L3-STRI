@@ -56,4 +56,24 @@
         }
         return false;
     }
+
+    function get_name_firstname($id){
+        $bdd = connect_db();
+        $query = 'SELECT name,firstname FROM account WHERE idaccount=?';
+        $stmt = $bdd->prepare($query);
+        $stmt->execute(array($id));
+        $result = $stmt->fetch();
+        $stmt->closeCursor();
+        return $result['firstname'] . " ". $result['name'];
+    }
+
+    function get_picture_profile($id){
+        $bdd = connect_db();
+        $query = 'SELECT pictureprofil FROM account WHERE idaccount=?';
+        $stmt = $bdd->prepare($query);
+        $stmt->execute(array($id));
+        $result = $stmt->fetch();
+        $stmt->closeCursor();
+        return $result['pictureprofil'];
+    }
 ?>

@@ -53,10 +53,10 @@
 
     INSERT INTO ride VALUES (default, '2020-05-05','20:00:00-00','This is comment for my ride', 2,1,0,0,1,1,2,29);
 
--- Addition of new request (with its state) for specified ride under the entity 'recquire'
+-- Addition of new request (with its state) for specified ride under the entity 'require'
 
-    INSERT INTO recquire VALUES($IdAccount,$IdRide, $state_request);
+    INSERT INTO require VALUES($IdAccount,$IdRide, $state_request);
 
     -- Example
 
-    INSERT INTO recquire VALUES(1,4,'processing');
+    INSERT INTO require VALUES(1,4,'processing');
