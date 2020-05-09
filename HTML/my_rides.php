@@ -56,15 +56,11 @@
             </a>
 
             <div class="dropdown">
-              <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
-              <div class="dropdown-content">
-                <a href="#">Remove</a>
-                <a href="#">Modify</a>
-                <div class="button_container">
-                    <a href="#" onclick="openModal()">Approve passenger</a>
+                <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
+                <div class="dropdown-content">
+                    <a href="#">Cancel</a><!-- PHP : Requête d'annulation de participation -->
                 </div>
             </div>
-          </div>
         </div>
 
         <div class="title_div">
@@ -121,147 +117,6 @@
                     <a href="#" onclick="openModal()">Approve passenger</a>
                 </div>
             </div>
-          </div>
-      </div>
-
-        <!-- Un trajet -->
-        <div class="ride">
-            <div class=info>
-                <!-- Info à rentrer en php -->
-                <div class="pic_label">
-                    <img src="svg/calendar.svg" alt="calendar" width="40"/>
-                    <label for="" style="">25/05/2020</label>
-                </div>
-
-                <div class="end_pic_label">
-                    <img src="svg/clock.svg" alt="clock" width="40"/>
-                    <label for="">15h03</label>
-                </div>
-            </div>
-
-            <div class=rideResume>
-                <!-- Info à rentrer en php -->
-                <label for="">
-                    Toulouse
-                </label>
-                <img src="svg/city_sep.svg" alt="city" width="50">
-                <label for="">
-                    Montpellier
-                </label>
-            </div>
-
-            <!-- <div class=vertical_line> </div> -->
-            <a href="profile.php">
-                <div class=pic>
-                    <!-- Info à rentrer en php -->
-                    <img src="Pictures_site/test2.jpg" alt="ppDriver">
-                    <p>Nom du mec</p>
-                </div>
-            </a>
-
-            <div class="dropdown">
-              <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
-              <div class="dropdown-content">
-                <a href="#">Remove</a>
-                <a href="#">Modify</a>
-                <div class="button_container">
-                    <a href="#" onclick="openModal()">Approve passenger</a>
-                </div>
-              </div>
-          </div>
-      </div>
-
-        <!-- Un trajet -->
-        <div class="ride">
-            <div class=info>
-                <!-- Info à rentrer en php -->
-                <div class="pic_label">
-                    <img src="svg/calendar.svg" alt="calendar" width="40"/>
-                    <label for="" style="">25/05/2020</label>
-                </div>
-
-                <div class="end_pic_label">
-                    <img src="svg/clock.svg" alt="clock" width="40"/>
-                    <label for="">15h03</label>
-                </div>
-            </div>
-
-            <div class=rideResume>
-                <!-- Info à rentrer en php -->
-                <label for="">
-                    Toulouse
-                </label>
-                <img src="svg/city_sep.svg" alt="city" width="50">
-                <label for="">
-                    Montpellier
-                </label>
-            </div>
-
-            <!-- <div class=vertical_line> </div> -->
-            <a href="profile.php">
-                <div class=pic>
-                    <!-- Info à rentrer en php -->
-                    <img src="Pictures_site/test2.jpg" alt="ppDriver">
-                    <p>Nom du mec</p>
-                </div>
-            </a>
-
-            <div class="dropdown">
-              <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
-              <div class="dropdown-content">
-                <a href="#">Remove</a>
-                <a href="#">Modify</a>
-                <div class="button_container">
-                    <a href="#" onclick="openModal()">Approve passenger</a>
-                </div>
-              </div>
-          </div>
-      </div>
-
-        <!-- Un trajet -->
-        <div class="ride">
-            <div class=info>
-                <!-- Info à rentrer en php -->
-                <div class="pic_label">
-                    <img src="svg/calendar.svg" alt="calendar" width="40"/>
-                    <label for="" style="">25/05/2020</label>
-                </div>
-
-                <div class="end_pic_label">
-                    <img src="svg/clock.svg" alt="clock" width="40"/>
-                    <label for="">15h03</label>
-                </div>
-            </div>
-
-            <div class=rideResume>
-                <!-- Info à rentrer en php -->
-                <label for="">
-                    Toulouse
-                </label>
-                <img src="svg/city_sep.svg" alt="city" width="50">
-                <label for="">
-                    Montpellier
-                </label>
-            </div>
-
-            <!-- <div class=vertical_line> </div> -->
-            <a href="profile.php">
-                <div class=pic>
-                    <!-- Info à rentrer en php -->
-                    <img src="Pictures_site/test2.jpg" alt="ppDriver">
-                    <p>Nom du mec</p>
-                </div>
-            </a>
-
-            <div class="dropdown">
-              <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
-              <div class="dropdown-content">
-                <a href="#">Remove</a><!--PHP : Supprimer la trajet séléctionné-->
-                <a href="#">Modify</a><!--PHP : Modifier le trajet séléctionné-->
-                <div class="button_container">
-                    <a href="#" onclick="openModal()">Approve passenger</a>
-                </div>
-              </div>
           </div>
       </div>
 
