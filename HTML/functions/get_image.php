@@ -21,7 +21,7 @@
         }
 
         if(empty($errors) == true){ // if there is not error
-            move_uploaded_file($file_tmp,"/shares/home_file-share/servers/web/web/HTML/Pictures_site/users/".$username.'.'.$file_ext);
+            move_uploaded_file($file_tmp,"Pictures_site/users/".$username.'.'.$file_ext);
 
             $result = save_pp_account("Pictures_site/users/".$username.'.'.$file_ext, $_SESSION['id']);
             if ($result) {
