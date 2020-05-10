@@ -2,9 +2,14 @@
     require_once 'header.php';
     require_once 'functions/sql_account.php';
     require_once 'functions/check_registration.php';
+    require_once 'functions/get_image.php';
+
+
+
     if (!is_connected()){
         header("Location: connection.php");
     }
+
 
     //Save user information
     if (isset($_POST['saveSubmit'])){
@@ -73,6 +78,10 @@
 
     }
 
+    if(isset($_FILES['new_pp'])) {
+        upload_pp(strtolower($_SESSION['id']), $_FILES['new_pp']);
+    }
+
     $info = get_account_info($_SESSION['id']);
 
 ?>
@@ -88,6 +97,10 @@
             <aside class="tile" id="side_settings">
                 <div class="image_container">
                     <img src=<?=$info['pictureprofil']?> alt="picture profile">
+                    <form action="my_account.php" method="POST" enctype="multipart/form-data" id="file_form">
+                         <input type="file" name="new_pp" id="image" oninput="submitFileForm()"/>
+                         <label for="image" class="submit_button" id="file_button">Edit</label>
+                    </form>
                 </div>
                 <div class="">
                     <button class="tab_button" onClick="openTab(event, 'global_information')" type="button" name="button" id="default_tab">Information</button>
@@ -218,23 +231,6 @@
             </div>
         </div>
 
-        <script type="text/javascript">
-            document.getElementById("default_tab").click();
-
-            function openTab(evt, contentName) {
-                var tabContentList = document.getElementsByClassName("tab_content");
-                for(const elm of tabContentList) {
-                    elm.style.display = "none";
-                }
-
-                var tablinks = document.getElementsByClassName("tab_button");
-                for(elm of tablinks) {
-                    elm.className = elm.className.replace(" active", "");
-                }
-
-                document.getElementById(contentName).style.display = "block";
-                evt.currentTarget.className += " active";
-            }
-        </script>
+        <script src="javascript/my_account.js" type="text/javascript"></script>
     </body>
 </html>

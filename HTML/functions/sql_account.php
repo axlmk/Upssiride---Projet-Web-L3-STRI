@@ -1,4 +1,4 @@
-<?php 
+<?php
     function get_account_info($id){
         $bdd = connect_db();
         $stmt = $bdd->prepare('SELECT name, firstname,email,description,phone,pictureprofil FROM account WHERE idaccount=?');
@@ -12,6 +12,17 @@
         $bdd = connect_db();
         $stmt = $bdd->prepare('UPDATE account SET email=?, description = ?, phone = ? WHERE idaccount=?');
         $result = $stmt->execute(array($info['email'],$info['description'],$info['phone'],$id));
+        $stmt->closeCursor();
+        if ($result){
+            return true;
+        }
+        return false;
+    }
+
+    function save_pp_account($path, $id){
+        $bdd = connect_db();
+        $stmt = $bdd->prepare('UPDATE account SET pictureprofil=? WHERE idaccount=?');
+        $result = $stmt->execute(array($path, $id));
         $stmt->closeCursor();
         if ($result){
             return true;

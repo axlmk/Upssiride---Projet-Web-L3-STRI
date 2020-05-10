@@ -60,7 +60,7 @@
     height: auto;
     border-radius: 15px;
     border: solid 10px #f9f6f1;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 #description_field {
@@ -158,4 +158,27 @@
 /* CHECKED STYLES */
 [type=radio]:checked + img {
   outline: 2px solid #f00;
+}
+
+#image {
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+#file_button {
+    font-size: 12px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+#file_form {
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }

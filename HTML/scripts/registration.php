@@ -11,7 +11,7 @@
         $stmt->bindValue(':firstname', $firstname);
         $stmt->bindValue(':gender', $gender);
         $stmt->bindValue(':upassword', $pass);
-        $stmt->bindValue(':photo', "Pictures_site/human_placeholder.jpg");
+        $stmt->bindValue(':photo', "Pictures_site/users/human_placeholder.jpg");
         $stmt->bindValue(':email', $email);
         $stmt->bindValue(':phone', $phone);
         $stmt->bindValue(':birth', $birth);
