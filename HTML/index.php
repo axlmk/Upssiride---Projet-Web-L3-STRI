@@ -69,8 +69,8 @@
             </div>
 
             <div id="find_ride" class="content">
-                <form class="" action="index.html" method="post">
-                    <form class="" action="index.html" method="post">
+                <form class="" action="results.php" method="post">
+                    <form class="" action="results.php" method="post">
                         <label>Where are you leaving from?</label>
                         <input type="text" name="source_address" value="" class="input_button"></br>
                         <label>Where do you want to go?</label>

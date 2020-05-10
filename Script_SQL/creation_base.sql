@@ -9,7 +9,7 @@
 -- DROP TABLE State CASCADE;
 -- DROP TABLE Place CASCADE;
 -- DROP TABLE Participate CASCADE;
--- DROP TABLE Recquire CASCADE;
+-- DROP TABLE Require CASCADE;
 -- DROP TABLE consult_contact_details CASCADE;
 
 CREATE TABLE Account(
@@ -87,8 +87,8 @@ CREATE TABLE Ride(
    CHECK (Smoker = '0' OR Smoker = '1'),
    PRIMARY KEY(IdRide),
    FOREIGN KEY(IdState) REFERENCES State(IdState),
-   FOREIGN KEY(IdPlace) REFERENCES Place(IdPlace),
-   FOREIGN KEY(IdPlace_1) REFERENCES Place(IdPlace),
+   FOREIGN KEY(IdPlace_departure) REFERENCES Place(IdPlace),
+   FOREIGN KEY(IdPlace_arrived) REFERENCES Place(IdPlace),
    FOREIGN KEY(IdAccount) REFERENCES Account(IdAccount)
 );
 
@@ -100,7 +100,7 @@ CREATE TABLE Participate(
    FOREIGN KEY(IdRide) REFERENCES Ride(IdRide)
 );
 
-CREATE TABLE Recquire(
+CREATE TABLE Require(
    IdAccount INT,
    IdRide INT,
    state_request VARCHAR(10),                                        -- 3 states differents accepted / processing / refused

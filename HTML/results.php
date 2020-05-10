@@ -21,14 +21,14 @@
             <div class=infoSearched>
               <!-- Info à rentrer en php -->
               <div class="pic_label">
-                  <img src="Pictures_site/calendar.svg" alt="calendar" width="40"/>
+                  <img src="svg/calendar.svg" alt="calendar" width="40"/>
                     <label>
                         25/05/2020<!--PHP : À récupérer dans le form de recherche-->
                     </label>
               </div>
 
               <div class="end_pic_label">
-                    <img src="Pictures_site/clock.svg" alt="clock" width="40"/>
+                    <img src="svg/clock.svg" alt="clock" width="40"/>
                     <label>
                         15h03<!--PHP : À récupérer dans le form de recherche-->
                     </label>
@@ -70,12 +70,12 @@
             <div class=info>
                 <!-- Info à rentrer en php -->
                 <div class="pic_label">
-                    <img src="Pictures_site/calendar.svg" alt="calendar" width="40"/>
+                    <img src="svg/calendar.svg" alt="calendar" width="40"/>
                     <label for="" style="">25/05/2020</label>
                 </div>
 
                 <div class="end_pic_label">
-                    <img src="Pictures_site/clock.svg" alt="clock" width="40"/>
+                    <img src="svg/clock.svg" alt="clock" width="40"/>
                     <label for="">15h03</label>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                 <label for="">
                     Toulouse
                 </label>
-                <img src="Pictures_site/city_sep.svg" alt="city" width="50">
+                <img src="svg/city_sep.svg" alt="city" width="50">
                 <label for="">
                     Montpellier
                 </label>
@@ -101,7 +101,7 @@
             </a>
 
             <div class="dropdown">
-              <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
+              <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
               <div class="dropdown-content">
                 <a href="">Apply</a><!--PHP : Requête pour candidater à un trajet-->
                 <div class="button_container">
@@ -116,12 +116,12 @@
             <div class=info>
                 <!-- Info à rentrer en php -->
                 <div class="pic_label">
-                    <img src="Pictures_site/calendar.svg" alt="calendar" width="40"/>
+                    <img src="svg/calendar.svg" alt="calendar" width="40"/>
                     <label for="" style="">25/05/2020</label>
                 </div>
 
                 <div class="end_pic_label">
-                    <img src="Pictures_site/clock.svg" alt="clock" width="40"/>
+                    <img src="svg/clock.svg" alt="clock" width="40"/>
                     <label for="">15h03</label>
                 </div>
             </div>
@@ -131,7 +131,7 @@
                 <label for="">
                     Toulouse
                 </label>
-                <img src="Pictures_site/city_sep.svg" alt="city" width="50">
+                <img src="svg/city_sep.svg" alt="city" width="50">
                 <label for="">
                     Montpellier
                 </label>
@@ -147,7 +147,7 @@
             </a>
 
             <div class="dropdown">
-              <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
+              <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
               <div class="dropdown-content">
                 <a href="#">Apply</a>
                 <div class="button_container">
@@ -157,120 +157,116 @@
           </div>
       </div>
 
-        <!-- Un trajet -->
-        <div class="ride">
-            <div class=info>
-                <!-- Info à rentrer en php -->
-                <div class="pic_label">
-                    <img src="Pictures_site/calendar.svg" alt="calendar" width="40"/>
-                    <label for="" style="">25/05/2020</label>
-                </div>
-
-                <div class="end_pic_label">
-                    <img src="Pictures_site/clock.svg" alt="clock" width="40"/>
-                    <label for="">15h03</label>
-                </div>
-            </div>
-
-            <div class=rideResume>
-                <!-- Info à rentrer en php -->
-                <label for="">
-                    Toulouse
-                </label>
-                <img src="Pictures_site/city_sep.svg" alt="city" width="50">
-                <label for="">
-                    Montpellier
-                </label>
-            </div>
-
-            <!-- <div class=vertical_line> </div> -->
-            <a href="profile.php">
-                <div class=pic>
-                    <!-- Info à rentrer en php -->
-                    <img src="Pictures_site/test2.jpg" alt="ppDriver">
-                    <p>Nom du mec</p>
-                </div>
-            </a>
-
-            <div class="dropdown">
-              <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
-              <div class="dropdown-content">
-                <a href="#">Apply</a>
-                <div class="button_container">
-                    <a href="#" onclick="openModal()">More info</a>
-                </div>
-            </div>
-          </div>
-      </div>
-
-        <!-- Un trajet -->
-        <div class="ride">
-            <div class=info>
-                <!-- Info à rentrer en php -->
-                <div class="pic_label">
-                    <img src="Pictures_site/calendar.svg" alt="calendar" width="40"/>
-                    <label for="" style="">25/05/2020</label>
-                </div>
-
-                <div class="end_pic_label">
-                    <img src="Pictures_site/clock.svg" alt="clock" width="40"/>
-                    <label for="">15h03</label>
-                </div>
-            </div>
-
-            <div class=rideResume>
-                <!-- Info à rentrer en php -->
-                <label for="">
-                    Toulouse
-                </label>
-                <img src="Pictures_site/city_sep.svg" alt="city" width="50">
-                <label for="">
-                    Montpellier
-                </label>
-            </div>
-
-            <!-- <div class=vertical_line> </div> -->
-            <a href="profile.php">
-                <div class=pic>
-                    <!-- Info à rentrer en php -->
-                    <img src="Pictures_site/test2.jpg" alt="ppDriver">
-                    <p>Nom du mec</p>
-                </div>
-            </a>
-
-            <div class="dropdown">
-              <img src="Pictures_site/checkbox.svg" alt="Option button" class="dropbtn"></img>
-              <div class="dropdown-content">
-                <a href="#">Apply</a>
-                <div class="button_container">
-                    <a href="#" onclick="openModal()">More info</a>
-                </div>
-            </div>
-          </div>
-      </div>
+        
 
             <!--Boite modale-->
             <div id="modal">
-                <h1>Summary</h1>
-                <hr>
-                <div class="driverInfo"><!--PHP : Récupérer info du trajet séléctionné-->
-                    <div class="pic">
-                    <a href=""><img src="pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
-                    <a href=""><h3>Cyril Decaud</h3></a><!--PHP : Nom du passager-->
-                    </div>
-                    <div class="description">
-                        <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
-                    </div>
-                    <div class="choice">
-                        <button action="" method="POST"><img src="pictures_site/OK.png"></img></button><!--PHP : Requête passager accepté-->
-                    </div>
-                    <div class="choice">
-                        <button action="" method="POST"><img src="pictures_site/NOK.png"></img></button><!--PHP : Requête passager refusé-->
-                    </div>
+                <div class="title_summary">
+                    <h1>Summary</h1>
+                    <hr>
                 </div>
-                <div id="btnClose">
-                    <button id="close" onclick="closeModal()">Close</button>
+                <div id="ride_resume">
+                    <div class="driverInfo"><!--PHP : Récupérer info du trajet séléctionné-->
+                        <h2>Driver</h2>
+                
+                        <div class="pic">
+                            <a href=""><img src="pictures_site/test2.jpg"></img></a><!--PHP : Photo du conduecteur-->
+                            <a href=""><h3>Cyril Decaud</h3></a><!--PHP : nom conducteur-->
+                        </div>
+                        <div class="preferences">
+                            <div class="music">
+                                <div class="music_icon">
+                                    <img src="svg/music_ok.svg"></img><!--PHP : Icone préférences musicales du conducteur-->
+                                </div>
+                                <div class="music_text">
+                                    <p>I love to listen to music</p><!--PHP : texte préférences musicales du conducteur-->
+                                </div>
+                            </div>
+                            <div class="talk">
+                                <div class="talk_icon">
+                                    <img src="svg/tchat_ok.svg"></img><!--PHP : Icone préférences de discussions du conducteur-->
+                                </div>
+                                <div class="talk_text">
+                                    <p>I like to talk</p><!--PHP : texte préférences de discussions du conducteur-->
+                                </div>
+                            </div>
+                            <div class="smoke">
+                                <div class="smoke_icon">
+                                    <img src="svg/cigarette_forbidden.svg"></img><!--PHP : Icone préférences cigarette du conducteur-->
+                                </div>
+                                <div class="smoke_text">
+                                    <p>No smoking</p><!--PHP : texte préférences cigarette du conducteur-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <h2>Vehicle</h2>
+                        </div>
+                        <div class="driverCar">
+                            <div class="driverCar_icon">
+                                <img src="svg/car.svg" alt="Car"></img>
+                            </div>
+                            <div class="diverCar_text">
+                                <p>White Renault Trafic</p><!--PHP : Voiture du conducteur-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="travel">
+                        <div class="travel_resume">
+                            <div class="from">
+                                <div class="town">
+                                    <label>Toulouse</label><!--PHP : Ville de départ-->
+                                </div>
+                                <div class="adress">
+                                    <p>Place du capitol, 31000 Toulouse</p><!--PHP : Adresse de départ-->
+                                </div>
+                                <div class="time">
+                                    <h3>9:00 am</h3><!--PHP : Heure de départ-->
+                                </div>
+                            </div>
+                            <div class="city_sep">
+                                <img src="svg/city_sep.svg"></img>
+                            </div>
+                            <div class="to">
+                                <div class="town">
+                                    <label>Marseille</label><!--PHP : Ville d'arrivée-->
+                                </div>
+                                <div class="adress">
+                                    <p>Le vieux port, 13000 Marseille</p><!--PHP : Adresse d'arrivée-->
+                                </div>
+                                <div class="time">
+                                    <h3>2:00 pm</h3><!--PHP : Heure d'arrivée-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="passengers">
+                            <div class="passengers_title">
+                                <h2>Passengers<h2>
+                            </div>
+                            <div class="passengers_team">
+                                <div class="passagers">                                                             <!--PHP : Portion à répéter--->
+    <!--0 adapter en PHP-->         <a href ="profile.php"><img src="Pictures_site/test2.jpg"></img></a>            <!-- autant de fois que ------>
+                                </div>                                                                              <!--de place dans la voiture-->
+                                <div class="passagers">                                                             
+                                     <a href ="profile.php"><img src="Pictures_site/human_placeholder.jpg"></img></a>
+                                </div>                                                                             
+                            </div>                                                                                  
+                        </div>
+                        <div id="boutons">
+                            <div id="btnClose">
+                                <button id="close" onclick="closeModal()">Close</button>
+                            </div>
+                            <div class="btnApply">
+                                <a href=""><button id="apply" >Apply</button></a>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
+                
             </div>
 
         <script src="javascript/modal.js" type="text/javascript"></script>
