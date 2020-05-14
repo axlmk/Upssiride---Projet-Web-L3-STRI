@@ -18,14 +18,13 @@
 
     function get_my_rides($id){
         $bdd = connect_db();
-        $query = 'SELECT ride.idride, ride.departuredate, ride.departuretime, ride.idplace_departure, ride.idplace_arrived, ride.idaccount 
+        $query = 'SELECT DISTINCT ride.idride, ride.departuredate, ride.departuretime, ride.idplace_departure, ride.idplace_arrived, ride.idaccount 
                     FROM ride, participate 
                     WHERE participate.idaccount= ? and participate.idride = ride.idride or ride.idaccount = ?
                     ORDER BY ride.departuredate ASC';
         $stmt = $bdd->prepare($query);
         $stmt->execute(array($id,$id));
         $data = $stmt->fetchAll();
-        //print_r($data);
         $stmt->closeCursor();
         return $data;
     }
@@ -39,7 +38,6 @@
         $stmt = $bdd->prepare($query);
         $stmt->execute(array($id));
         $data = $stmt->fetchAll();
-        //print_r($data);
         $stmt->closeCursor();
         return $data;
     }
@@ -53,8 +51,19 @@
         $stmt = $bdd->prepare($query);
         $stmt->execute(array($id,$id));
         $data = $stmt->fetchAll();
-        //print_r($data);
         $stmt->closeCursor();
         return $data;
+    }
+
+    function get_passengers_request($id_ride){
+        $bdd = connect_db();
+        if ($bdd==null){
+            return false;
+        }
+        $query = "SELECT idaccount FROM require WHERE idride=$id_ride AND state_request='processing'";
+        $stmt = $bdd->query($query);
+        $result = $stmt->fetchAll();
+        $stmt->closeCursor();
+        return $result;
     }
 ?>
