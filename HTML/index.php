@@ -19,9 +19,9 @@
             <div id="offer_ride" class="content">
                 <form class="" action="index.php" method="post">
                     <label>Where are you leaving from?</label>
-                    <input type="text" name="source_address" value="" class="input_button"></br>
+                    <input type="text" name="source_address" value="" class="input_button" id="offer_from_button"></br>
                     <label>Where are you going?</label>
-                    <input type="text" name="destination_address" value="" class="input_button"></br>
+                    <input type="text" name="destination_address" value="" class="input_button" id="offer_to_button"></br>
                     <label for="">When?</label>
                     <input type="date" name="date_ride" value="" class="input_button"></br>
                     <label for="">At what time?</label>
@@ -72,9 +72,9 @@
                 <form class="" action="results.php" method="post">
                     <form class="" action="results.php" method="post">
                         <label>Where are you leaving from?</label>
-                        <input type="text" name="source_address" value="" class="input_button"></br>
+                        <input type="text" name="source_address" value="" class="input_button" id="find_from_button"></br>
                         <label>Where do you want to go?</label>
-                        <input type="text" name="destination_address" value="" class="input_button"></br>
+                        <input type="text" name="destination_address" value="" class="input_button" id="find_to_button"></br>
                         <label for="">Which day?</label>
                         <input type="date" name="date_ride" value="" class="input_button"></br>
                         <label for="">Around what time?</label>
@@ -114,5 +114,30 @@
         </div>
 
         <script src="javascript/index.js" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/places.js@1.18.2"></script>
+        <script>
+
+            var apiKeysOptions = {
+                appId: 'plDTSXKSBU1L',
+                apiKey: '32b04d693d26a353c189ec5fa220433c',
+                container: null
+            };
+
+            const confOptions = {
+                language: 'en',
+                countries: ['fr', 'gb'],
+                aroundLatLngViaIP: false
+            };
+
+            apiKeysOptions.container = document.querySelector('#offer_from_button');
+            places(apiKeysOptions).configure(confOptions);
+            apiKeysOptions.container = document.querySelector('#offer_to_button');
+            places(apiKeysOptions).configure(confOptions);
+            apiKeysOptions.container = document.querySelector('#find_from_button');
+            places(apiKeysOptions).configure(confOptions);
+            apiKeysOptions.container = document.querySelector('#find_to_button');
+            places(apiKeysOptions).configure(confOptions);
+
+        </script>
     </body>
 </html>

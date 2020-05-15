@@ -13,6 +13,14 @@
     justify-content: space-around;
     align-items: center;
     box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.ride:hover {
+    cursor: pointer;
+    box-shadow: none;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.02);
 }
 
 .info {
@@ -389,7 +397,7 @@
 }
 
 .btnApply{
-    padding-bottom: 15px;    
+    padding-bottom: 15px;
     margin-left: 50px;
 }
 

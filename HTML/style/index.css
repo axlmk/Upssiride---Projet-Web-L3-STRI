@@ -115,3 +115,16 @@
 .submit_button {
     width: 120px;
 }
+
+.ap-input, .ap-suggestion {
+    font-size: 12px;
+    text-align: left;
+}
+
+.ap-input {
+    vertical-align: center;
+}
+
+.ap-dropdown-menu {
+    border-radius: 10px;
+}

@@ -28,9 +28,9 @@
             <img src="svg/hourglass.svg"/>
             <h2>Request sent</h2>
         </div>
-        
+
         <?php foreach ($resultrequire as $require): ?>
-            <?php 
+            <?php
                 $driver_name = get_name_firstname($require['idaccount']);
                 $place_departure = get_place($require['idplace_departure']);
                 $place_arrived = get_place($require['idplace_arrived']);
@@ -38,7 +38,7 @@
             ?>
             <div class="ride">
                 <div class=info>
-                
+
                     <div class="pic_label">
                         <img src="svg/calendar.svg" alt="calendar" width="40"/>
                         <label for="" style=""><?=$require['departuredate']?></label>
@@ -78,7 +78,7 @@
                 </div>
             </div>
         <?php endforeach ?>
-    <?php endif ?>   
+    <?php endif ?>
         <div class="title_div">
             <img src="svg/car.svg"/>
             <h2>Rides to come</h2>
@@ -87,7 +87,7 @@
 <!-- Debut du div-->
     <?php if ($resultride!=null): ?>
         <?php foreach ($resultride as $ride): ?>
-            <?php 
+            <?php
                     $driver_name = get_name_firstname($ride['idaccount']);
                     $departure = get_place($ride['idplace_departure']);
                     $arrived = get_place($ride['idplace_arrived']);
@@ -193,7 +193,7 @@
         </div>
     <?php if ($resultcompleted!=null): ?>
         <?php foreach ($resultcompleted as $completed): ?>
-            <?php 
+            <?php
                 $driver_name = get_name_firstname($completed['idaccount']);
                 $place_departure = get_place($completed['idplace_departure']);
                 $place_arrived = get_place($completed['idplace_arrived']);

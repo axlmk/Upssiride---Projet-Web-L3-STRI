@@ -4,6 +4,9 @@
     if (isset($_POST['new_desc_form']) && isset($_POST['new_title_form']) && isset($_POST['new_id_form'])) {
         edit_sponsor($_POST['new_id_form'], $_POST['new_title_form'], $_POST['new_desc_form']);
     }
+    if(isset($_POST['deleteSponsor'])) {
+        delete_sponsor($_POST['deleteSponsor']);
+    }
     $sponsors = get_sponsors();
 ?>
 
@@ -26,6 +29,7 @@
                 <p <?php echo 'id="description_paragraph_'.$row['idsponsors'].'"' ?> ><?=$row["description"]?></p>
             </div>
             <div class="dropdown">
+                <button class="deleteButton" type="button" <?php echo 'onClick="openTab('.$row['idsponsors'].'); deleteSp('.$row['idsponsors'].')"' ?>>Delete</button>
                 <button class="modifyButton" type="button" <?php echo 'onClick="openTab('.$row['idsponsors'].'); modify('.$row['idsponsors'].')"' ?>>Edit</button>
                 <button class="cancelButton" type="button" <?php echo 'onClick="openTab('.$row['idsponsors'].'); cancel('.$row['idsponsors'].')"' ?>>Cancel</button>
                 <button class="saveButton" type="button" <?php echo 'onClick="openTab('.$row['idsponsors'].'); save('.$row['idsponsors'].')"' ?>>Save</button>

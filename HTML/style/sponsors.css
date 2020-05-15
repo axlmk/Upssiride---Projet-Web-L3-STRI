@@ -89,7 +89,7 @@ textarea {
     margin-top: 20px;
 }
 
-.modifyButton , .saveButton, .cancelButton {
+.modifyButton , .saveButton, .cancelButton, .deleteButton {
     border: none;
     border-radius: 15px;
     padding-left: 20px;
@@ -101,7 +101,7 @@ textarea {
     color: #f9f6f1;
 }
 
-.modifyButton:hover , .saveButton:hover, .cancelButton:hover {
+.modifyButton:hover , .saveButton:hover, .cancelButton:hover, .deleteButton:hover {
     cursor: pointer;
 }
 
@@ -113,6 +113,11 @@ textarea {
 .cancelButton {
     display: none;
     background-color: red;
+}
+
+.deleteButton {
+    display: none;
+    background-color: black;
 }
 /*
 .dropbtn {

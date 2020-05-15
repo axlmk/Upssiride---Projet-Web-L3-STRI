@@ -8,15 +8,18 @@ function openTab(it) {
     var mdfButton = document.getElementsByClassName("modifyButton")[it-1];
     var calButton = document.getElementsByClassName("cancelButton")[it-1];
     var savButton = document.getElementsByClassName("saveButton")[it-1];
+    var delButton = document.getElementsByClassName("deleteButton")[it-1];
 
     if(mdfButton.style.display != 'none') {
         if(panel_open == false) {
             mdfButton.style.display = 'none';
+            delButton.style.display = 'block';
             calButton.style.display = 'block';
             savButton.style.display = 'block';
         }
     } else {
         mdfButton.style.display = 'block';
+        delButton.style.display = 'none';
         calButton.style.display = 'none';
         savButton.style.display = 'none';
     }
@@ -129,4 +132,18 @@ function cancel(it) {
 
         panel_open = false;
     }
+}
+
+
+function deleteSp(it) {
+    var form = document.createElement("form");
+    form.style.display = 'none';
+    form.method = "POST";
+    form.action = "sponsors.php";
+    document.body.appendChild(form);
+    var form_title = document.createElement("input")
+    form_title.name = "deleteSponsor";
+    form_title.value = it;
+    form.appendChild(form_title);
+    form.submit();
 }
