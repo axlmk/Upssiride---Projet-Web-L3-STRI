@@ -5,10 +5,10 @@ var previous_text;
 var previous_title;
 
 function openTab(it) {
-    var mdfButton = document.getElementsByClassName("modifyButton")[it-1];
-    var calButton = document.getElementsByClassName("cancelButton")[it-1];
-    var savButton = document.getElementsByClassName("saveButton")[it-1];
-    var delButton = document.getElementsByClassName("deleteButton")[it-1];
+    var mdfButton = document.getElementById("modify_button_" + it);
+    var calButton = document.getElementById("cancel_button_" + it);
+    var savButton = document.getElementById("save_button_" + it);
+    var delButton = document.getElementById("delete_button_" + it);
     var picture = document.getElementById('pp_' + it);
     var picture_modif = document.getElementById('pp_modif_' + it);
 
@@ -139,16 +139,20 @@ function cancel(it) {
 }
 
 
-function deleteSp(it) {
+function deleteSp(it, path) {
     var form = document.createElement("form");
     form.style.display = 'none';
     form.method = "POST";
     form.action = "sponsors.php";
     document.body.appendChild(form);
-    var form_title = document.createElement("input")
+    var form_title = document.createElement("input");
     form_title.name = "deleteSponsor";
     form_title.value = it;
+    var url_picture = document.createElement("input");
+    url_picture.name = "urlPicture";
+    url_picture.value = path;
     form.appendChild(form_title);
+    form.appendChild(url_picture);
     form.submit();
 }
 

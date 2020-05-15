@@ -5,14 +5,18 @@
     if (isset($_POST['new_desc_form']) && isset($_POST['new_title_form']) && isset($_POST['new_id_form'])) {
         edit_sponsor($_POST['new_id_form'], $_POST['new_title_form'], $_POST['new_desc_form']);
     }
-    if(isset($_POST['deleteSponsor'])) {
-        delete_sponsor($_POST['deleteSponsor']);
-    }
     if(isset($_FILES['new_pp'])) {
         upload_pp(strtolower($_POST['new_id_form']), $_FILES['new_pp'], "Pictures_site/sponsors/", "sponsor");
     }
     if(isset($_FILES['new_pp_new_sponsor'])) {
-        add_sponsor($_POST['new_title'], $_POST['new_description'], "Pictures_site/sponsors/".rand(0, 999999999));
+        $path_new = upload_pp(rand(0, 999999999), $_FILES['new_pp_new_sponsor'], "Pictures_site/sponsors/", "new_sponsor");
+        add_sponsor($_POST['new_title'], $_POST['new_description'], $path_new);
+    }
+
+    if(isset($_POST['deleteSponsor'])) {
+        echo "allo ?";
+        delete_sponsor($_POST['deleteSponsor']);
+        unlink($_POST['urlPicture']);
     }
     $sponsors = get_sponsors();
 ?>
@@ -42,10 +46,10 @@
                 <p <?php echo 'id="description_paragraph_'.$row['idsponsors'].'"' ?> ><?=$row["description"]?></p>
             </div>
             <div class="dropdown">
-                <button class="deleteButton" type="button" <?php echo 'onClick="openTab('.$row['idsponsors'].'); deleteSp('.$row['idsponsors'].')"' ?>>Delete</button>
-                <button class="modifyButton" type="button" <?php echo 'onClick="openTab('.$row['idsponsors'].'); modify('.$row['idsponsors'].')"' ?>>Edit</button>
-                <button class="cancelButton" type="button" <?php echo 'onClick="openTab('.$row['idsponsors'].'); cancel('.$row['idsponsors'].')"' ?>>Cancel</button>
-                <button class="saveButton" type="button" <?php echo 'onClick="openTab('.$row['idsponsors'].'); save('.$row['idsponsors'].')"' ?>>Save</button>
+                <button class="deleteButton" type="button" <?php echo 'id="delete_button_'.$row['idsponsors'].'"' ?> <?php echo 'onClick="openTab('.$row['idsponsors'].'); deleteSp('.$row['idsponsors'].',\''.$row['pictureprofile'].'\')"' ?>>Delete</button>
+                <button class="modifyButton" type="button" <?php echo 'id="modify_button_'.$row['idsponsors'].'"' ?> <?php echo 'onClick="openTab('.$row['idsponsors'].'); modify('.$row['idsponsors'].')"' ?>>Edit</button>
+                <button class="cancelButton" type="button" <?php echo 'id="cancel_button_'.$row['idsponsors'].'"' ?> <?php echo 'onClick="openTab('.$row['idsponsors'].'); cancel('.$row['idsponsors'].')"' ?>>Cancel</button>
+                <button class="saveButton" type="button" <?php echo 'id="save_button_'.$row['idsponsors'].'"' ?> <?php echo 'onClick="openTab('.$row['idsponsors'].'); save('.$row['idsponsors'].')"' ?>>Save</button>
             </div>
         </div>
         <?php endforeach?>

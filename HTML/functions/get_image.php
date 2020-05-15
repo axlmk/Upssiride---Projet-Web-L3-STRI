@@ -6,10 +6,10 @@
     function upload_pp($username, $file, $path, $type) {
         $errors= array();
         $file_name = $file['name']; // get the name of the file
-        $file_size =$file['size']; // get the size in bits
-        $file_tmp =$file['tmp_name']; // get the temp file name
-        $file_type=$file['type']; // get the type MIME type
-        $file_ext=strtolower(end(explode('.',$file['name']))); // parse the extension
+        $file_size = $file['size']; // get the size in bits
+        $file_tmp = $file['tmp_name']; // get the temp file name
+        $file_type = $file['type']; // get the type MIME type
+        $file_ext = get_ext($file['name']); // parse the extension
 
         $extensions= array("jpeg","jpg","png");
 
@@ -29,6 +29,8 @@
                 if(!$result) {
                     $returnPP = "An error has occured, please retry later";
                 }
+            } else if($type == "new_sponsor") {
+                return $path.$username.'.'.$file_ext;
             } else {
                 $result = save_pp_account($path.$username.'.'.$file_ext, $_SESSION['id']);
                 if ($result) {
@@ -40,5 +42,9 @@
         } else {
             print_r($errors);
         }
+    }
+
+    function get_ext($name) {
+        return strtolower(end(explode('.',$name)));
     }
 ?>
