@@ -1,8 +1,9 @@
 <?php
 
     include_once 'functions/sql_account.php';
+    include_once 'functions/sql_sponsors.php';
 
-    function upload_pp($username, $file) {
+    function upload_pp($username, $file, $path, $type) {
         $errors= array();
         $file_name = $file['name']; // get the name of the file
         $file_size =$file['size']; // get the size in bits
@@ -21,13 +22,20 @@
         }
 
         if(empty($errors) == true){ // if there is not error
-            move_uploaded_file($file_tmp,"Pictures_site/users/".$username.'.'.$file_ext);
+            move_uploaded_file($file_tmp,$path.$username.'.'.$file_ext);
 
-            $result = save_pp_account("Pictures_site/users/".$username.'.'.$file_ext, $_SESSION['id']);
-            if ($result) {
-                $returnPP = "Your pp has been changed";
+            if($type == "sponsor") {
+                $result = edit_pp_sponsor($username, $path.$username.'.'.$file_ext);
+                if(!$result) {
+                    $returnPP = "An error has occured, please retry later";
+                }
             } else {
-                $returnPP = "An error has occured, please retry later";
+                $result = save_pp_account($path.$username.'.'.$file_ext, $_SESSION['id']);
+                if ($result) {
+                    $returnPP = "Your pp has been changed";
+                } else {
+                    $returnPP = "An error has occured, please retry later";
+                }
             }
         } else {
             print_r($errors);
