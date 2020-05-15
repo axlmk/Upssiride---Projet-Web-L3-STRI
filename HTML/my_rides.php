@@ -132,57 +132,51 @@
                     <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
                     <div class="dropdown-content">
                         <a href="#">Remove</a>
-                        <a href="#">Modify</a>
-                        <div class="button_container">
-                            <a href="#" onclick="openModal()">Approve passenger</a>
-                        </div>
+                        <?php if ($_SESSION['id']==$ride['idaccount']): ?> <!-- Si l'utilisateur est conducteur -->
+                            <a href="#">Modify</a>
+                            <div class="button_container">
+                                <a href="#" onclick="openModal()">Approve passenger</a>
+                            </div>
+                        <?php endif ?>
                     </div>
                 </div>
             </div>
-
-            <!--Boite modale-->
-            <div id="modal">
-                <h1>New request</h1>
-                <hr>
-                    <div class="aRequest"><!--PHP : Récupérer info du trajet séléctionné-->
-                        <div class="pic">
-                        <a href=""><img src="Pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
+            <?php if ($_SESSION['id']==$ride['idaccount']): ?> 
+            <?php $resume = get_passengers_request($ride['idride']); ?>  
+                <!--Boite modale-->
+                <div id="modal">
+                    <h1>New request</h1>
+                    <hr>
+                    <?php foreach($resume as $passenger): ?>
+                        <?php 
+                            //$passenger_name = get_name_firstname($passenger['idaccount']);
+                            //$pdd = get_picture_profile($passenger['idaccount']);
+                            $passenger_resume = get_resume_passenger($passenger['idaccount']);
+                        ?>
+                        <div class="aRequest"><!--PHP : Récupérer info du trajet séléctionné-->
+                            <div class="pic">
+                            <a href=""><img src=<?=$passenger_resume['pictureprofil']?>></img></a><!--PHP : Photo du passager-->
+                            </div>
+                            <div class="namePassenger">
+                                <a href=""><h3><?=$passenger_resume['firstname'] . " " . $passenger_resume['name'] ?></h3></a><!--PHP : Nom du passager-->
+                            </div>
+                            <div class="description">
+                                <p><?=$passenger_resume['description']?></p><!--PHP : Description du passager-->
+                            </div>
+                            <div class="choice">
+                                <button action="" method="POST"><img src="svg/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
+                            </div>
+                            <div class="choice">
+                                <button action="" method="POST"><img src="svg/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
+                            </div>
                         </div>
-                        <div class="namePassenger">
-                            <a href=""><h3>Cyril Decaud</h3></a><!--PHP : Nom du passager-->
-                        </div>
-                        <div class="description">
-                            <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
-                        </div>
-                        <div class="choice">
-                            <button action="" method="POST"><img src="svg/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
-                        </div>
-                        <div class="choice">
-                            <button action="" method="POST"><img src="svg/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
-                        </div>
+                    <?php endforeach ?>
+                    <div id="btnClose">
+                        <button id="close" onclick="closeModal()">Close</button>
                     </div>
-
-                    <div class="aRequest"><!--PHP : Récupérer info du trajet séléctionné-->
-                        <div class="pic">
-                        <a href=""><img src="Pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
-                        </div>
-                        <div class="namePassenger">
-                            <a href=""><h3>Cyril Decaud</h3></a><!--PHP : Nom du passager-->
-                        </div>
-                        <div class="description">
-                            <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
-                        </div>
-                        <div class="choice">
-                            <button action="" method="POST"><img src="svg/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
-                        </div>
-                        <div class="choice">
-                            <button action="" method="POST"><img src="svg/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
-                        </div>
-                    </div>
-                <div id="btnClose">
-                    <button id="close" onclick="closeModal()">Close</button>
                 </div>
-            </div>
+            <?php endif ?>
+
         <?php endforeach?>
     <?php else: ?>
         <p>Any ride to come! <p>
