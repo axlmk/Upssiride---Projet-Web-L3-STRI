@@ -62,7 +62,7 @@
                 </div>
 
                 <!-- <div class=vertical_line> </div> -->
-                <a href="profile.php">
+                <a href="profile.php?id=<?=$require['idaccount']?>">
                     <div class=pic>
                         <!-- Info à rentrer en php -->
                         <img src=<?=$picture_profile?> alt="ppDriver">
@@ -120,7 +120,7 @@
                 </div>
 
                 <!-- <div class=vertical_line> </div> -->
-                <a href="profile.php">
+                <a href="profile.php?id=<?=$ride['idaccount']?>">
                     <div class=pic>
                         <!-- Info à rentrer en php -->
                         <img src="<?=$picture_profile?>" alt="ppDriver">
@@ -155,10 +155,10 @@
                         ?>
                         <div class="aRequest"><!--PHP : Récupérer info du trajet séléctionné-->
                             <div class="pic">
-                            <a href=""><img src=<?=$passenger_resume['pictureprofil']?>></img></a><!--PHP : Photo du passager-->
+                            <a href="profile.php?id=<?=$passenger['idaccount']?>"><img src=<?=$passenger_resume['pictureprofil']?>></img></a><!--PHP : Photo du passager-->
                             </div>
                             <div class="namePassenger">
-                                <a href=""><h3><?=$passenger_resume['firstname'] . " " . $passenger_resume['name'] ?></h3></a><!--PHP : Nom du passager-->
+                                <a href="profile.php?id=<?=$passenger['idaccount']?>"><h3><?=$passenger_resume['firstname'] . " " . $passenger_resume['name'] ?></h3></a><!--PHP : Nom du passager-->
                             </div>
                             <div class="description">
                                 <p><?=$passenger_resume['description']?></p><!--PHP : Description du passager-->
@@ -220,7 +220,7 @@
 
                 <!-- <div class=vertical_line> </div> -->
 
-                <a href="profile.php">
+                <a href="profile.php?id=<?=$completed['idaccount']?>">
                     <div class=pic>
                         <!-- Info à rentrer en php -->
                         <img src=<?=$picture_profile?> alt="ppDriver">
