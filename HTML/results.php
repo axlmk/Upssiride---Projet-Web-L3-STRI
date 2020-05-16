@@ -5,6 +5,11 @@
     if (!is_connected()){
         header("Location: connection.php");
     }
+
+    if(isset($_POST['find_from_country'])) {
+        echo $_POST['find_from_country']."<br>".$_POST['find_from_zip']."<br>".$_POST['find_from_city']."<br>".$_POST['find_from_address']."<br>";
+        echo $_POST['find_to_country']."<br>".$_POST['find_to_zip']."<br>".$_POST['find_to_city']."<br>".$_POST['find_to_address']."<br>";
+    }
 ?>
 
 <!DOCTYPE html>

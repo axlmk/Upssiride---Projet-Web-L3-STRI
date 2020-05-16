@@ -5,11 +5,9 @@
     require_once 'functions/get_image.php';
 
 
-
     if (!is_connected()){
         header("Location: connection.php");
     }
-
 
     //Save user information
     if (isset($_POST['saveSubmit'])){

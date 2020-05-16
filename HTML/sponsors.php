@@ -14,7 +14,6 @@
     }
 
     if(isset($_POST['deleteSponsor'])) {
-        echo "allo ?";
         delete_sponsor($_POST['deleteSponsor']);
         unlink($_POST['urlPicture']);
     }

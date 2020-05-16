@@ -165,10 +165,10 @@ function displayNewSponsor() {
 
 function addSponsor() {
     var form = document.getElementById('new_form');
-    var form_title_new = document.
+    var form_title_new = document.createElement("input");
     form_title_new.name = "addSponsorTitle";
     form_title_new.value = true;
-    var form_title_new = document.createElement("input")
+    var form_title_new = document.createElement("input");
     form_title_new.name = "addSponsorDesc";
     form.appendChild(form_title_new);
     form.submit();
