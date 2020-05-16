@@ -44,16 +44,18 @@
                 <h3 <?php echo 'id="description_title_'.$row['idsponsors'].'"' ?>><?=$row["name"]?></h3>
                 <p <?php echo 'id="description_paragraph_'.$row['idsponsors'].'"' ?> ><?=$row["description"]?></p>
             </div>
+            <?php if ($_SESSION['admin']==1): ?>
             <div class="dropdown">
                 <button class="deleteButton" type="button" <?php echo 'id="delete_button_'.$row['idsponsors'].'"' ?> <?php echo 'onClick="openTab('.$row['idsponsors'].'); deleteSp('.$row['idsponsors'].',\''.$row['pictureprofile'].'\')"' ?>>Delete</button>
                 <button class="modifyButton" type="button" <?php echo 'id="modify_button_'.$row['idsponsors'].'"' ?> <?php echo 'onClick="openTab('.$row['idsponsors'].'); modify('.$row['idsponsors'].')"' ?>>Edit</button>
                 <button class="cancelButton" type="button" <?php echo 'id="cancel_button_'.$row['idsponsors'].'"' ?> <?php echo 'onClick="openTab('.$row['idsponsors'].'); cancel('.$row['idsponsors'].')"' ?>>Cancel</button>
                 <button class="saveButton" type="button" <?php echo 'id="save_button_'.$row['idsponsors'].'"' ?> <?php echo 'onClick="openTab('.$row['idsponsors'].'); save('.$row['idsponsors'].')"' ?>>Save</button>
             </div>
+            <?php endif ?>
         </div>
         <?php endforeach?>
 
-
+        <?php if ($_SESSION['admin']==1): ?>
         <!--<div class="tile" id="newSp">-->
             <form action="sponsors.php" method="POST" enctype="multipart/form-data" class="tile" id="newSp">
                 <div class="file_form" id="new_picture_new_sponsor">
@@ -79,6 +81,7 @@
         </div>
 
         <script src="javascript/sponsors.js" type="text/javascript"></script>
+        <?php endif ?>
    </body>
 
 </html>

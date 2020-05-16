@@ -20,7 +20,7 @@
         $bdd = connect_db();
         $query = 'SELECT DISTINCT ride.idride, ride.departuredate, ride.departuretime, ride.idplace_departure, ride.idplace_arrived, ride.idaccount 
                     FROM ride, participate 
-                    WHERE participate.idaccount= ? and participate.idride = ride.idride or ride.idaccount = ?
+                    WHERE (participate.idaccount= ? and participate.idride = ride.idride or ride.idaccount = ? ) and ride.idstate=1
                     ORDER BY ride.departuredate ASC';
         $stmt = $bdd->prepare($query);
         $stmt->execute(array($id,$id));
@@ -44,14 +44,14 @@
 
     function get_my_rides_completed($id){
         $bdd = connect_db();
-        $query = 'SELECT ride.idride, ride.departuredate, ride.departuretime, ride.idplace_departure, ride.idplace_arrived, ride.idaccount 
+        $query = 'SELECT DISTINCT ride.idride, ride.departuredate, ride.departuretime, ride.idplace_departure, ride.idplace_arrived, ride.idaccount 
                     FROM ride, participate 
                     WHERE (participate.idaccount= ? and participate.idride = ride.idride or ride.idaccount = ?) and ride.idstate = 3
                     ORDER BY ride.departuredate ASC';
         $stmt = $bdd->prepare($query);
         $stmt->execute(array($id,$id));
         $data = $stmt->fetchAll();
-        $stmt->closeCursor();
+        $stmt->closeCursor();                           
         return $data;
     }
 
@@ -64,6 +64,19 @@
         $stmt = $bdd->query($query);
         $result = $stmt->fetchAll();
         $stmt->closeCursor();
-        return $result;
+        return $result;                                                                                                                                                                                                                                                                                                                                                                                                                                     
     }
+
+    function accept_passenger($id_ride, $id_passenger){
+        $bdd = connect_db();
+        if ($bdd==null){
+            return false;
+        }
+        $query = "INSERT INTO participate VALUES($id_passenger,$id_ride)";
+        $bdd->query($query);
+        $query2 = "DELETE FROM require WHERE idaccount=$id_passenger AND idride=$id_ride";
+        $bdd->query($query2);
+    }
+
+    
 ?>
