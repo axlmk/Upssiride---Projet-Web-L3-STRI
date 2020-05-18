@@ -322,6 +322,22 @@
     align-self: flex-start; /* Seul ce bloc sera aligné à la fin */
 }
 
+.pets {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.pets_text {
+    text-align: left;
+    width: 75%;
+    margin-left: 20px;
+}
+
+.pets:nth-child(2) {
+    align-self: flex-start; /* Seul ce bloc sera aligné à la fin */
+}
+
 .driverCar {
     display: flex;
 }

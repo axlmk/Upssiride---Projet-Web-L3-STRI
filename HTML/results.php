@@ -220,6 +220,14 @@
                                     <p>No smoking</p><!--PHP : texte préférences cigarette du conducteur-->
                                 </div>
                             </div>
+                            <div class="pets">
+                                <div class="pets_icon">
+                                    <img src="svg/pets.svg"></img><!--PHP : Icone préférences cigarette du conducteur-->
+                                </div>
+                                <div class="pets_text">
+                                    <p>No pets allowed</p><!--PHP : texte préférences cigarette du conducteur-->
+                                </div>
+                            </div>
                         </div>
                         <div id="mapid"></div>
                         <div class="">
