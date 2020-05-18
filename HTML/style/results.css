@@ -51,7 +51,7 @@
 .pic img {
     border-radius: 25px;
     border: solid 8px #191A1C;
-    height: 70px;
+    height: 100px;
     width: auto;
     right: 0px;
 }
@@ -141,6 +141,10 @@
     background-color: rgba(0,0,0,0);
 }
 
+#btnClose{
+    padding-bottom: 15px;
+}
+
 #btnClose button {
     border: none;
     border-radius: 5px;
@@ -200,6 +204,210 @@
     padding-right: 20px;
 }
 
+#modal{
+    width: 80%;
+    height: auto;
+    max-height: 80%;
+    left: -50%;
+    right: 10%;
+    top: 10%;
+    background-color: #f3ddc6;
+    border-radius: 10px;
+    position: fixed;
+    opacity: 0;
+    -webkit-box-shadow: 10px 10px 0px 500px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 0px 500px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 0px 500px rgba(0,0,0,0.75);
+    z-index: 7;
+    transition: 0.3s ease-in-out;
+    visibility: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#ride_resume {
+    display: flex;
+}
+
+#ride_resume:nth-child(1) {
+    flex: 1;
+}
+
+#ride_resume:nth-child(2) {
+    flex: 2;
+}
+
 #summary h1{
     text-align: left;
+}
+
+.driverInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    margin-right: 20px;
+}
+
+.preferences {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.preferences img{
+    width: 50px;
+    height: 50px;
+}
+
+.music{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.music_icon{
+    padding-top: 25px;
+}
+
+.music_text{
+    text-align: left;
+    width: 75%;
+    margin-left: 20px;
+}
+
+.music:nth-child(2){
+    align-self: flex-start; /* Seul ce bloc sera aligné à la fin */
+}
+
+.talk{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.talk:nth-child(2){
+    align-self: flex-start; /* Seul ce bloc sera aligné à la fin */
+}
+
+.talk_text {
+    text-align: left;
+    width: 75%;
+    margin-left: 20px;
+}
+
+.smoke {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.smoke_text {
+    text-align: left;
+    width: 75%;
+    margin-left: 20px;
+}
+
+.smoke:nth-child(2) {
+    align-self: flex-start; /* Seul ce bloc sera aligné à la fin */
+}
+
+.driverCar {
+    display: flex;
+}
+
+.driverCar_icon{
+    width: 30%;
+    height: auto;
+}
+
+.driverCar_text {
+    width: 20%;
+}
+
+.travel {
+    display: flex;
+    flex-direction: column;
+}
+
+.travel_resume {
+    display: flex;
+}
+
+.from {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border: 2px solid #191A1C;
+    border-radius: 10px;
+
+}
+
+.city_sep {
+    width: 20%;
+    height: auto;
+    padding-top: 10%;
+}
+
+.city_sep img {
+    width: 50%;
+    height: auto;
+}
+
+.to {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 2px solid #191A1C;
+    border-radius: 10px;
+}
+
+.passengers{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.passengers img{
+    border: 2px solid #191A1C;
+    margin: 0px;
+    padding: 0px;
+    width: 100px;
+}
+
+.passengers_team{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#boutons {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.btnApply{
+    padding-bottom: 15px;    
+    margin-left: 50px;
+}
+
+.btnApply button {
+    border: none;
+    border-radius: 5px;
+    font-family: 'LEMONMILK-BOLD', 'Arial';
+    font-size: 14px;
+    background-color: #c26400;
+    color: #f9f6f1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.btnApply button:hover {
+    color: #f9f6f1;
+    filter: brightness(120%);
+    cursor: pointer;
 }
