@@ -37,3 +37,35 @@
     -- Example
 
     UPDATE sponsors SET name='stri', description = 'I follow this beautiful project' WHERE idsponsors=1;
+
+-- Modifiy 'music' attribut for a specific account
+
+    UPDATE account SET music=$music WHERE idaccount=$Idaccount;
+
+    -- Example 
+
+    UPDATE account SET music=0 WHERE idaccount=1;
+
+-- Modifiy 'chatting' attribut for a specific account
+
+    UPDATE account SET chatting=$chatting WHERE idaccount=$Idaccount;
+
+    -- Example 
+
+    UPDATE account SET chatting=0 WHERE idaccount=1;
+
+-- Modifiy 'smoke' attribut for a specific account
+
+    UPDATE account SET smoke=$smoke WHERE idaccount=$Idaccount;
+
+    -- Example 
+
+    UPDATE account SET smoke=0 WHERE idaccount=1;
+
+-- Modifiy 'pets' attribut for a specific account
+
+    UPDATE account SET pets=$pets WHERE idaccount=$Idaccount;
+
+    -- Example 
+
+    UPDATE account SET pets=0 WHERE idaccount=1;
