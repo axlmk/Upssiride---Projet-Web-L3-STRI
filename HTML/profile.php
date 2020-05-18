@@ -1,12 +1,25 @@
 <?php
     require_once 'header.php';
+    require_once 'functions/sql_account.php';
+    if (isset($_GET['id'])){
+        $profile = get_profile($_GET['id']);
+        $nb_rides = count(get_my_rides_completed($_GET['id']));
+        if (!$profile){
+            header("Location: my_account.php");
+        }
+    }
+    else {
+        header("Location: my_account.php");
+    }
+
+    
 ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title> <! -- Nom de la personne --> </title>
+        <title> <?=$profile['name'] . " " . $profile['firstname'] ?> | Profile</title>
         <link rel="stylesheet" href="style/profile.css"/>
     </head>
     <body>
@@ -16,8 +29,8 @@
         <div class=pic>
             <! -- Info à rentrer en php -->
             <a href="#">
-                <img src="Pictures_site/test.jpg" alt="profile picture", class="picture_profile">
-                <p>Jean-Didier Bulbon De La Villardière</p>
+                <img src=<?=$profile['pictureprofil']?> alt="profile picture", class="picture_profile">
+                <p><?=$profile['firstname'] . " " . $profile['name'] ?></p>
             </a>
         </div>
 
@@ -25,10 +38,7 @@
             <hr>
             <h2>Description</h2>
             <!-- <img src="svg/quotes.png" alt="quotes logo">-->
-            <p>J'adore manger des carottes tôt le matin. Les balades en forêt sont mon quotidien.
-            Bien qu'un peu bouleversé par le confinnement je prend toujours la voiture et propose mes trajets à de potentiels covitureurs.
-        Il est évident que l'état nous ment depuis le début de cette crise et je refuse de troquer ma joie de vivre contre de l'enfumage politique.
-    Je joue à Mario Kart.</p>
+            <p> <?=$profile['description'] ?></p>
         </div>
 
         <div class="preferences">
@@ -49,11 +59,11 @@
         <! -- A compléter en PHP -- >
         <div class=stats>
             <div class=registered>
-                registered since 2020
+                registered since <?=date('F Y',strtotime($profile['registrationdate']))?>
             </div>
             <div class=little_vertical_line> </div>
             <div class=ridesCompleted>
-                0 rides Completed
+                <?=$nb_rides?> rides Completed
             </div>
         </div>
 

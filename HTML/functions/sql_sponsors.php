@@ -12,4 +12,36 @@
         $result = $stmt->execute(array($name, $description, $id));
         $stmt->closeCursor();
     }
+
+    function edit_pp_sponsor($id, $pp) {
+        $bdd = connect_db();
+        $stmt = $bdd->prepare('UPDATE sponsors SET pictureprofile=? WHERE idsponsors=?');
+        $result = $stmt->execute(array($pp, $id));
+        $stmt->closeCursor();
+    }
+
+    function add_sponsor($name, $description, $pictureprofile){
+        $bdd = connect_db();
+        echo $name."<br>".$description."<br>".$pictureprofile;
+        $query = "INSERT INTO sponsors values(default, ?, ?, ?)";
+        $stmt = $bdd->prepare($query);
+        $stmt->execute(array($name, $description, $pictureprofile));
+    }
+
+    function delete_sponsor($idsponsor){
+        $bdd = connect_db();
+        $stmt = $bdd->prepare("DELETE FROM sponsors WHERE idsponsors=?");
+        $stmt->execute(array($idsponsor));
+        $stmt->closeCursor();
+    }
+
+    function get_picture_profile_sponsor($id){
+        $bdd = connect_db();
+        $query = 'SELECT pictureprofil FROM sponsors WHERE idaccount=?';
+        $stmt = $bdd->prepare($query);
+        $stmt->execute(array($id));
+        $result = $stmt->fetch();
+        $stmt->closeCursor();
+        return $result['pictureprofil'];
+    }
 ?>

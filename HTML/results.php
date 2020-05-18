@@ -1,9 +1,14 @@
 <?php
     require_once 'functions/auth.php';
     require_once 'header.php';
-    
+
     if (!is_connected()){
         header("Location: connection.php");
+    }
+
+    if(isset($_POST['find_from_country'])) {
+        echo $_POST['find_from_country']."<br>".$_POST['find_from_zip']."<br>".$_POST['find_from_city']."<br>".$_POST['find_from_address']."<br>";
+        echo $_POST['find_to_country']."<br>".$_POST['find_to_zip']."<br>".$_POST['find_to_city']."<br>".$_POST['find_to_address']."<br>";
     }
 ?>
 
@@ -13,6 +18,25 @@
         <meta charset="utf-8">
         <title>Results</title>
         <link rel="stylesheet" href="style/results.css"/>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+        <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+        <style>
+            #mapid {
+                height: 300px;
+                width: 300px;
+            }
+
+            .leaflet-routing-container {
+                display: none;
+            }
+        </style>
     </head>
     <body>
         <h1>Your search</h1>
@@ -44,7 +68,7 @@
                             Toulouse<!--PHP : À récupérer dans le form de recherche-->
                         </label>
                     </div>
-                    
+
                     <div class="arrival">
                         <h3>Arrival</h3>
                         <label>
@@ -66,7 +90,7 @@
     } -->
         <?php ?>
         <!-- Un trajet -->
-        <div class="ride">
+        <div class="ride" onclick="openModal()">
             <div class=info>
                 <!-- Info à rentrer en php -->
                 <div class="pic_label">
@@ -157,7 +181,6 @@
           </div>
       </div>
 
-        
 
             <!--Boite modale-->
             <div id="modal">
@@ -168,7 +191,6 @@
                 <div id="ride_resume">
                     <div class="driverInfo"><!--PHP : Récupérer info du trajet séléctionné-->
                         <h2>Driver</h2>
-                
                         <div class="pic">
                             <a href=""><img src="pictures_site/test2.jpg"></img></a><!--PHP : Photo du conduecteur-->
                             <a href=""><h3>Cyril Decaud</h3></a><!--PHP : nom conducteur-->
@@ -199,6 +221,7 @@
                                 </div>
                             </div>
                         </div>
+                        <div id="mapid"></div>
                         <div class="">
                             <h2>Vehicle</h2>
                         </div>
@@ -249,10 +272,10 @@
                                 <div class="passagers">                                                             <!--PHP : Portion à répéter--->
     <!--0 adapter en PHP-->         <a href ="profile.php"><img src="Pictures_site/test2.jpg"></img></a>            <!-- autant de fois que ------>
                                 </div>                                                                              <!--de place dans la voiture-->
-                                <div class="passagers">                                                             
+                                <div class="passagers">
                                      <a href ="profile.php"><img src="Pictures_site/human_placeholder.jpg"></img></a>
-                                </div>                                                                             
-                            </div>                                                                                  
+                                </div>
+                            </div>
                         </div>
                         <div id="boutons">
                             <div id="btnClose">
@@ -266,10 +289,11 @@
                     </div>
 
                 </div>
-                
+
             </div>
 
         <script src="javascript/modal.js" type="text/javascript"></script>
+        <script type="text/javascript" src="javascript/results.js"></script>
 
     </body>
 

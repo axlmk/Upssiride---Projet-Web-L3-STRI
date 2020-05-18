@@ -44,6 +44,21 @@
                         <label for="" style=""><?=$require['departuredate']?></label>
                     </div>
 
+        <?php foreach ($resultrequire as $require): ?>
+            <?php
+                $driver_name = get_name_firstname($require['idaccount']);
+                $place_departure = get_place($require['idplace_departure']);
+                $place_arrived = get_place($require['idplace_arrived']);
+                $picture_profile = get_picture_profile($require['idaccount']);
+            ?>
+            <div class="ride">
+                <div class=info>
+
+                    <div class="pic_label">
+                        <img src="svg/calendar.svg" alt="calendar" width="40"/>
+                        <label for="" style=""><?=$require['departuredate']?></label>
+                    </div>
+
                     <div class="end_pic_label">
                         <img src="svg/clock.svg" alt="clock" width="40"/>
                         <label for=""><?=$require['departuretime']?></label>
@@ -62,7 +77,7 @@
                 </div>
 
                 <!-- <div class=vertical_line> </div> -->
-                <a href="profile.php">
+                <a href="profile.php?id=<?=$require['idaccount']?>">
                     <div class=pic>
                         <!-- Info à rentrer en php -->
                         <img src=<?=$picture_profile?> alt="ppDriver">
@@ -78,7 +93,7 @@
                 </div>
             </div>
         <?php endforeach ?>
-    <?php endif ?>   
+    <?php endif ?>
         <div class="title_div">
             <img src="svg/car.svg"/>
             <h2>Rides to come</h2>
@@ -87,7 +102,7 @@
 <!-- Debut du div-->
     <?php if ($resultride!=null): ?>
         <?php foreach ($resultride as $ride): ?>
-            <?php 
+            <?php
                     $driver_name = get_name_firstname($ride['idaccount']);
                     $departure = get_place($ride['idplace_departure']);
                     $arrived = get_place($ride['idplace_arrived']);
@@ -120,7 +135,7 @@
                 </div>
 
                 <!-- <div class=vertical_line> </div> -->
-                <a href="profile.php">
+                <a href="profile.php?id=<?=$ride['idaccount']?>">
                     <div class=pic>
                         <!-- Info à rentrer en php -->
                         <img src="<?=$picture_profile?>" alt="ppDriver">
@@ -132,57 +147,51 @@
                     <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
                     <div class="dropdown-content">
                         <a href="#">Remove</a>
-                        <a href="#">Modify</a>
-                        <div class="button_container">
-                            <a href="#" onclick="openModal()">Approve passenger</a>
-                        </div>
+                        <?php if ($_SESSION['id']==$ride['idaccount']): ?> <!-- Si l'utilisateur est conducteur -->
+                            <a href="#">Modify</a>
+                            <div class="button_container">
+                                <a href="#" onclick="openModal()">Approve passenger</a>
+                            </div>
+                        <?php endif ?>
                     </div>
                 </div>
             </div>
-
-            <!--Boite modale-->
-            <div id="modal">
-                <h1>New request</h1>
-                <hr>
-                    <div class="aRequest"><!--PHP : Récupérer info du trajet séléctionné-->
-                        <div class="pic">
-                        <a href=""><img src="Pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
+            <?php if ($_SESSION['id']==$ride['idaccount']): ?> 
+            <?php $resume = get_passengers_request($ride['idride']); ?>  
+                <!--Boite modale-->
+                <div id="modal">
+                    <h1>New request</h1>
+                    <hr>
+                    <?php foreach($resume as $passenger): ?>
+                        <?php 
+                            //$passenger_name = get_name_firstname($passenger['idaccount']);
+                            //$pdd = get_picture_profile($passenger['idaccount']);
+                            $passenger_resume = get_resume_passenger($passenger['idaccount']);
+                        ?>
+                        <div class="aRequest"><!--PHP : Récupérer info du trajet séléctionné-->
+                            <div class="pic">
+                            <a href="profile.php?id=<?=$passenger['idaccount']?>"><img src=<?=$passenger_resume['pictureprofil']?>></img></a><!--PHP : Photo du passager-->
+                            </div>
+                            <div class="namePassenger">
+                                <a href="profile.php?id=<?=$passenger['idaccount']?>"><h3><?=$passenger_resume['firstname'] . " " . $passenger_resume['name'] ?></h3></a><!--PHP : Nom du passager-->
+                            </div>
+                            <div class="description">
+                                <p><?=$passenger_resume['description']?></p><!--PHP : Description du passager-->
+                            </div>
+                            <div class="choice">
+                                <button action="" method="POST"><img src="svg/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
+                            </div>
+                            <div class="choice">
+                                <button action="" method="POST"><img src="svg/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
+                            </div>
                         </div>
-                        <div class="namePassenger">
-                            <a href=""><h3>Cyril Decaud</h3></a><!--PHP : Nom du passager-->
-                        </div>
-                        <div class="description">
-                            <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
-                        </div>
-                        <div class="choice">
-                            <button action="" method="POST"><img src="svg/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
-                        </div>
-                        <div class="choice">
-                            <button action="" method="POST"><img src="svg/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
-                        </div>
+                    <?php endforeach ?>
+                    <div id="btnClose">
+                        <button id="close" onclick="closeModal()">Close</button>
                     </div>
-
-                    <div class="aRequest"><!--PHP : Récupérer info du trajet séléctionné-->
-                        <div class="pic">
-                        <a href=""><img src="Pictures_site/test2.jpg"></img></a><!--PHP : Photo du passager-->
-                        </div>
-                        <div class="namePassenger">
-                            <a href=""><h3>Cyril Decaud</h3></a><!--PHP : Nom du passager-->
-                        </div>
-                        <div class="description">
-                            <p>J'adore faire chier les gens avec ma sounboard</p><!--PHP : Description du passager-->
-                        </div>
-                        <div class="choice">
-                            <button action="" method="POST"><img src="svg/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
-                        </div>
-                        <div class="choice">
-                            <button action="" method="POST"><img src="svg/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
-                        </div>
-                    </div>
-                <div id="btnClose">
-                    <button id="close" onclick="closeModal()">Close</button>
                 </div>
-            </div>
+            <?php endif ?>
+
         <?php endforeach?>
     <?php else: ?>
         <p>Any ride to come! <p>
@@ -193,7 +202,7 @@
         </div>
     <?php if ($resultcompleted!=null): ?>
         <?php foreach ($resultcompleted as $completed): ?>
-            <?php 
+            <?php
                 $driver_name = get_name_firstname($completed['idaccount']);
                 $place_departure = get_place($completed['idplace_departure']);
                 $place_arrived = get_place($completed['idplace_arrived']);
@@ -226,7 +235,7 @@
 
                 <!-- <div class=vertical_line> </div> -->
 
-                <a href="profile.php">
+                <a href="profile.php?id=<?=$completed['idaccount']?>">
                     <div class=pic>
                         <!-- Info à rentrer en php -->
                         <img src=<?=$picture_profile?> alt="ppDriver">

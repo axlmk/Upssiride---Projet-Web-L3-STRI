@@ -5,20 +5,29 @@ var previous_text;
 var previous_title;
 
 function openTab(it) {
-    var mdfButton = document.getElementsByClassName("modifyButton")[it-1];
-    var calButton = document.getElementsByClassName("cancelButton")[it-1];
-    var savButton = document.getElementsByClassName("saveButton")[it-1];
+    var mdfButton = document.getElementById("modify_button_" + it);
+    var calButton = document.getElementById("cancel_button_" + it);
+    var savButton = document.getElementById("save_button_" + it);
+    var delButton = document.getElementById("delete_button_" + it);
+    var picture = document.getElementById('pp_' + it);
+    var picture_modif = document.getElementById('pp_modif_' + it);
 
     if(mdfButton.style.display != 'none') {
         if(panel_open == false) {
             mdfButton.style.display = 'none';
+            picture_modif.style.display = 'flex';
+            delButton.style.display = 'block';
             calButton.style.display = 'block';
             savButton.style.display = 'block';
+            picture.style.display = 'none';
         }
     } else {
+        picture_modif.style.display = 'none';
         mdfButton.style.display = 'block';
+        delButton.style.display = 'none';
         calButton.style.display = 'none';
         savButton.style.display = 'none';
+        picture.style.display = 'block';
     }
 }
 
@@ -82,11 +91,9 @@ function save(it) {
         panel_open = false;
 
         //form creation
-        var form = document.createElement("form");
+        var form = document.getElementById('pp_modif_' + it);
+        //var form = document.createElement("form");
         form.style.display = 'none';
-        form.method = "POST";
-        form.action = "sponsors.php";
-        document.body.appendChild(form);
         var form_title = document.createElement("input")
         form_title.name = "new_title_form";
         form_title.value = new_title.innerHTML;
@@ -129,4 +136,46 @@ function cancel(it) {
 
         panel_open = false;
     }
+}
+
+
+function deleteSp(it, path) {
+    var form = document.createElement("form");
+    form.style.display = 'none';
+    form.method = "POST";
+    form.action = "sponsors.php";
+    document.body.appendChild(form);
+    var form_title = document.createElement("input");
+    form_title.name = "deleteSponsor";
+    form_title.value = it;
+    var url_picture = document.createElement("input");
+    url_picture.name = "urlPicture";
+    url_picture.value = path;
+    form.appendChild(form_title);
+    form.appendChild(url_picture);
+    form.submit();
+}
+
+function displayNewSponsor() {
+    if(!panel_open) {
+        document.getElementById('newSp').style.display = 'flex';
+        panel_open = true;
+    }
+}
+
+function addSponsor() {
+    var form = document.getElementById('new_form');
+    var form_title_new = document.createElement("input");
+    form_title_new.name = "addSponsorTitle";
+    form_title_new.value = true;
+    var form_title_new = document.createElement("input");
+    form_title_new.name = "addSponsorDesc";
+    form.appendChild(form_title_new);
+    form.submit();
+    hideNewSponsor();
+}
+
+function hideNewSponsor() {
+    document.getElementById('newSp').style.display = 'none';
+    panel_open = false;
 }

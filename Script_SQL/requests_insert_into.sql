@@ -59,4 +59,12 @@
 
     -- Example
 
-    INSERT INTO require VALUES(1,4,'processing');
+    INSERT INTO recquire VALUES(1,4,'processing');
+
+-- Addition of new partipation for specify ride under the entity 'participate'
+
+    INSERT INTO participate VALUES($Idaccount,$Idride);
+
+    -- Example
+
+    INSERT INTO participate VALUES(1,3);

@@ -18,12 +18,12 @@
         $query = 'SELECT idaccount FROM account WHERE email=? AND password=?';
         $stmt = $bdd->prepare($query);
         $stmt->execute(array($login, $pass));
-        $result = $stmt->fetch();
+        $result = $stmt->rowCount();
+        $id = $stmt->fetch();
         $stmt->closeCursor();
-        if (count($result)>0){
-            return $result['idaccount'];
+        if ($result>0){
+            return $id['idaccount'];
         }
-        
         return 0;
     }
 
@@ -32,10 +32,10 @@
         if ($bdd==null){
             return false;
         }
-        $query = 'SELECT idaccount FROM account WHERE idaccount=? and admin=1';
+        $query = 'SELECT count(*) FROM account WHERE idaccount=? AND admin=1';
         $stmt = $bdd->prepare($query);
         $stmt->execute(array($id));
-        $result = $stmt->fetch();
+        $result = $stmt->fetchAll();
         $stmt->closeCursor();
         if (count($result)>0){
             return true;
@@ -43,6 +43,6 @@
         
         return false;
     }
-    
+
 ?>
 

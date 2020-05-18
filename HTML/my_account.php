@@ -5,15 +5,14 @@
     require_once 'functions/get_image.php';
 
 
-
     if (!is_connected()){
         header("Location: connection.php");
     }
 
-
     //Save user information
     if (isset($_POST['saveSubmit'])){
         //email
+
         $user_info['email'] = htmlentities(trim($_POST['emailField']));
         $user_info['phone'] = htmlentities(trim($_POST['phoneField']));
         $user_info['description'] = htmlentities(trim($_POST['descriptionField']));
@@ -43,16 +42,13 @@
     }
 
     if (isset($_POST['passwordSubmit'])){
-        echo "OK";
         //email
         $pass = htmlentities($_POST['passwordField']);
         $confirmPass = htmlentities($_POST['confirmField']);
         $previousPass = htmlentities($_POST['previousField']);
-        echo $previousPass;
-        $previousPass = md5($previousPass);
+
         //if the field is empty or the password is incorrect
-        echo "<br/> retour ".!verify_password($_SESSION['id'],$previousPass)."<br/>";
-        if (empty($previousPass) || !verify_password($_SESSION['id'],$previousPass)){
+        if (empty($previousPass) || !verify_password($_SESSION['id'],md5($previousPass))){
             $err_previousPass = "Your password is incorrect";
             $valid = 0;
         }
@@ -66,6 +62,7 @@
             $valid = 0;
         }
 
+        //if verifications are valid
         if (!isset($valid)){
             $result = save_new_password(md5($pass),$_SESSION['id']);
             if ($result){
@@ -79,7 +76,7 @@
     }
 
     if(isset($_FILES['new_pp'])) {
-        upload_pp(strtolower($_SESSION['id']), $_FILES['new_pp']);
+        upload_pp(strtolower($_SESSION['id']), $_FILES['new_pp'], "Pictures_site/users/", "user");
     }
 
     $info = get_account_info($_SESSION['id']);
@@ -103,8 +100,13 @@
                     </form>
                 </div>
                 <div class="">
+                <?php if (!isset($_POST['passwordSubmit'])): ?>
                     <button class="tab_button" onClick="openTab(event, 'global_information')" type="button" name="button" id="default_tab">Information</button>
-                    <button class="tab_button" onClick="openTab(event, 'password_information')" type="button" name="button"  >Change password</button>
+                    <button class="tab_button" onClick="openTab(event, 'password_information')" type="button" name="button" >Change password</button>
+                <?php else: ?>
+                    <button class="tab_button" onClick="openTab(event, 'global_information')" type="button" name="button" >Information</button>
+                    <button class="tab_button" onClick="openTab(event, 'password_information')" type="button" name="button" id="default_tab">Change password</button>
+                <?php endif ?>
                     <button class="tab_button" onClick="openTab(event, 'vehicles_information')" type="button" name="button">Vehicles</button>
                 </div>
             </aside>

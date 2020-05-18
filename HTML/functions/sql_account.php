@@ -39,10 +39,10 @@
         return $data['email'];
     }
 
-    function save_new_password($info,$id){
+    function save_new_password($pass,$id){
         $bdd = connect_db();
         $stmt = $bdd->prepare('UPDATE account SET password = ? WHERE idaccount=?');
-        $result = $stmt->execute(array($info['passwordField'],$id));
+        $result = $stmt->execute(array($pass,$id));
         $stmt->closeCursor();
         if ($result){
             return true;
@@ -51,18 +51,16 @@
     }
 
     function verify_password($id, $pass){
-        echo "<br/>".$id."<br/>";
         $bdd = connect_db();
         if ($bdd==null){
             return false;
         }
-        $query = 'SELECT * FROM account WHERE idaccount=? AND password=?';
+        $query = 'SELECT count(*) FROM account WHERE idaccount=? AND password=?';
         $stmt = $bdd->prepare($query);
         $stmt->execute(array($id, $pass));
-        $result = $stmt->fetch();
+        $result = $stmt->fetchColumn();
         $stmt->closeCursor();
-        if (count($result)>0){
-            echo "true";
+        if ($result>0){
             return true;
         }
         return false;
@@ -87,4 +85,27 @@
         $stmt->closeCursor();
         return $result['pictureprofil'];
     }
+<<<<<<< HEAD
+=======
+
+    function get_resume_passenger($id){
+        $bdd = connect_db();
+        $query = 'SELECT name, firstname, pictureprofil, description FROM account WHERE idaccount=?';
+        $stmt = $bdd->prepare($query);
+        $stmt->execute(array($id));
+        $result = $stmt->fetch();
+        $stmt->closeCursor();
+        return $result;
+    }
+
+    function get_profile($id){
+        $bdd = connect_db();
+        $query = 'SELECT name, firstname, description, pictureprofil, registrationdate FROM account WHERE idaccount=?';
+        $stmt = $bdd->prepare($query);
+        $stmt->execute(array($id));
+        $result = $stmt->fetch();
+        $stmt->closeCursor();
+        return $result;
+    }
+>>>>>>> 8d773ace4f5b90606391ba4a4254ae201ae79c05
 ?>
