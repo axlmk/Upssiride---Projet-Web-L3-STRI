@@ -69,3 +69,11 @@
     -- Example 
 
     UPDATE account SET pets=0 WHERE idaccount=1;
+
+-- Modify picture profile for a specific spondsors in the entity 'sponsors'
+
+    UPDATE sponsors SET pictureprofile=$Pictureprofile WHERE idsponsors=$Idsponsors
+
+    -- Example
+
+    UPDATE sponsors SET pictureprofile='Pictures_sites/sponsors/stri.png' WHERE idsponsors=1
