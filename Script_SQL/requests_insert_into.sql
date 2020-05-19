@@ -38,7 +38,7 @@
 
 -- Addition of new place in the BdD under the entity 'place'
 
-    INSERT INTO place VALUES ($IdPlace,$address,$postcode,$city,$country);
+    INSERT INTO place VALUES (default,$address,$postcode,$city,$country);
 
     -- Example
 
@@ -47,7 +47,7 @@
 
 -- Addition of new ride in the BdD under the entity 'ride'
 
-    INSERT INTO ride VALUES ($IdRide,$departuredate,$departuretime,$comment,$maxpassengersnb,$idstate,$idplace_departure,$idplace_arrived,$idaccount);
+    INSERT INTO ride VALUES (default,$departuredate,$departuretime,$comment,$maxpassengersnb,$idstate,$idplace_departure,$idplace_arrived,$idaccount);
 
     -- Example
 
@@ -76,3 +76,14 @@
     -- Example
 
     INSERT INTO sponsors values(default, 'stri', 'I follow this beautiful project', 'Pictures_sites/sponsors/stri.png');
+<<<<<<< HEAD
+=======
+
+-- Addition of new place under in entity 'place'
+
+    INSERT INTO place VALUES(default, $address, $zip, $city, $country, $lat, $lng);
+
+    -- Example
+
+    INSERT INTO place VALUES(default, 'This is address', 'this is zip', 'Test city', 'Test country', 'latitude', 'longitude');
+>>>>>>> 6f8549aca6cc8208f3994183044b24234b7f6dc3

@@ -85,8 +85,7 @@
         $stmt->closeCursor();
         return $result['pictureprofil'];
     }
-<<<<<<< HEAD
-=======
+
 
     function get_resume_passenger($id){
         $bdd = connect_db();
@@ -107,9 +106,7 @@
         $stmt->closeCursor();
         return $result;
     }
-<<<<<<< HEAD
->>>>>>> 8d773ace4f5b90606391ba4a4254ae201ae79c05
-=======
+
 
     function get_vehicles($id){
         $bdd = connect_db();
@@ -120,5 +117,4 @@
         $stmt->closeCursor();
         return $result;
     }
->>>>>>> 8b4897dbb972b511dd1307520bb5592a1e93faf3
 ?>

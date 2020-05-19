@@ -152,10 +152,46 @@
 
     SELECT pictureprofil FROM sponsors WHERE idsponsors=1;
 
--- Modify picture profile for a specific spondsors in the entity 'sponsors'
+-- Search and display vehicule for a specific account with 'idaccount' attribut
 
-    UPDATE sponsors SET pictureprofile=$Pictureprofile WHERE idsponsors=$Idsponsors
+    SELECT * FROM vehicule WHERE idaccount=$Idaccount;
 
     -- Example
 
+<<<<<<< HEAD
     UPDATE sponsors SET pictureprofile='Pictures_sites/sponsors/stri.png' WHERE idsponsors=1
+=======
+    SELECT * FROM vehicule WHERE idaccount=1;
+
+-- Search and display specific idride by filtering with 'departuredate','departuretime' and 'idaccount' attribut in the entity 'ride'
+
+    SELECT idride FROM ride WHERE departuredate=$Departuredate AND departuretime>=$Departuretime1 AND departuretime<=$Departuretime2 AND idaccount=$Idaccount;
+
+    -- Example
+
+    SELECT idride FROM ride WHERE departuredate='2020-05-15' AND departuretime>='15:00:00' AND departuretime<='15:30:00' AND idaccount=1;
+
+-- Search and display specific idride by filtering with 'departuredate','departuretime', 'comment', maxpassengersnb', 'idstate', idplace_departure', 'idplace_arrived' and 'idaccount' attribut in the entity 'ride'
+
+    SELECT idride FROM ride
+    WHERE departuredate=$Departuredate      AND departuretime=$Departuretime AND comment=$Comment
+                                            AND maxpassengersnb=$Maxpassengersnb AND idstate=$Idstate
+                                            AND idplace_departure=$Idplace_departure AND idplace_arrived=$Idplace_arrived
+                                            AND idaccount=$Idaccount;
+
+    -- Example
+
+    SELECT idride FROM ride
+    WHERE departuredate='2020-05-15'    AND departuretime=2 AND comment='This is my comment'
+                                        AND maxpassengersnb=3 AND idstate=1
+                                        AND idplace_departure=40 AND idplace_arrived=50
+                                        AND idaccount=1;
+
+-- Search and display specific idplace by filtering with 'address', 'postcode', 'city' and 'country' attribut in the entity 'place'
+
+    SELECT idplace FROM place WHERE address=$Address AND postcode=$Postcode AND city=$City AND country=$Country;
+
+    -- Example
+
+    SELECT idplace FROM place WHERE address='My_address' AND postcode='123456' AND city='London' AND country='United Kingdom';
+>>>>>>> 6f8549aca6cc8208f3994183044b24234b7f6dc3
