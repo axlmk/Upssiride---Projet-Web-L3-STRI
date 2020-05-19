@@ -3,7 +3,7 @@
     DELETE FROM sponsors WHERE name = $Name
 
     -- Example
-    
+
     DELETE FROM sponsors WHERE name = 'my_sponsors';
 
 -- Delete an account in the BdD under the entity 'vehicule', 'ride', 'require', 'participate' and 'account'
@@ -15,7 +15,7 @@
     DELETE FROM account WHERE idaccount=(  SELECT idaccount FROM account WHERE name = $Name AND firstname = $Firstname);
 
     -- Example
-    
+
     DELETE FROM vehicule WHERE idaccount=(  SELECT idaccount FROM account WHERE name = 'rr' AND firstname = 'rr');
     DELETE FROM ride WHERE idaccount=(  SELECT idaccount FROM account WHERE name = 'rr' AND firstname = 'rr');
     DELETE FROM require WHERE idaccount=(  SELECT idaccount FROM account WHERE name = 'rr' AND firstname = 'rr');
@@ -37,3 +37,17 @@
     -- Example
 
     DELETE FROM sponsors WHERE idsponsors=$Idsponsors;
+
+-- Delete a ride according to its id
+    DELETE FROM ride WHERE idride=$Idride;
+
+    -- Example
+    DELETE FROM ride WHERE idride=4;
+
+-- Delete a participations with the same idride
+
+    DELETE FROM participate WHERE idride=$Idride;
+
+    --Example
+
+    DELETE FROM participate WHERE idride=4;
