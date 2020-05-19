@@ -16,11 +16,13 @@
                 $from_zip = $_POST['offer_from_zip'];
                 $from_city = $_POST['offer_from_city'];
                 $from_country = $_POST['offer_from_country'];
+                $from_coord = $_POST['offer_from_coord'];
 
                 $to_address = $_POST['offer_to_address'];
                 $to_zip = $_POST['offer_to_zip'];
                 $to_city = $_POST['offer_to_city'];
                 $to_country = $_POST['offer_to_country'];
+                $to_coord = $_POST['offer_to_coord'];
 
                 $ride_date = $_POST['offer_date'];
                 $ride_hour = $_POST['offer_hour'];
@@ -41,10 +43,12 @@
                 setcookie("from_zip", $from_zip);
                 setcookie("from_city", $from_city);
                 setcookie("from_country", $from_country);
+                setcookie("from_coord", $from_coord);
                 setcookie("to_address", $to_address);
                 setcookie("to_zip", $to_zip);
                 setcookie("to_city", $to_city);
                 setcookie("to_country", $to_country);
+                setcookie("to_coord", $to_coord);
                 setcookie("ride_date", $ride_date);
                 setcookie("ride_hour", $ride_hour);
                 setcookie("ride_minute", $ride_minute);

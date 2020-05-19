@@ -114,7 +114,7 @@
     function setup_places($places) {
         $arr = array();
         foreach($places as $place) {
-            $res = setup_place($place['address'], $place['zip'], $place['city'], $place['country']);
+            $res = setup_place($place['address'], $place['zip'], $place['city'], $place['country'], $place['lat'], $place['lng']);
             if($res == -1) {
                 return null;
             } else {
@@ -124,7 +124,7 @@
         return $arr;
     }
 
-    function setup_place($address, $zip, $city, $country) {
+    function setup_place($address, $zip, $city, $country, $lat, $lng) {
         if($address == 'undefined') { $address = '';};
         $bdd = connect_db();
         if ($bdd == null) { return -1; }
@@ -138,7 +138,7 @@
         }
 
 
-        $query = "INSERT INTO place VALUES(default, '$address', '$zip', '$city', '$country')";
+        $query = "INSERT INTO place VALUES(default, '$address', '$zip', '$city', '$country', '$lat', '$lng')";
         $bdd->query($query);
 
         $stmt = $bdd->prepare('SELECT idplace FROM place WHERE address=? AND postcode=? AND city=? AND country=?');
