@@ -37,7 +37,7 @@
 
     function get_picture_profile_sponsor($id){
         $bdd = connect_db();
-        $query = 'SELECT pictureprofil FROM sponsors WHERE idaccount=?';
+        $query = 'SELECT pictureprofil FROM sponsors WHERE idsponsors=?';
         $stmt = $bdd->prepare($query);
         $stmt->execute(array($id));
         $result = $stmt->fetch();

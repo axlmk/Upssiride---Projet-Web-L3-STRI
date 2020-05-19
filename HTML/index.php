@@ -4,11 +4,15 @@
         <meta charset="utf-8">
         <title>Index</title>
         <link rel="stylesheet" href="style/index.css"/>
+        <?php
+            require_once('header.php');
+            require_once('scripts/cookies.php');
+            if(isset($_COOKIE['from_address'])) {
+            remove_cookies();
+            }
+        ?>
     </head>
     <body>
-        <?php
-            include_once('header.php');
-        ?>
 
         <div class="choose_ride">
             <div class="tab">
@@ -17,56 +21,56 @@
             </div>
 
             <div id="offer_ride" class="content">
-                <form class="" action="index.php" method="post">
+                <form class="" action="confirm.php" method="post" id="offer_form" name="offer_form">
                     <label>Where are you leaving from?</label>
-                    <input type="text" name="source_address" value="" class="input_button" id="offer_from_button"></br>
-                    <label>Where are you going?</label>
-                    <input type="text" name="destination_address" value="" class="input_button" id="offer_to_button"></br>
-                    <label for="">When?</label>
-                    <input type="date" name="date_ride" value="" class="input_button"></br>
-                    <label for="">At what time?</label>
+                    <input type="text" name="source_address" value="" class="input_button" id="offer_from_button" required></br>
+                    <label for="source_address">Where are you going?</label>
+                    <input type="text" name="destination_address" value="" class="input_button" id="offer_to_button" required></br>
+                    <label for=destination_address"">When?</label>
+                    <input type="date" name="offer_date" value="" class="input_button" form="offer_form" required></br>
+                    <label for="offer_date">At what time?</label>
                     <div class="getTime">
-                        <select class="" name="">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
-                            <option value="">5</option>
-                            <option value="">6</option>
-                            <option value="">7</option>
-                            <option value="">8</option>
-                            <option value="">9</option>
-                            <option value="">10</option>
-                            <option value="">11</option>
-                            <option value="">12</option>
+                        <select class="" name="offer_hour" form="offer_form">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
                         </select>
 
-                        <select class="" name="">
-                            <option value="">00</option>
-                            <option value="">15</option>
-                            <option value="">30</option>
-                            <option value="">45</option>
+                        <select class="" name="offer_minute" form="offer_form">
+                            <option value="00">00</option>
+                            <option value="15">15</option>
+                            <option value="30">30</option>
+                            <option value="45">45</option>
                         </select>
 
-                        <select class="" name="">
-                            <option value="">AM</option>
-                            <option value="">PM</option>
+                        <select class="" name="offer_meridien" form="offer_form">
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
                         </select>
                     </div></br>
 
                     <label for="">How many travellers would you bring with you?</label>
-                    <select class="" name="">
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
-                        <option value="">5</option>
-                        <option value="">6</option>
-                        <option value="">7</option>
-                        <option value="">8</option>
+                    <select class="" name="offer_n_passengers" form="offer_form">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
                     </select></br>
                     <div class="submit_div">
-                        <input type="submit" name="search" value="Offer" class="submit_button" onclick=openModal()>
+                        <input type="input" name="search" value="Offer" class="submit_button" onclick=submitOfferRide()>
                     </div>
                 </form>
             </div>

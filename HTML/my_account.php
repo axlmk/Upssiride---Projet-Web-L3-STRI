@@ -80,7 +80,7 @@
     }
 
     $info = get_account_info($_SESSION['id']);
-
+    $vehicles = get_vehicles($_SESSION['id']);
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -88,6 +88,7 @@
         <meta charset="utf-8">
         <title><?=$info['name']?> <?=$info['firstname']?> | Account</title>
         <link rel="stylesheet" href="style/my_account.css"/>
+        <link rel="stylesheet" href="style/my_account_vehicle.css"/>
     </head>
     <body>
         <div class="entire_body">
@@ -101,13 +102,13 @@
                 </div>
                 <div class="">
                 <?php if (!isset($_POST['passwordSubmit'])): ?>
-                    <button class="tab_button" onClick="openTab(event, 'global_information')" type="button" name="button" id="default_tab">Information</button>
+                    <button class="tab_button" onClick="openTab(event, 'global_information')" type="button" name="button" >Information</button>
                     <button class="tab_button" onClick="openTab(event, 'password_information')" type="button" name="button" >Change password</button>
                 <?php else: ?>
                     <button class="tab_button" onClick="openTab(event, 'global_information')" type="button" name="button" >Information</button>
                     <button class="tab_button" onClick="openTab(event, 'password_information')" type="button" name="button" id="default_tab">Change password</button>
                 <?php endif ?>
-                    <button class="tab_button" onClick="openTab(event, 'vehicles_information')" type="button" name="button">Vehicles</button>
+                    <button class="tab_button" onClick="openTab(event, 'vehicles_information')" type="button" name="button" id="default_tab">Vehicles</button>
                 </div>
             </aside>
 
@@ -205,34 +206,47 @@
                 </div>
 
                 <div id="vehicles_information" class="tab_content">
-                    <h2>My vehicles</h2>
-                    <div class="vehiclesList">
-                        <div class="vehicleElement">
-                            <img src="svg/car.svg" alt="">
-                            <div class="vehicleDescription">
-                                <span>Porsche</span>
-                                <span>Panamera Break</span>
-                                <span>Matte Black</span>
+                    <div class="inner_vehicle_info">
+                        <h2>My vehicles</h2>
+
+
+                        <?php foreach ($vehicles as $row): ?>
+                            <div class="vehicle_info">
+                            <div class="pic_container" <?php echo 'id="pp_'.$row['registration'].'"' ?>>
+                                <span class="helper"></span><img src=<?=$row['picture']?> alt=<?=$row["brand"]?>>
+                            </div>
+                            <form action="my_account.php" method="POST" enctype="multipart/form-data" class="file_form" <?php echo 'id="pp_modif_'.$row['registration'].'"' ?>>
+                                <input type="file" name="new_pp" class="image" <?php echo 'id="image_'.$row['registration'].'"' ?>/>
+                                <label <?php echo 'for="image_'.$row['registration'].'"' ?> class="pic_container file_button">
+                                    <span class="helper"></span><img src=<?=$row['picture']?> alt=<?=$row["brand"]?>>
+                                </label>
+                            </form>
+                            <div class="description">
+                                <h3 <?php echo 'id="description_title_'.$row['registration'].'"' ?>><?=$row["brand"]?></h3>
+                                <h3 <?php echo 'id="description_paragraph_'.$row['registration'].'"' ?> ><?=$row["model"]?></h3>
+                                <h3 <?php echo 'id="description_title_'.$row['registration'].'"' ?>><?=$row["color"]?></h3>
+                                <h3 <?php echo 'id="description_paragraph_'.$row['registration'].'"' ?> ><?=$row["registration"]?></h3>
+                            </div>
+                            <div class="dropdown">
+                                <button class="deleteButton" type="button" <?php echo 'id="delete_button_'.$row['registration'].'"' ?> <?php echo 'onClick="openTab('.$row['registration'].'); deleteSp('.$row['registration'].',\''.$row['picture'].'\')"' ?>>Delete</button>
+                                <button class="modifyButton" type="button" <?php echo 'id="modify_button_'.$row['registration'].'"' ?> <?php echo 'onClick="openTab('.$row['registration'].'); modify('.$row['registration'].')"' ?>>Edit</button>
+                                <button class="cancelButton" type="button" <?php echo 'id="cancel_button_'.$row['registration'].'"' ?> <?php echo 'onClick="openTab('.$row['registration'].'); cancel('.$row['registration'].')"' ?>>Cancel</button>
+                                <button class="saveButton" type="button" <?php echo 'id="save_button_'.$row['registration'].'"' ?> <?php echo 'onClick="openTab('.$row['registration'].'); save('.$row['registration'].')"' ?>>Save</button>
                             </div>
                         </div>
+                    <?php endforeach?>
+                </div>
 
-                        <div class="vehicleElement">
-                            <img src="svg/car.svg" alt="">
-                            <div class="vehicleDescription">
-                                <span>Renault</span>
-                                <span>Trafic</span>
-                                <span>White</span>
-                            </div>
+                    <div id="addVehicle">
+                        <div id="imgAdd" onclick="displayNewSponsor()">
+                            <img src="svg/add_button.svg"/>
                         </div>
-                    </div>
-
-                    <div class="addButton">
-                        <a href="#"><img src="" alt=""></a>
                     </div>
                 </div>
             </div>
         </div>
 
         <script src="javascript/my_account.js" type="text/javascript"></script>
+        <script src="javascript/vehicle.js" type="text/javascript"></script>
     </body>
 </html>

@@ -65,7 +65,7 @@
         }
         return false;
     }
-    
+
     function get_name_firstname($id){
         $bdd = connect_db();
         $query = 'SELECT name,firstname FROM account WHERE idaccount=?';
@@ -107,5 +107,18 @@
         $stmt->closeCursor();
         return $result;
     }
+<<<<<<< HEAD
 >>>>>>> 8d773ace4f5b90606391ba4a4254ae201ae79c05
+=======
+
+    function get_vehicles($id){
+        $bdd = connect_db();
+        $query = 'SELECT * FROM vehicule WHERE idaccount=?';
+        $stmt = $bdd->prepare($query);
+        $stmt->execute(array($id));
+        $result = $stmt->fetchAll();
+        $stmt->closeCursor();
+        return $result;
+    }
+>>>>>>> 8b4897dbb972b511dd1307520bb5592a1e93faf3
 ?>

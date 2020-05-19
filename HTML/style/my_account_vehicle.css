@@ -1,0 +1,180 @@
+.pic_container {
+    height: 200px;
+    width: 200px;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
+    background-color: #f9f6f1;
+    margin-right:0;
+    padding: 4px;
+}
+
+.pic_container img {
+    width: inherit;
+    vertical-align: middle;
+}
+
+.helper, .file_button {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.description h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.tile:nth-child(odd) h3 {
+    text-align: left;
+}
+
+.tile:nth-child(even) h3 {
+    text-align: right;
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+    color: #191A1C;
+    margin-bottom: 40px;
+    border: none;
+    border-radius: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: 'LEMONMILK', 'Arial';
+    width: 100%;
+    margin-top: 20px;
+}
+
+.modifyButton , .saveButton, .cancelButton, .deleteButton, .addButton {
+    border: none;
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'LEMONMILK-BOLD', 'Arial';
+    background-color: #c26400;
+    color: #f9f6f1;
+}
+
+.modifyButton:hover , .saveButton:hover, .cancelButton:hover, .deleteButton:hover, .addButton:hover {
+    cursor: pointer;
+    filter:brightness(120%);
+}
+
+.saveButton {
+    display: none;
+    background-color: green;
+}
+
+.cancelButton {
+    display: none;
+    background-color: red;
+}
+
+.deleteButton {
+    display: none;
+    background-color: black;
+}
+
+#addSponsor {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#imgAdd {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #c26400;
+    transition: all 0.2s ease-in-out;
+}
+
+#imgAdd:hover {
+    cursor: pointer;
+    box-shadow: 0px 6px 6px 0px rgba(0,0,0,0.4);
+    transition: all 0.2s ease-in-out;
+    filter: brightness(120%);
+}
+
+#addSponsor img {
+    height: 60%;
+    width: 60%;
+    padding-top: 20%;
+    padding-bottom: 20%;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+#cancelAddNewSponsor {
+    display: block;
+}
+
+#newSp {
+    display: none;
+}
+
+.image {
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.file_form {
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-block-end: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.file_form:hover {
+    cursor: pointer;
+    filter: brightness(50%);
+    transition: all 0.3s ease-in-out;
+}
+
+#new_form {
+    display: flex;
+    flex-direction: row;
+}
+
+#new_picture_new_sponsor {
+    display: flex;
+}
+
+.vehicle_info {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    align-items: center;
+}
+
+.inner_vehicle_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

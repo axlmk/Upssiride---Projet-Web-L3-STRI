@@ -1,11 +1,11 @@
 -- Addition of a new account in the BdD under the entity 'account'
 
-    INSERT INTO account VALUES($IdAccount,$Name,$FirstName,$Gender,$password,$PictureProfilPath,$Email,$Phone,$Birthdate,$AdmindRights,$Registration_Date,$Description);
+    INSERT INTO account VALUES($IdAccount,$Name,$FirstName,$Gender,$password,$PictureProfilPath,$Email,$Phone,$Birthdate,$AdmindRights,$Registration_Date,$Description,$Music,$Chatting,$Smoke,$Pets);
     
     -- Example
 
-    INSERT INTO account VALUES(default,'acila','vincent','M','passwordtest','','acila@upssiride.net','0607080910','2020/1/1',1,'2020/04/23','compte test');
-    INSERT INTO account VALUES(default,'bonnet','hugo','M','password','','bonnet@upssiride.net','0607080911','2020/1/1',1,'2020/05/1','compte test');
+    INSERT INTO account VALUES(default,'acila','vincent','M','passwordtest','','acila@upssiride.net','0607080910','2020/1/1',1,'2020/04/23','compte test',1,1,1,1);
+    INSERT INTO account VALUES(default,'bonnet','hugo','M','password','','bonnet@upssiride.net','0607080911','2020/1/1',1,'2020/05/1','compte test'1,1,0,1);
 
 
 -- Addition of a new vehicule in the BdD under the entity 'vehicule' with the IDAccount of the user
@@ -47,11 +47,11 @@
 
 -- Addition of new ride in the BdD under the entity 'ride'
 
-    INSERT INTO ride VALUES ($IdRide,$departuredate,$departuretime,$comment,$maxpassengersnb,$music,$pets,$smoker,$idstate,$idplace,$idplace_1,$idaccount);
+    INSERT INTO ride VALUES ($IdRide,$departuredate,$departuretime,$comment,$maxpassengersnb,$idstate,$idplace_departure,$idplace_arrived,$idaccount);
 
     -- Example
 
-    INSERT INTO ride VALUES (default, '2020-05-05','20:00:00-00','This is comment for my ride', 2,1,0,0,1,1,2,29);
+    INSERT INTO ride VALUES (default, '2020-05-05','20:00:00-00','This is comment for my ride', 2,1,1,2,29);
 
 -- Addition of new request (with its state) for specified ride under the entity 'require'
 
@@ -68,3 +68,11 @@
     -- Example
 
     INSERT INTO participate VALUES(1,3);
+
+-- Addition of new sponsors under in entity 'sponsors'
+
+    INSERT INTO sponsors values(default, $Name, $Description, $Pictureprofile);
+
+    -- Example
+
+    INSERT INTO sponsors values(default, 'stri', 'I follow this beautiful project', 'Pictures_sites/sponsors/stri.png');

@@ -34,11 +34,19 @@ function setup_city() {
 }
 
 find_from_var.on('change', function(e) {
-    find_from_var_info = e.suggestion.highlight;
+    find_from_var_info = e.suggestion;
 });
 
 find_to_var.on('change', function(f) {
-    find_to_var_info = f.suggestion.highlight;
+    find_to_var_info = f.suggestion;
+});
+
+offer_from_var.on('change', function(g) {
+    offer_from_var_info = g.suggestion;
+});
+
+offer_to_var.on('change', function(h) {
+    offer_to_var_info = h.suggestion;
 });
 
 function openTab(evt, tabName) {
@@ -60,14 +68,24 @@ function openTab(evt, tabName) {
 
 function submitFindRide() {
     var form = document.getElementById('find_form');
+
     var find_from_city = document.createElement("input");
+    find_from_city.style.display = 'none';
     var find_from_zip = document.createElement("input");
+    find_from_zip.style.display = 'none';
     var find_from_country = document.createElement("input");
+    find_from_country.style.display = 'none';
     var find_from_address = document.createElement("input");
+    find_from_address.style.display = 'none';
+    
     var find_to_city = document.createElement("input");
+    find_to_city.style.display = 'none';
     var find_to_zip = document.createElement("input");
+    find_to_zip.style.display = 'none';
     var find_to_country = document.createElement("input");
+    find_to_country.style.display = 'none';
     var find_to_address = document.createElement("input");
+    find_to_address.style.display = 'none';
 
     find_from_city.name = "find_from_city";
     find_from_city.value = find_from_var_info.city;
@@ -95,5 +113,56 @@ function submitFindRide() {
     form.appendChild(find_to_zip);
     form.appendChild(find_to_country);
     form.appendChild(find_to_address);
+    form.submit();
+}
+
+function submitOfferRide() {
+    var form = document.getElementById('offer_form');
+    var offer_from_city = document.createElement("input");
+    offer_from_city.style.display = 'none';
+    var offer_from_zip = document.createElement("input");
+    offer_from_zip.style.display = 'none';
+    var offer_from_country = document.createElement("input");
+    offer_from_country.style.display = 'none';
+    var offer_from_address = document.createElement("input");
+    offer_from_address.style.display = 'none';
+
+    var offer_to_city = document.createElement("input");
+    offer_to_city.style.display = 'none';
+    var offer_to_zip = document.createElement("input");
+    offer_to_zip.style.display = 'none';
+    var offer_to_country = document.createElement("input");
+    offer_to_country.style.display = 'none';
+    var offer_to_address = document.createElement("input");
+    offer_to_address.style.display = 'none';
+
+    offer_from_city.name = "offer_from_city";
+    offer_from_city.value = offer_from_var_info.city;
+    offer_from_zip.name = "offer_from_zip";
+    offer_from_zip.value = offer_from_var_info.postcode;
+    offer_from_country.name = "offer_from_country";
+    offer_from_country.value = offer_from_var_info.country;
+    offer_from_address.name = "offer_from_address";
+    offer_from_address.value = offer_from_var_info.name;
+
+    offer_to_city.name = "offer_to_city";
+    offer_to_city.value = offer_to_var_info.city;
+    offer_to_zip.name = "offer_to_zip";
+    offer_to_zip.value = offer_to_var_info.postcode;
+    offer_to_country.name = "offer_to_country";
+    offer_to_country.value = offer_to_var_info.country;
+    offer_to_address.name = "offer_to_address";
+    offer_to_address.value = offer_to_var_info.name;
+
+    form.appendChild(offer_from_city);
+    form.appendChild(offer_from_zip);
+    form.appendChild(offer_from_country);
+    form.appendChild(offer_from_address);
+    form.appendChild(offer_to_city);
+    form.appendChild(offer_to_zip);
+    form.appendChild(offer_to_country);
+    form.appendChild(offer_to_address);
+
+    //console.log(offer_from_var_info.country);
     form.submit();
 }

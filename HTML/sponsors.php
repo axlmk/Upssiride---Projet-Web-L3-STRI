@@ -80,7 +80,7 @@
             </div>
         </div>
 
-        <script src="javascript/sponsors.js" type="text/javascript"></script>
+        <script src="javascript/vehicle.js" type="text/javascript"></script>
         <?php endif ?>
    </body>
 

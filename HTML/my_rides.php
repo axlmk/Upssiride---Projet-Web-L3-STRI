@@ -3,16 +3,28 @@
     require_once 'functions/sql_ride.php';
     require_once 'functions/sql_account.php';
     require_once 'functions/sql_place.php';
+    require_once 'header.php';
+    require_once 'scripts/cookies.php';
+    require_once 'scripts/utils.php';
+
 
     if (!is_connected()){
         header("Location: connection.php");
     }
 
-    $resultride = get_my_rides($_SESSION['id']);
+    if(isset($_COOKIE['from_city'])) {
+        $from_place = array("address" => $_COOKIE['from_address'], "zip" => $_COOKIE['from_zip'], "city" => $_COOKIE['from_city'], "country" => $_COOKIE['from_country']);
+        $to_place = array("address" => $_COOKIE['to_address'], "zip" => $_COOKIE['to_zip'], "city" => $_COOKIE['to_city'], "country" => $_COOKIE['to_country']);
+        $time_info = array("date" => $_COOKIE['ride_date'], "timestamp" => convertToFullTime($_COOKIE['ride_hour'], $_COOKIE['ride_minute'], $_COOKIE['ride_meridien']), "hour" => $_COOKIE['ride_hour'], "minute" => $_COOKIE['ride_minute'], "meridien" => $_COOKIE['ride_meridien']);
+        setup_ride(array($from_place, $to_place), $time_info, $_COOKIE['ride_n_passengers'], 4);
+        remove_cookies();
+    }
+
+
     $resultrequire = get_my_rides_required($_SESSION['id']);
+    $resultride = get_my_rides($_SESSION['id']);
     $resultcompleted = get_my_rides_completed($_SESSION['id']);
     //echo $resultride['idride'];
-    require_once 'header.php';
 ?>
 
 <!DOCTYPE html>
@@ -156,14 +168,14 @@
                     </div>
                 </div>
             </div>
-            <?php if ($_SESSION['id']==$ride['idaccount']): ?> 
-            <?php $resume = get_passengers_request($ride['idride']); ?>  
+            <?php if ($_SESSION['id']==$ride['idaccount']): ?>
+            <?php $resume = get_passengers_request($ride['idride']); ?>
                 <!--Boite modale-->
                 <div id="modal">
                     <h1>New request</h1>
                     <hr>
                     <?php foreach($resume as $passenger): ?>
-                        <?php 
+                        <?php
                             //$passenger_name = get_name_firstname($passenger['idaccount']);
                             //$pdd = get_picture_profile($passenger['idaccount']);
                             $passenger_resume = get_resume_passenger($passenger['idaccount']);
