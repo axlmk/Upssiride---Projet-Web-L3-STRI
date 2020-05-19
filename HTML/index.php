@@ -70,7 +70,7 @@
                         <option value="8">8</option>
                     </select></br>
                     <div class="submit_div">
-                        <input type="input" name="search" value="Offer" class="submit_button" onclick=submitOfferRide()>
+                        <input type="input" name="search" value="Offer" class="submit_button" onclick="submitOfferRide()">
                     </div>
                 </form>
             </div>

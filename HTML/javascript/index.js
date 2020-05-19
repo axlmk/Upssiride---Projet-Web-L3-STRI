@@ -77,7 +77,7 @@ function submitFindRide() {
     find_from_country.style.display = 'none';
     var find_from_address = document.createElement("input");
     find_from_address.style.display = 'none';
-    
+
     var find_to_city = document.createElement("input");
     find_to_city.style.display = 'none';
     var find_to_zip = document.createElement("input");
@@ -118,6 +118,7 @@ function submitFindRide() {
 
 function submitOfferRide() {
     var form = document.getElementById('offer_form');
+
     var offer_from_city = document.createElement("input");
     offer_from_city.style.display = 'none';
     var offer_from_zip = document.createElement("input");
@@ -136,6 +137,11 @@ function submitOfferRide() {
     var offer_to_address = document.createElement("input");
     offer_to_address.style.display = 'none';
 
+    var offer_from_coord = document.createElement("input");
+    offer_from_coord.style.display = 'none';
+    var offer_to_coord = document.createElement("input");
+    offer_to_coord.style.display = 'none';
+
     offer_from_city.name = "offer_from_city";
     offer_from_city.value = offer_from_var_info.city;
     offer_from_zip.name = "offer_from_zip";
@@ -144,6 +150,8 @@ function submitOfferRide() {
     offer_from_country.value = offer_from_var_info.country;
     offer_from_address.name = "offer_from_address";
     offer_from_address.value = offer_from_var_info.name;
+    offer_from_coord.name = "offer_from_coord";
+    offer_from_coord.value = offer_from_var_info.latlng.lat + '_' + offer_from_var_info.latlng.lng;
 
     offer_to_city.name = "offer_to_city";
     offer_to_city.value = offer_to_var_info.city;
@@ -153,16 +161,20 @@ function submitOfferRide() {
     offer_to_country.value = offer_to_var_info.country;
     offer_to_address.name = "offer_to_address";
     offer_to_address.value = offer_to_var_info.name;
+    offer_to_coord.name = "offer_to_coord";
+    offer_to_coord.value = offer_to_var_info.latlng.lat + '_' + offer_to_var_info.latlng.lng;
 
     form.appendChild(offer_from_city);
     form.appendChild(offer_from_zip);
     form.appendChild(offer_from_country);
     form.appendChild(offer_from_address);
+    form.appendChild(offer_from_coord);
     form.appendChild(offer_to_city);
     form.appendChild(offer_to_zip);
     form.appendChild(offer_to_country);
     form.appendChild(offer_to_address);
+    form.appendChild(offer_to_coord);
 
-    //console.log(offer_from_var_info.country);
+    console.log(offer_from_coord.value);
     form.submit();
 }

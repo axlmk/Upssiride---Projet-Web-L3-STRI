@@ -28,5 +28,9 @@
         setcookie('from_address', '', time() - 3600);
         unset($_COOKIE['ride_n_passengers']);
         setcookie('ride_n_passengers', '', time() - 3600);
+        unset($_COOKIE['from_coord']);
+        setcookie('ride_n_passengers', '', time() - 3600);
+        unset($_COOKIE['to_coord']);
+        setcookie('ride_n_passengers', '', time() - 3600);
     }
 ?>
