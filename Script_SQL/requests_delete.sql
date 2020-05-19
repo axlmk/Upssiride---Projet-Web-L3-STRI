@@ -29,3 +29,11 @@
     -- Example
 
     DELETE FROM require WHERE idaccount=1 AND idride=3;
+
+-- Delete a specific sponsors
+
+    DELETE FROM sponsors WHERE idsponsors=$Idsponsors;
+
+    -- Example
+
+    DELETE FROM sponsors WHERE idsponsors=$Idsponsors;
