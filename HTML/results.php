@@ -183,14 +183,9 @@
 
 
             <!--Boite modale-->
-            <div id="modal">
-                <div class="title_summary">
-                    <h1>Summary</h1>
-                    <hr>
-                </div>
-                <div id="ride_resume">
-                    <div class="driverInfo"><!--PHP : Récupérer info du trajet séléctionné-->
-                        <h2>Driver</h2>
+            <div id="modal"><div class="driverInfo"><!--PHP : Récupérer info du trajet séléctionné-->
+                        <h1>Driver</h1>
+                        <hr>
                         <div class="pic">
                             <a href=""><img src="pictures_site/test2.jpg"></img></a><!--PHP : Photo du conduecteur-->
                             <a href=""><h3>Cyril Decaud</h3></a><!--PHP : nom conducteur-->
@@ -214,7 +209,7 @@
                             </div>
                             <div class="smoke">
                                 <div class="smoke_icon">
-                                    <img src="svg/cigarette_forbidden.svg"></img><!--PHP : Icone préférences cigarette du conducteur-->
+                                    <img src="svg/cigarette_ok.svg"></img><!--PHP : Icone préférences cigarette du conducteur-->
                                 </div>
                                 <div class="smoke_text">
                                     <p>No smoking</p><!--PHP : texte préférences cigarette du conducteur-->
@@ -229,7 +224,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="mapid"></div>
                         <div class="">
                             <h2>Vehicle</h2>
                         </div>
@@ -241,6 +235,12 @@
                                 <p>White Renault Trafic</p><!--PHP : Voiture du conducteur-->
                             </div>
                         </div>
+                    </div>
+
+                <div id="ride_resume">
+                    <div class="title_summary">
+                        <h1>Summary</h1>
+                        <hr>
                     </div>
 
                     <div id="travel">
@@ -281,19 +281,21 @@
     <!--0 adapter en PHP-->         <a href ="profile.php"><img src="Pictures_site/test2.jpg"></img></a>            <!-- autant de fois que ------>
                                 </div>                                                                              <!--de place dans la voiture-->
                                 <div class="passagers">
-                                     <a href ="profile.php"><img src="Pictures_site/human_placeholder.jpg"></img></a>
+                                     <a href ="profile.php"><img src="Pictures_site/users/human_placeholder.jpg"></img></a>
                                 </div>
                             </div>
                         </div>
-                        <div id="boutons">
-                            <div id="btnClose">
-                                <button id="close" onclick="closeModal()">Close</button>
-                            </div>
-                            <div class="btnApply">
-                                <a href=""><button id="apply" >Apply</button></a>
+                        <div id="last_conteneur">
+                            <div id="mapid"></div>                            
+                            <div id="boutons">
+                                <div id="btnClose">
+                                    <button id="close" onclick="closeModal()">Close</button>
+                                </div>
+                                <div class="btnApply">
+                                    <a href=""><button id="apply" >Apply</button></a>
+                                </div>
                             </div>
                         </div>
-
                     </div>
 
                 </div>

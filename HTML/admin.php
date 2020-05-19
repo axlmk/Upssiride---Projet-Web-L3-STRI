@@ -12,26 +12,29 @@
         <div class="">
             <form action="admin.php">
                 <label for="search_users_button">Search:</label>
-                <input type="text" name="" placeholder="Ex: Jean Dupond" id="search_users_button">
+                <input type="text" name="" placeholder="Ex: Jean" id="search_fname_users_button">
+                <input type="text" name="" placeholder="Ex: Dupond" id="search_lname_users_button">
                 <input type="submit" value="Search">
             </form>
             <div class="list_container">
                 <div class="user_container">
                     <div class="user_elem">
-                        <a href="my_account.php">
+                            <p id="user_id">#xxxxxxx<!--PHP : faire sortir l'ID utilisateur--></p>
+                            <a href="my_account.php">
                             <img value src="Pictures_site/users/4.jpg" alt="user_picture_profile" id="picture_profile">
                             <label for="picture_profile">Jean Dupond</label>
                         </a>
                         <button type="button" name="button">Reset password</button>
-                        <button type="button" name="button">Remover user</button>
+                        <button type="button" name="button">Remove user</button>
                     </div>
                     <div class="user_elem">
-                        <a href="my_account.php">
+                            <p id="user_id">#xxxxxxx<!--PHP : faire sortir l'ID utilisateur--></p>
+                            <a href="my_account.php">
                             <img value src="Pictures_site/users/4.jpg" alt="user_picture_profile" id="picture_profile">
                             <label for="picture_profile">Jean Dupond</label>
                         </a>
                         <button type="button" name="button">Rester password</button>
-                        <button type="button" name="button">Remover user</button>
+                        <button type="button" name="button">Remove user</button>
                     </div>
                 </div>
                 <div class="">

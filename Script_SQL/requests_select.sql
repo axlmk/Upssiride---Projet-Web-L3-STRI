@@ -158,9 +158,6 @@
 
     -- Example
 
-<<<<<<< HEAD
-    UPDATE sponsors SET pictureprofile='Pictures_sites/sponsors/stri.png' WHERE idsponsors=1
-=======
     SELECT * FROM vehicule WHERE idaccount=1;
 
 -- Search and display specific idride by filtering with 'departuredate','departuretime' and 'idaccount' attribut in the entity 'ride'
@@ -194,4 +191,3 @@
     -- Example
 
     SELECT idplace FROM place WHERE address='My_address' AND postcode='123456' AND city='London' AND country='United Kingdom';
->>>>>>> 6f8549aca6cc8208f3994183044b24234b7f6dc3
