@@ -21,22 +21,17 @@
 .description {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .description h3 {
     margin-top: 0;
     margin-bottom: 0;
+    font-size: 14px;
 }
 
-.tile:nth-child(odd) h3 {
-    text-align: left;
-}
-
-.tile:nth-child(even) h3 {
-    text-align: right;
-}
 
 .dropdown {
     display: flex;
@@ -70,6 +65,10 @@ textarea {
     font-family: 'LEMONMILK-BOLD', 'Arial';
     background-color: #c26400;
     color: #f9f6f1;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .modifyButton:hover , .saveButton:hover, .cancelButton:hover, .deleteButton:hover, .addButton:hover {
@@ -167,9 +166,18 @@ textarea {
 }
 
 .vehicle_info {
+    background-color: #f9f6f1;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 25px;
     display: flex;
     flex-direction: column;
-    width: 40%;
     align-items: center;
 }
 
@@ -177,4 +185,34 @@ textarea {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.container_vehicle_info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+}
+
+.input_button {
+    width: 100%;
+    box-shadow: -2px -2px 8px 0px rgba(0,0,0,0.2);
+}
+
+#vehicles_information {
+    height: 100%;
+}
+
+.global_vehicle_container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.label_vehi_info {
+    color: #c26400;
+    font-size: 14px;
 }

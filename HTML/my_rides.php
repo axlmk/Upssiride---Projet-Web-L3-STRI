@@ -18,15 +18,17 @@
         $from_place = array("address" => $_COOKIE['from_address'], "zip" => $_COOKIE['from_zip'], "city" => $_COOKIE['from_city'], "country" => $_COOKIE['from_country'], "lat" => $from_latlng[0], "lng" => $from_latlng[1]);
         $to_place = array("address" => $_COOKIE['to_address'], "zip" => $_COOKIE['to_zip'], "city" => $_COOKIE['to_city'], "country" => $_COOKIE['to_country'], "lat" => $to_latlng[0], "lng" => $to_latlng[1]);
         $time_info = array("date" => $_COOKIE['ride_date'], "timestamp" => convertToFullTime($_COOKIE['ride_hour'], $_COOKIE['ride_minute'], $_COOKIE['ride_meridien']), "hour" => $_COOKIE['ride_hour'], "minute" => $_COOKIE['ride_minute'], "meridien" => $_COOKIE['ride_meridien']);
-        setup_ride(array($from_place, $to_place), $time_info, $_COOKIE['ride_n_passengers'], 4);
+        setup_ride(array($from_place, $to_place), $time_info, $_COOKIE['ride_n_passengers'], $_SESSION['id']);
         remove_cookies();
     }
 
+    if(isset($_POST['del_ride'])) {
+        del_full_ride($_POST['del_ride']);
+    }
 
     $resultrequire = get_my_rides_required($_SESSION['id']);
     $resultride = get_my_rides($_SESSION['id']);
     $resultcompleted = get_my_rides_completed($_SESSION['id']);
-    //echo $resultride['idride'];
 ?>
 
 <!DOCTYPE html>
@@ -142,10 +144,11 @@
                     </div>
                 </a>
 
+                <form action="my_rides.php" method="POST" <?php echo 'id="remove_form_'.$ride['idride'].'"' ?>></form>
                 <div class="dropdown">
                     <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
                     <div class="dropdown-content">
-                        <a href="#">Remove</a>
+                        <button type="submit" class="submit_button_2" <?php echo 'form="remove_form_'.$ride['idride'].'" value="'.$ride['idride'].'"' ?> name="del_ride">Remove</button>
                         <?php if ($_SESSION['id']==$ride['idaccount']): ?> <!-- Si l'utilisateur est conducteur -->
                             <a href="#">Modify</a>
                             <div class="button_container">

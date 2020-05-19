@@ -149,5 +149,14 @@
         return $result;
     }
 
+    function del_full_ride($idride) {
+        $dtb = connect_db();
+        $stmt = $dtb->prepare('DELETE FROM participate WHERE idride=?');
+        $stmt->execute(array($idride));
+        $stmt = $dtb->prepare('DELETE FROM ride WHERE idride=?');
+        $stmt->execute(array($idride));
+        $stmt->closeCursor();
+    }
+
 
 ?>
