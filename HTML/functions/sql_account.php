@@ -65,7 +65,7 @@
         }
         return false;
     }
-    
+
     function get_name_firstname($id){
         $bdd = connect_db();
         $query = 'SELECT name,firstname FROM account WHERE idaccount=?';
@@ -102,6 +102,16 @@
         $stmt = $bdd->prepare($query);
         $stmt->execute(array($id));
         $result = $stmt->fetch();
+        $stmt->closeCursor();
+        return $result;
+    }
+
+    function get_vehicles($id){
+        $bdd = connect_db();
+        $query = 'SELECT * FROM vehicule WHERE idaccount=?';
+        $stmt = $bdd->prepare($query);
+        $stmt->execute(array($id));
+        $result = $stmt->fetchAll();
         $stmt->closeCursor();
         return $result;
     }

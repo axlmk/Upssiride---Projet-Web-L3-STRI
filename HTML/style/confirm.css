@@ -1,0 +1,9 @@
+.action_div {
+    display: flex;
+    flex-direction: column;
+}
+
+.submit_button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

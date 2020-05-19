@@ -1,7 +1,7 @@
 <?php
 
     require_once 'functions/pgsql_connect.php';
-    
+
     function is_connected (): bool {
         if (session_status()===PHP_SESSION_NONE){
             session_start();
@@ -32,7 +32,7 @@
         if ($bdd==null){
             return false;
         }
-        $query = 'SELECT count(*) FROM account WHERE idaccount=? AND admin=1';
+        $query = 'SELECT count(*) FROM account WHERE idaccount=? AND adminrights=1';
         $stmt = $bdd->prepare($query);
         $stmt->execute(array($id));
         $result = $stmt->fetchAll();
@@ -40,9 +40,8 @@
         if (count($result)>0){
             return true;
         }
-        
+
         return false;
     }
 
 ?>
-
