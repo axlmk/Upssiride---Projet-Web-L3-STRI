@@ -6,7 +6,7 @@
         edit_sponsor($_POST['new_id_form'], $_POST['new_title_form'], $_POST['new_desc_form']);
     }
     if(isset($_FILES['new_pp'])) {
-        upload_pp(rand(0, 999999999), $_FILES['new_pp'], "Pictures_site/sponsors/", "sponsor");
+        upload_pp($_POST['new_id_form'], $_FILES['new_pp'], "Pictures_site/sponsors/", "sponsor");
     }
     if(isset($_FILES['new_pp_new_sponsor'])) {
         $path_new = upload_pp(rand(0, 999999999), $_FILES['new_pp_new_sponsor'], "Pictures_site/sponsors/", "new_sponsor");
@@ -80,7 +80,7 @@
             </div>
         </div>
 
-        <script src="javascript/vehicle.js" type="text/javascript"></script>
+        <script src="javascript/sponsors.js" type="text/javascript"></script>
         <?php endif ?>
    </body>
 

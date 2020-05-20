@@ -67,23 +67,23 @@
             <div class="ride_info">
                 <div class="global_info">
                     <p><?php echo "$ride_date" ?></p>
-                    <p><?php echo "$ride_hour" ?></p>
-                    <p><?php echo "$ride_minute" ?></p>
-                    <p><?php echo "$ride_meridien" ?></p>
-                    <p><?php echo "$ride_n_passengers" ?></p>
+                    <p><?php echo "$ride_hour" ?>:<?php echo "$ride_minute" ?>:<?php echo "$ride_meridien" ?></p>
+                    <p>Number of passengers: <?php echo "$ride_n_passengers" ?></p>
                 </div>
-                <div class="from_info">
-                    <p>Country: <?php echo "$from_country" ?></p>
-                    <p>Zipcode: <?php echo "$from_zip" ?></p>
-                    <p>Address: <?php echo "$from_address" ?></p>
-                    <?php if($from_city != 'undefined') { echo "<p>$from_city</p>"; }?>
-                </div>
-                <img src="svg/city_sep.svg" alt="city_sep"/>
-                <div class="to_info">
-                    <p>Country: <?php echo "$to_country" ?></p>
-                    <p>Zipcode: <?php echo "$to_zip" ?></p>
-                    <p>Address: <?php echo "$to_address" ?></p>
-                    <?php if($to_city != 'undefined') { echo "<p>City: $to_city</p>"; }?>
+                <div class="city_info">
+                    <div class="from_info">
+                        <p>Country: <?php echo "$from_country" ?></p>
+                        <p>Zipcode: <?php echo "$from_zip" ?></p>
+                        <?php if($from_address != 'undefined') { echo "<p>Address: $from_address</p>"; }?>
+                        <p>City: <?php echo "$from_city" ?></p>
+                    </div>
+                    <img src="svg/city_sep.svg" alt="city_sep"/>
+                    <div class="to_info">
+                        <p>Country: <?php echo "$to_country" ?></p>
+                        <p>Zipcode: <?php echo "$to_zip" ?></p>
+                        <?php if($to_address != 'undefined') { echo "<p>Address: $to_address</p>"; }?>
+                        <p>City: <?php echo "$to_city" ?></p>
+                    </div>
                 </div>
             </div>
             <div class="action_div">
