@@ -214,17 +214,17 @@
                             <span class="error"><?php echo $err_pass ?></span>
                         <?php endif ?>
                         <div class="password_errors">
-                            <span id="minlen">At least 6 digits</span>
-                            <span id="upper">At least 1 Upperletter</span>
-                            <span id="special">At least 1 special characters (+@,;:!)</span>
-                            <span id="number">At least 1 number</span>
+                            <span id="minlen" class="error_info">At least 6 digits</span>
+                            <span id="upper" class="error_info">At least 1 Upperletter</span>
+                            <span id="special" class="error_info">At least 1 special characters (+@,;:!)</span>
+                            <span id="number" class="error_info">At least 1 number</span>
                         </div>
                         <input type="password" name="pass" value="" placeholder="Password *" class="input_button" id="password_button" onkeyup="checkConstraints()">
                         <div class="password_errors">
                             <?php if (isset($err_conf_pass)): ?>
                                 <span class="error"><?php echo $err_conf_pass ?></span>
                             <?php endif ?>
-                            <span id="equal">Passwords are not equals</span>
+                            <span id="equal" class="error_info">Passwords are not equals</span>
                         </div>
                         <input type="password" name="confirmPass" value="" placeholder="Confirm password *" class="input_button" id="password_confirm_button" onkeyup="checkEquality()">
                         <div class="submit_div">

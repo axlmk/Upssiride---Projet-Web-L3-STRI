@@ -16,3 +16,16 @@
        L.latLng(43.245286, 0.070430)],
        router: L.Routing.mapbox('pk.eyJ1IjoiYXhsbWsiLCJhIjoiY2thNzNuODB4MGJxajJ6bnh2NHNzNWNnbyJ9.-KVBB-sw7ZjzueA_LiEp-Q')
    }).addTo(mymap);
+
+function apply(it) {
+    var form = document.createElement("form");
+    form.style.display = 'none';
+    form.method = "POST";
+    form.action = "scripts/apply.php";
+    document.body.appendChild(form);
+    var form_title = document.createElement("input");
+    form_title.name = "id_ride";
+    form_title.value = it;
+    form.appendChild(form_title);
+    form.submit();
+}

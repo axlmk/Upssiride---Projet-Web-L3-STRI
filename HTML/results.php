@@ -22,7 +22,7 @@
        // echo $_POST['find_from_country']."<br>".$_POST['find_from_zip']."<br>".$_POST['find_from_city']."<br>".$_POST['find_from_address']."<br>";
        // echo $_POST['find_to_country']."<br>".$_POST['find_to_zip']."<br>".$_POST['find_to_city']."<br>".$_POST['find_to_address']."<br>";
     }
-    
+
 ?>
 
 <!DOCTYPE html>
@@ -97,7 +97,7 @@
         <h1>Results</h1>
         <?php if ($results!=null): ?>
         <?php foreach ($results as $ride): ?>
-        <?php   
+        <?php
                 $place_departure = get_place($ride['idplace_departure']);
                 $place_arrived = get_place($ride['idplace_arrived']);
                 $name_firstname = get_name_firstname($ride['idaccount']);
@@ -106,7 +106,7 @@
         ?>
         <?php ?>
         <!-- Un trajet -->
-        <div class="ride" onclick="openModal()">
+        <div class="ride" <?php echo 'id="traj_'.$ride['idride'].'"'?>>
             <div class=info>
                 <!-- Info à rentrer en php -->
                 <div class="pic_label">
@@ -143,16 +143,14 @@
             <div class="dropdown">
               <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
               <div class="dropdown-content">
-                <a href="">Apply</a><!--PHP : Requête pour candidater à un trajet-->
-                <div class="button_container">
-                    <a href="#" onclick="openModal()">More info</a>
-                </div>
+                <a <?php echo 'onClick="apply('.$ride['idride'].')"'?>>Apply</a><!--PHP : Requête pour candidater à un trajet-->
+                <a onclick="openModal()">More info</a>
             </div>
           </div>
       </div>
     <?php endforeach?>
     <?php endif ?>
-    
+
 
 
             <!--Boite modale-->
@@ -259,7 +257,7 @@
                             </div>
                         </div>
                         <div id="last_conteneur">
-                            <div id="mapid"></div>                            
+                            <div id="mapid"></div>
                             <div id="boutons">
                                 <div id="btnClose">
                                     <button id="close" onclick="closeModal()">Close</button>

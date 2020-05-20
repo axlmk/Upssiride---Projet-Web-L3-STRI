@@ -35,9 +35,9 @@
         $query = 'SELECT count(*) FROM account WHERE idaccount=? AND adminrights=1';
         $stmt = $bdd->prepare($query);
         $stmt->execute(array($id));
-        $result = $stmt->fetchAll();
+        $result = $stmt->fetchColumn();
         $stmt->closeCursor();
-        if (count($result)>0){
+        if ($result>0){
             return true;
         }
 

@@ -114,13 +114,13 @@
                 </div>
                 <div class="">
                 <?php if (!isset($_POST['passwordSubmit'])): ?>
-                    <button class="tab_button" onClick="openTab(event, 'global_information')" type="button" name="button" >Information</button>
+                    <button class="tab_button" onClick="openTab(event, 'global_information')" type="button" name="button" id="default_tab">Information</button>
                     <button class="tab_button" onClick="openTab(event, 'password_information')" type="button" name="button" >Change password</button>
                 <?php else: ?>
                     <button class="tab_button" onClick="openTab(event, 'global_information')" type="button" name="button" >Information</button>
                     <button class="tab_button" onClick="openTab(event, 'password_information')" type="button" name="button" id="default_tab">Change password</button>
                 <?php endif ?>
-                    <button class="tab_button" onClick="openTab(event, 'vehicles_information')" type="button" name="button" id="default_tab">Vehicles</button>
+                    <button class="tab_button" onClick="openTab(event, 'vehicles_information')" type="button" name="button">Vehicles</button>
                 </div>
             </aside>
 

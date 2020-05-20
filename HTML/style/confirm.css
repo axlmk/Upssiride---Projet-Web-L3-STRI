@@ -7,3 +7,37 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+img {
+    height: 20%;
+    width: 100px;
+}
+
+.ride_info {
+    display: flex;
+    flex-direction: column;
+}
+
+.city_info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.from_info {
+    width: 30%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.to_info {
+    width: 30%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.tile {
+    width: 40%;
+    margin-top: 80px;
+}
