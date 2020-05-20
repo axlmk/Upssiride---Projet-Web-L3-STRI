@@ -8,7 +8,7 @@
             require_once('header.php');
             require_once('scripts/cookies.php');
             if(isset($_COOKIE['from_address'])) {
-            remove_cookies();
+                remove_cookies();
             }
         ?>
     </head>
@@ -76,44 +76,44 @@
             </div>
 
             <div id="find_ride" class="content">
-                <form class="" action="results.php" method="post" id="find_form">
+                <form class="" action="results.php" method="post" id="find_form" name="find_form">
                     <label>Where are you leaving from?</label>
-                    <input type="text" name="find_from_address" value="" class="input_button" id="find_from_button"></br>
+                    <input type="text" name="find_from_address" value="" class="input_button" id="find_from_button" ></br>
                     <label>Where do you want to go?</label>
                     <input type="text" name="find_destination_address" value="" class="input_button" id="find_to_button"></br>
                     <label for="">Which day?</label>
-                    <input type="date" name="find_date_ride" value="" class="input_button"></br>
+                    <input type="date" name="find_date_ride" value="" class="input_button" form="find_form"></br>
                     <label for="">Around what time?</label>
                     <div class="getTime">
-                        <select class="" name="find_hour">
-                            <option value="">0</option>
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
-                            <option value="">5</option>
-                            <option value="">6</option>
-                            <option value="">7</option>
-                            <option value="">8</option>
-                            <option value="">9</option>
-                            <option value="">10</option>
-                            <option value="">11</option>
+                        <select class="" name="find_hour" form="find_form">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
                         </select>
 
-                        <select class="" name="find_minutes">
-                            <option value="">00</option>
-                            <option value="">15</option>
-                            <option value="">30</option>
-                            <option value="">45</option>
+                        <select class="" name="find_minutes" form="find_form">
+                            <option value="00">00</option>
+                            <option value="00">15</option>
+                            <option value="00">30</option>
+                            <option value="45">45</option> 
                         </select>
 
-                        <select class="" name="find_time_type">
-                            <option value="">AM</option>
-                            <option value="">PM</option>
+                        <select class="" name="find_time_type" form="find_form">
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
                         </select>
                     </div></br>
                     <div class="submit_div">
-                        <input type="button" name="search" value="Search" class="submit_button" onClick="submitFindRide()">
+                        <input type="button" name="search" value="Search" class="submit_button" onClick="submitFindRide()" form="find_form">
                     </div>
                 </form>
             </div>

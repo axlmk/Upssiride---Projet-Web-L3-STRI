@@ -18,7 +18,7 @@
         $from_place = array("address" => $_COOKIE['from_address'], "zip" => $_COOKIE['from_zip'], "city" => $_COOKIE['from_city'], "country" => $_COOKIE['from_country'], "lat" => $from_latlng[0], "lng" => $from_latlng[1]);
         $to_place = array("address" => $_COOKIE['to_address'], "zip" => $_COOKIE['to_zip'], "city" => $_COOKIE['to_city'], "country" => $_COOKIE['to_country'], "lat" => $to_latlng[0], "lng" => $to_latlng[1]);
         $time_info = array("date" => $_COOKIE['ride_date'], "timestamp" => convertToFullTime($_COOKIE['ride_hour'], $_COOKIE['ride_minute'], $_COOKIE['ride_meridien']), "hour" => $_COOKIE['ride_hour'], "minute" => $_COOKIE['ride_minute'], "meridien" => $_COOKIE['ride_meridien']);
-        setup_ride(array($from_place, $to_place), $time_info, $_COOKIE['ride_n_passengers'], 4);
+        setup_ride(array($from_place, $to_place), $time_info, $_COOKIE['ride_n_passengers'], $_SESSION['id']);
         remove_cookies();
     }
 
