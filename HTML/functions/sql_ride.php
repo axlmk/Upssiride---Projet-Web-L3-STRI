@@ -154,15 +154,17 @@
         $bdd = connect_db();
         $mintime = getDateModified($filters['find_hour'], $filters['find_minutes'], $filters['find_time_type'], 59, "-");
         $maxtime = getDateModified($filters['find_hour'], $filters['find_minutes'], $filters['find_time_type'], 59, "+");
-        $query ="SELECT * FROM ride, place AS place1 , place AS place2 
-                    WHERE ride.departuredate=? AND ride.departuretime>=$mintime AND ride.departuretime<=$maxtime 
+        $query ='SELECT * FROM ride, place AS place1 , place AS place2 
+                    WHERE ride.departuredate=? AND ride.departuretime>=? AND ride.departuretime<=? 
                     AND place1.city=? AND place1.postcode =? AND place1.idplace = ride.idplace_departure
-                    AND place2.city=? AND place2.postcode =? AND place2.idplace = ride.idplace_arrived";
-        echo "<br/>" .$query."<br/>";
+                    AND place2.city=? AND place2.postcode =? AND place2.idplace = ride.idplace_arrived
+                    ORDER BY ride.departuretime ASC';
+       // echo "<br/>" .$filters['find_date_ride'],$filters['find_from_city'],$filters['find_from_zip'],$filters['find_to_city'],$filters['find_to_zip']."<br/>";
         $stmt = $bdd->prepare($query);
-        $stmt->execute(array($filters['find_date_ride'],$filters['find_from_city'],$filters['find_from_zip'],$filters['find_to_city'],$filters['find_to_zip']));
+        $retour = $stmt->execute(array($filters['find_date_ride'],$mintime,$maxtime,$filters['find_from_city'],$filters['find_from_zip'],$filters['find_to_city'],$filters['find_to_zip']));
+        
         $results = $stmt->fetchAll();
-        echo "nb lignes".count($results);
+        //echo "nb lignes".count($results);
         $stmt->closeCursor();
         return $results;
     }
