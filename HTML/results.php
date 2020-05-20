@@ -1,6 +1,7 @@
 <?php
     require_once 'functions/auth.php';
     require_once 'functions/sql_account.php';
+    require_once 'functions/sql_place.php';
     require_once 'header.php';
 
     if (!is_connected()){
@@ -16,10 +17,10 @@
             $_POST['find_to_city'] = $_POST['find_to_address'];
             $_POST['find_to_address'] = '';
         }
-        echo $_POST['find_hour']."<br>". $_POST['find_minutes']."<br>".$_POST['find_date_ride']."<br>". $_POST['find_from_city']."<br>". $_POST['find_to_city']."<br>".$_POST['find_time_type']."<br>". $_POST['find_from_zip']."<br>". $_POST['find_to_zip'];
+       // echo $_POST['find_hour']."<br>". $_POST['find_minutes']."<br>".$_POST['find_date_ride']."<br>". $_POST['find_from_city']."<br>". $_POST['find_to_city']."<br>".$_POST['find_time_type']."<br>". $_POST['find_from_zip']."<br>". $_POST['find_to_zip'];
         $results = get_search_results($_POST);
-        echo $_POST['find_from_country']."<br>".$_POST['find_from_zip']."<br>".$_POST['find_from_city']."<br>".$_POST['find_from_address']."<br>";
-        echo $_POST['find_to_country']."<br>".$_POST['find_to_zip']."<br>".$_POST['find_to_city']."<br>".$_POST['find_to_address']."<br>";
+       // echo $_POST['find_from_country']."<br>".$_POST['find_from_zip']."<br>".$_POST['find_from_city']."<br>".$_POST['find_from_address']."<br>";
+       // echo $_POST['find_to_country']."<br>".$_POST['find_to_zip']."<br>".$_POST['find_to_city']."<br>".$_POST['find_to_address']."<br>";
     }
     
 ?>
@@ -58,14 +59,14 @@
               <div class="pic_label">
                   <img src="svg/calendar.svg" alt="calendar" width="40"/>
                     <label>
-                        25/05/2020<!--PHP : À récupérer dans le form de recherche-->
+                   <?=$_POST['find_date_ride']?><!--PHP : À récupérer dans le form de recherche-->
                     </label>
               </div>
 
               <div class="end_pic_label">
                     <img src="svg/clock.svg" alt="clock" width="40"/>
                     <label>
-                        15h03<!--PHP : À récupérer dans le form de recherche-->
+                    <?=$_POST['find_hour'].":".$_POST['find_minutes']." ". $_POST['find_time_type']?><!--PHP : À récupérer dans le form de recherche-->
                     </label>
               </div>
             </div>
@@ -76,14 +77,14 @@
                     <div class="departure">
                         <h3>Departure</h3>
                         <label>
-                            Toulouse<!--PHP : À récupérer dans le form de recherche-->
+                            <?=$_POST['find_from_city']?><!--PHP : À récupérer dans le form de recherche-->
                         </label>
                     </div>
 
                     <div class="arrival">
                         <h3>Arrival</h3>
                         <label>
-                            Montpellier<!--PHP : À récupérer dans le form de recherche-->
+                        <?=$_POST['find_to_city']?><!--PHP : À récupérer dans le form de recherche-->
                         </label>
                     </div>
                 </div>
@@ -99,7 +100,9 @@
         <?php   
                 $place_departure = get_place($ride['idplace_departure']);
                 $place_arrived = get_place($ride['idplace_arrived']);
-                $name_firstname = get_name_firstname($ride['idaccount'])
+                $name_firstname = get_name_firstname($ride['idaccount']);
+                $picture_profile = get_picture_profile($ride['idaccount']);
+
         ?>
         <?php ?>
         <!-- Un trajet -->
@@ -129,10 +132,10 @@
             </div>
 
             <!-- <div class=vertical_line> </div> -->
-            <a href="profile.php">
+            <a href="profile.php?id=<?=$ride['idaccount']?>">
                 <div class=pic>
                     <!-- Info à rentrer en php -->
-                    <img src="Pictures_site/test2.jpg" alt="ppDriver">
+                    <img src=<?=$picture_profile?> alt="ppDriver">
                     <p><?=$name_firstname?></p>
                 </div>
             </a>
@@ -149,51 +152,7 @@
       </div>
     <?php endforeach?>
     <?php endif ?>
-        <!-- Un trajet -->
-        <div class="ride">
-            <div class=info>
-                <!-- Info à rentrer en php -->
-                <div class="pic_label">
-                    <img src="svg/calendar.svg" alt="calendar" width="40"/>
-                    <label for="" style="">25/05/2020</label>
-                </div>
-
-                <div class="end_pic_label">
-                    <img src="svg/clock.svg" alt="clock" width="40"/>
-                    <label for="">15h03</label>
-                </div>
-            </div>
-
-            <div class=rideResume>
-                <!-- Info à rentrer en php -->
-                <label for="">
-                    Toulouse
-                </label>
-                <img src="svg/city_sep.svg" alt="city" width="50">
-                <label for="">
-                    Montpellier
-                </label>
-            </div>
-
-            <!-- <div class=vertical_line> </div> -->
-            <a href="profile.php">
-                <div class=pic>
-                    <!-- Info à rentrer en php -->
-                    <img src="Pictures_site/test2.jpg" alt="ppDriver">
-                    <p>Nom du mec</p>
-                </div>
-            </a>
-
-            <div class="dropdown">
-              <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
-              <div class="dropdown-content">
-                <a href="#">Apply</a>
-                <div class="button_container">
-                    <a href="#" onclick="openModal()">More info</a>
-                </div>
-            </div>
-          </div>
-      </div>
+    
 
 
             <!--Boite modale-->
