@@ -1,5 +1,5 @@
 <?php
- 
+
 
     $bdd = connect_db();
     if ($bdd==null){
