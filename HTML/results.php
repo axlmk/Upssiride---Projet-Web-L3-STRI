@@ -1,15 +1,27 @@
 <?php
     require_once 'functions/auth.php';
+    require_once 'functions/sql_account.php';
     require_once 'header.php';
 
     if (!is_connected()){
         header("Location: connection.php");
     }
 
-    if(isset($_POST['find_from_country'])) {
+    if(isset($_POST['find_from_country'])){
+        if ($_POST['find_from_city']=="undefined"){
+            $_POST['find_from_city'] = $_POST['find_from_address'];
+            $_POST['find_from_address'] = '';
+        }
+        if ($_POST['find_to_city']=="undefined"){
+            $_POST['find_to_city'] = $_POST['find_to_address'];
+            $_POST['find_to_address'] = '';
+        }
+        echo $_POST['find_hour']."<br>". $_POST['find_minutes']."<br>".$_POST['find_date_ride']."<br>". $_POST['find_from_city']."<br>". $_POST['find_to_city']."<br>".$_POST['find_time_type']."<br>". $_POST['find_from_zip']."<br>". $_POST['find_to_zip'];
+        $results = get_search_results($_POST);
         echo $_POST['find_from_country']."<br>".$_POST['find_from_zip']."<br>".$_POST['find_from_city']."<br>".$_POST['find_from_address']."<br>";
         echo $_POST['find_to_country']."<br>".$_POST['find_to_zip']."<br>".$_POST['find_to_city']."<br>".$_POST['find_to_address']."<br>";
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +38,6 @@
         integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
         crossorigin=""></script>
         <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
-
         <style>
             #mapid {
                 height: 300px;
@@ -83,11 +94,13 @@
         </div>
 
         <h1>Results</h1>
-        <!-- Un trajet -->
-<!-- Debut du div-->
-<!-- foreach ($result as $row) {
-        print $row["id"] . "-" . $row["value"] ."<br/>";
-    } -->
+        <?php if ($results!=null): ?>
+        <?php foreach ($results as $ride): ?>
+        <?php   
+                $place_departure = get_place($ride['idplace_departure']);
+                $place_arrived = get_place($ride['idplace_arrived']);
+                $name_firstname = get_name_firstname($ride['idaccount'])
+        ?>
         <?php ?>
         <!-- Un trajet -->
         <div class="ride" onclick="openModal()">
@@ -95,23 +108,23 @@
                 <!-- Info à rentrer en php -->
                 <div class="pic_label">
                     <img src="svg/calendar.svg" alt="calendar" width="40"/>
-                    <label for="" style="">25/05/2020</label>
+                    <label for="" style=""><?=$ride['departuredate']?></label>
                 </div>
 
                 <div class="end_pic_label">
                     <img src="svg/clock.svg" alt="clock" width="40"/>
-                    <label for="">15h03</label>
+                    <label for=""><?=$ride['departuretime']?></label>
                 </div>
             </div>
 
             <div class=rideResume>
                 <!-- Info à rentrer en php -->
                 <label for="">
-                    Toulouse
+                     <?=$place_departure?>
                 </label>
                 <img src="svg/city_sep.svg" alt="city" width="50">
                 <label for="">
-                    Montpellier
+                    <?=$place_arrived?>
                 </label>
             </div>
 
@@ -120,7 +133,7 @@
                 <div class=pic>
                     <!-- Info à rentrer en php -->
                     <img src="Pictures_site/test2.jpg" alt="ppDriver">
-                    <p>Nom du mec</p>
+                    <p><?=$name_firstname?></p>
                 </div>
             </a>
 
@@ -134,7 +147,8 @@
             </div>
           </div>
       </div>
-
+    <?php endforeach?>
+    <?php endif ?>
         <!-- Un trajet -->
         <div class="ride">
             <div class=info>
@@ -297,9 +311,7 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
 
         <script src="javascript/modal.js" type="text/javascript"></script>
