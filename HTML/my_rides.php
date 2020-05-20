@@ -22,11 +22,13 @@
         remove_cookies();
     }
 
+    if(isset($_POST['del_ride'])) {
+        del_full_ride($_POST['del_ride']);
+    }
 
     $resultrequire = get_my_rides_required($_SESSION['id']);
     $resultride = get_my_rides($_SESSION['id']);
     $resultcompleted = get_my_rides_completed($_SESSION['id']);
-    //echo $resultride['idride'];
 ?>
 
 <!DOCTYPE html>
@@ -142,10 +144,11 @@
                     </div>
                 </a>
 
+                <form action="my_rides.php" method="POST" <?php echo 'id="remove_form_'.$ride['idride'].'"' ?>></form>
                 <div class="dropdown">
                     <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
                     <div class="dropdown-content">
-                        <a href="#">Remove</a>
+                        <button type="submit" class="submit_button_2" <?php echo 'form="remove_form_'.$ride['idride'].'" value="'.$ride['idride'].'"' ?> name="del_ride">Remove</button>
                         <?php if ($_SESSION['id']==$ride['idaccount']): ?> <!-- Si l'utilisateur est conducteur -->
                             <a href="#">Modify</a>
                             <div class="button_container">

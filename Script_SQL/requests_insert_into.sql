@@ -55,7 +55,7 @@
 
 -- Addition of new request (with its state) for specified ride under the entity 'require'
 
-    INSERT INTO recquire VALUES($IdAccount,$IdRide, $state_request);
+    INSERT INTO require VALUES($IdAccount,$IdRide, $state_request);
 
     -- Example
 

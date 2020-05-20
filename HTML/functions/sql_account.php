@@ -86,6 +86,7 @@
         return $result['pictureprofil'];
     }
 
+
     function get_resume_passenger($id){
         $bdd = connect_db();
         $query = 'SELECT name, firstname, pictureprofil, description FROM account WHERE idaccount=?';
@@ -106,6 +107,7 @@
         return $result;
     }
 
+
     function get_vehicles($id){
         $bdd = connect_db();
         $query = 'SELECT * FROM vehicule WHERE idaccount=?';
@@ -114,5 +116,26 @@
         $result = $stmt->fetchAll();
         $stmt->closeCursor();
         return $result;
+    }
+
+    function delete_vehicle($registration) {
+        $dtb = connect_db();
+        $stmt = $dtb->prepare('DELETE FROM vehicule WHERE registration=?');
+        $stmt->execute(array($registration));
+        $stmt->closeCursor();
+    }
+
+    function edit_vehicle($brand, $model, $color, $registration) {
+        $dtb = connect_db();
+        $stmt = $dtb->prepare('UPDATE vehicule SET brand=?, model=?, color=? WHERE registration=?');
+        $stmt->execute(array($brand, $model, $color, $registration));
+        $stmt->closeCursor();
+    }
+
+    function add_vehicle($id) {
+        $dtb = connect_db();
+        $ran = rand(0, 999999999);
+        $query = "INSERT INTO vehicule VALUES('$ran', 'default', 'default', 'blue', '$id', 'Pictures_site/vehicles/human_placeholder.jpg')";
+        $dtb->query($query);
     }
 ?>

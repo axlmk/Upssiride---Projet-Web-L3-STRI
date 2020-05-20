@@ -196,8 +196,6 @@
       </div>
 
 
-
-            <!--Boite modale-->
             <!--Boite modale-->
             <div id="modal"><div class="driverInfo"><!--PHP : Récupérer info du trajet séléctionné-->
                         <h1>Driver</h1>

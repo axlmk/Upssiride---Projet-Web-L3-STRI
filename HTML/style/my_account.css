@@ -4,7 +4,7 @@
     justify-content: flex-start;
     width: 100%;
     padding-top: 80px;
-    height: 800px;
+    min-height: 600px;
     margin-bottom: 80px;
 }
 
@@ -73,6 +73,7 @@
 .submit_button {
     padding-left: 40px;
     padding-right: 40px;
+    margin-top: 30px;
 }
 
 .input_button {

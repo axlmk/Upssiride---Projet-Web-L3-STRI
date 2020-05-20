@@ -188,3 +188,23 @@
     margin-top: 0px;
     margin-bottom: 0px;
 }
+
+#remove_form_ {
+    display: none;
+}
+
+.submit_button_2 {
+    background: none;
+    border: none;
+    font-family: 'LEMONMILK-Bold', 'Arial';
+    color: #191A1C;
+    font-size: 16px;
+    transition-property: color;
+    transition-duration: 0.5s;
+    padding: 12px 16px;
+}
+
+.submit_button_2:hover {
+    color: #C26500;
+    cursor: pointer;
+}

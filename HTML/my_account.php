@@ -79,6 +79,18 @@
         upload_pp(strtolower($_SESSION['id']), $_FILES['new_pp'], "Pictures_site/users/", "user");
     }
 
+    if(isset($_POST['new_brand'])) {
+        edit_vehicle($_POST['new_brand'], $_POST['new_model'], $_POST['new_color'], $_POST['new_registration']);
+    }
+
+    if(isset($_POST['del_vehicle'])) {
+        delete_vehicle($_POST['del_vehicle']);
+    }
+
+    if(isset($_POST['new_vehicle'])) {
+        add_vehicle($_SESSION['id']);
+    }
+
     $info = get_account_info($_SESSION['id']);
     $vehicles = get_vehicles($_SESSION['id']);
 ?>
@@ -206,40 +218,43 @@
                 </div>
 
                 <div id="vehicles_information" class="tab_content">
-                    <div class="inner_vehicle_info">
-                        <h2>My vehicles</h2>
+                    <div class = "global_vehicle_container">
+                        <div class="inner_vehicle_info">
+                            <h2>My vehicles</h2>
 
-
-                        <?php foreach ($vehicles as $row): ?>
-                            <div class="vehicle_info">
-                            <div class="pic_container" <?php echo 'id="pp_'.$row['registration'].'"' ?>>
-                                <span class="helper"></span><img src=<?=$row['picture']?> alt=<?=$row["brand"]?>>
-                            </div>
-                            <form action="my_account.php" method="POST" enctype="multipart/form-data" class="file_form" <?php echo 'id="pp_modif_'.$row['registration'].'"' ?>>
-                                <input type="file" name="new_pp" class="image" <?php echo 'id="image_'.$row['registration'].'"' ?>/>
-                                <label <?php echo 'for="image_'.$row['registration'].'"' ?> class="pic_container file_button">
-                                    <span class="helper"></span><img src=<?=$row['picture']?> alt=<?=$row["brand"]?>>
-                                </label>
-                            </form>
-                            <div class="description">
-                                <h3 <?php echo 'id="description_title_'.$row['registration'].'"' ?>><?=$row["brand"]?></h3>
-                                <h3 <?php echo 'id="description_paragraph_'.$row['registration'].'"' ?> ><?=$row["model"]?></h3>
-                                <h3 <?php echo 'id="description_title_'.$row['registration'].'"' ?>><?=$row["color"]?></h3>
-                                <h3 <?php echo 'id="description_paragraph_'.$row['registration'].'"' ?> ><?=$row["registration"]?></h3>
-                            </div>
-                            <div class="dropdown">
-                                <button class="deleteButton" type="button" <?php echo 'id="delete_button_'.$row['registration'].'"' ?> <?php echo 'onClick="openTab('.$row['registration'].'); deleteSp('.$row['registration'].',\''.$row['picture'].'\')"' ?>>Delete</button>
-                                <button class="modifyButton" type="button" <?php echo 'id="modify_button_'.$row['registration'].'"' ?> <?php echo 'onClick="openTab('.$row['registration'].'); modify('.$row['registration'].')"' ?>>Edit</button>
-                                <button class="cancelButton" type="button" <?php echo 'id="cancel_button_'.$row['registration'].'"' ?> <?php echo 'onClick="openTab('.$row['registration'].'); cancel('.$row['registration'].')"' ?>>Cancel</button>
-                                <button class="saveButton" type="button" <?php echo 'id="save_button_'.$row['registration'].'"' ?> <?php echo 'onClick="openTab('.$row['registration'].'); save('.$row['registration'].')"' ?>>Save</button>
+                            <div class="container_vehicle_info">
+                            <?php foreach ($vehicles as $row): ?>
+                                <div class="vehicle_info">
+                                    <div class="pic_container" <?php echo 'id="pp_'.$row['registration'].'"' ?>>
+                                        <span class="helper"></span><img src=<?=$row['picture']?> alt=<?=$row["brand"]?>>
+                                    </div>
+                                    <form action="my_account.php" method="POST" enctype="multipart/form-data" class="file_form" <?php echo 'id="pp_modif_'.$row['registration'].'"' ?>>
+                                        <input type="file" name="new_pp" class="image" <?php echo 'id="image_'.$row['registration'].'"' ?>/>
+                                        <label <?php echo 'for="image_'.$row['registration'].'"' ?> class="pic_container file_button">
+                                            <span class="helper"></span><img src=<?=$row['picture']?> alt=<?=$row["brand"]?>>
+                                        </label>
+                                    </form>
+                                    <div class="description">
+                                        <label class="label_vehi_info">Brand: </label><h3 <?php echo 'id="brand_'.$row['registration'].'"' ?>><?=$row["brand"]?></h3>
+                                        <label class="label_vehi_info">Model: </label><h3 <?php echo 'id="model_'.$row['registration'].'"' ?>><?=$row["model"]?></h3>
+                                        <label class="label_vehi_info">Color: </label><h3 <?php echo 'id="color_'.$row['registration'].'"' ?>><?=$row["color"]?></h3>
+                                        <label class="label_vehi_info">Registration: </label><h3 <?php echo 'id="registration_'.$row['registration'].'"' ?>><?=$row["registration"]?></h3>
+                                    </div>
+                                    <div class="dropdown">
+                                        <button class="deleteButton" type="button" <?php echo 'id="delete_button_'.$row['registration'].'"' ?> <?php echo 'onClick="openTabVehicle('.$row['registration'].'); deleteMV('.$row['registration'].',\''.$row['picture'].'\')"' ?>>Delete</button>
+                                        <button class="modifyButton" type="button" <?php echo 'id="modify_button_'.$row['registration'].'"' ?> <?php echo 'onClick="openTabVehicle('.$row['registration'].'); modify('.$row['registration'].')"' ?>>Edit</button>
+                                        <button class="cancelButton" type="button" <?php echo 'id="cancel_button_'.$row['registration'].'"' ?> <?php echo 'onClick="openTabVehicle('.$row['registration'].'); cancel('.$row['registration'].')"' ?>>Cancel</button>
+                                        <button class="saveButton" type="submit" <?php echo 'id="save_button_'.$row['registration'].'"' ?> <?php echo 'onClick="openTabVehicle('.$row['registration'].');" form="pp_modif_'.$row['registration'].'"' ?>>Save</button>
+                                    </div>
+                                </div>
+                            <?php endforeach?>
                             </div>
                         </div>
-                    <?php endforeach?>
-                </div>
 
-                    <div id="addVehicle">
-                        <div id="imgAdd" onclick="displayNewSponsor()">
-                            <img src="svg/add_button.svg"/>
+                        <div id="addVehicle">
+                            <form action="my_account.php" method="POST">
+                                <button type="submit" name="new_vehicle" class="submit_button" value="true">Add vehicle</button>
+                            </form>
                         </div>
                     </div>
                 </div>

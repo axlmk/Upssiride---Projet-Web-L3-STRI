@@ -149,6 +149,7 @@
         return $result;
     }
 
+
     function get_search_results($filters){
         $bdd = connect_db();
         $mintime = getDateModified($filters['find_hour'], $filters['find_minutes'], $filters['find_time_type'], 59, "-");
@@ -165,6 +166,17 @@
         $stmt->closeCursor();
         return $results;
     }
+
+    function del_full_ride($idride) {
+        $dtb = connect_db();
+        $stmt = $dtb->prepare('DELETE FROM participate WHERE idride=?');
+        $stmt->execute(array($idride));
+        $stmt = $dtb->prepare('DELETE FROM ride WHERE idride=?');
+        $stmt->execute(array($idride));
+        $stmt->closeCursor();
+    }
+
+
 
     /*
     SELECT * FROM ride, place as place1 , place as place2 

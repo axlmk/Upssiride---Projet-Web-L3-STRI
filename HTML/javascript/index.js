@@ -175,6 +175,5 @@ function submitOfferRide() {
     form.appendChild(offer_to_address);
     form.appendChild(offer_to_coord);
 
-    console.log(offer_from_coord.value);
     form.submit();
 }
