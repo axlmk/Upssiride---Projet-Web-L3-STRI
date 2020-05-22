@@ -28,7 +28,9 @@
 
     if (isset($_POST['id_ride'])){
         if(apply($_POST['id_ride'],$_SESSION['id']) == false){
-            $apply =false;
+            $apply = "Sorry, this ride is completed";
+            //echo "Sorry, this ride is completed php";
+            
         }
     }
 
@@ -53,15 +55,14 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
-        <?php if (isset($apply)){
-            echo $apply;
-        }
-        ?>
         <meta charset="utf-8">
         <title>My rides</title>
         <link rel="stylesheet" href="style/my_rides.css"/>
     </head>
     <body>
+    <?php if (isset($apply)):?>
+            <?=$apply?>
+    <?php endif ?>
     <?php if ($resultrequire!=null): ?>
         <div class="title_div">
             <img src="svg/hourglass.svg"/>

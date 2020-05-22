@@ -179,7 +179,27 @@
         $stmt->closeCursor();
     }
 
+    function apply($id_ride,$id_passenger){
+        if (!check_number_passenger($id_ride)){
+            return false;
+        }
+        $bdd = connect_db();
+        $query = "INSERT INTO require VALUES('$id_passenger','$id_ride','processing')";
+        $bdd->query($query);
+    }
 
+    function check_number_passenger($idride){
+        $bdd = connect_db();
+        
+        $query = "SELECT maxpassengersnb FROM ride WHERE idride=$idride";
+        $maxpassengers = $bdd->query($query)->fetch();
+        $query = "SELECT count(*) FROM participate WHERE idride=$idride";
+        $result = $bdd->query($query)->fetchColumn();
+        if ($result>=$maxpassengers['maxpassengersnb']+1){
+            return false;
+        }
+        return true;
+    }
 
     /*
     SELECT * FROM ride, place as place1 , place as place2
