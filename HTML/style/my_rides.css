@@ -208,3 +208,14 @@
     color: #C26500;
     cursor: pointer;
 }
+
+.choice button {
+    border: none;
+    background-color: inherit;
+}
+
+.choice button:hover {
+    cursor: pointer;
+    filter: brightness(120%);
+    transition-duration: 0.3s;
+}
