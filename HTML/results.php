@@ -40,7 +40,7 @@
         crossorigin=""></script>
         <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
         <style>
-            #mapid {
+            .mapid {
                 height: 300px;
                 width: 300px;
             }
@@ -51,6 +51,7 @@
         </style>
     </head>
     <body>
+        <script src="javascript/results.js" type="text/javascript"></script>
         <h1>Your search</h1>
         <div class=rideSearched>
             <h2>When ?</h2>
@@ -144,135 +145,136 @@
               <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
               <div class="dropdown-content">
                 <a <?php echo 'onClick="apply('.$ride['idride'].')"'?>>Apply</a><!--PHP : Requête pour candidater à un trajet-->
-                <a onclick="openModal()">More info</a>
+                <a <?php echo 'onclick="openModal('.$ride['idride'].')"' ?>>More info</a>
             </div>
           </div>
       </div>
+
+
+      <!--Boite modale-->
+      <div <?php echo 'id="modal_'.$ride['idride'].'"' ?> class="modal"><div class="driverInfo"><!--PHP : Récupérer info du trajet séléctionné-->
+                  <h1>Driver</h1>
+                  <hr>
+                  <div class="pic">
+                      <a href=""><img src="pictures_site/test2.jpg"></img></a><!--PHP : Photo du conduecteur-->
+                      <a href=""><h3>Cyril Decaud</h3></a><!--PHP : nom conducteur-->
+                  </div>
+                  <div class="preferences">
+                      <div class="music">
+                          <div class="music_icon">
+                              <img src="svg/music_ok.svg"></img><!--PHP : Icone préférences musicales du conducteur-->
+                          </div>
+                          <div class="music_text">
+                              <p>I love to listen to music</p><!--PHP : texte préférences musicales du conducteur-->
+                          </div>
+                      </div>
+                      <div class="talk">
+                          <div class="talk_icon">
+                              <img src="svg/tchat_ok.svg"></img><!--PHP : Icone préférences de discussions du conducteur-->
+                          </div>
+                          <div class="talk_text">
+                              <p>I like to talk</p><!--PHP : texte préférences de discussions du conducteur-->
+                          </div>
+                      </div>
+                      <div class="smoke">
+                          <div class="smoke_icon">
+                              <img src="svg/cigarette_ok.svg"></img><!--PHP : Icone préférences cigarette du conducteur-->
+                          </div>
+                          <div class="smoke_text">
+                              <p>No smoking</p><!--PHP : texte préférences cigarette du conducteur-->
+                          </div>
+                      </div>
+                      <div class="pets">
+                          <div class="pets_icon">
+                              <img src="svg/pets.svg"></img><!--PHP : Icone préférences cigarette du conducteur-->
+                          </div>
+                          <div class="pets_text">
+                              <p>No pets allowed</p><!--PHP : texte préférences cigarette du conducteur-->
+                          </div>
+                      </div>
+                  </div>
+                  <div class="">
+                      <h2>Vehicle</h2>
+                  </div>
+                  <div class="driverCar">
+                      <div class="driverCar_icon">
+                          <img src="svg/car.svg" alt="Car"></img>
+                      </div>
+                      <div class="diverCar_text">
+                          <p>White Renault Trafic</p><!--PHP : Voiture du conducteur-->
+                      </div>
+                  </div>
+              </div>
+
+          <div id="ride_resume">
+              <div class="title_summary">
+                  <h1>Summary</h1>
+                  <hr>
+              </div>
+
+              <div id="travel">
+                  <div class="travel_resume">
+                      <div class="from">
+                          <div class="town">
+                              <label>Toulouse</label><!--PHP : Ville de départ-->
+                          </div>
+                          <div class="adress">
+                              <p>Place du capitol, 31000 Toulouse</p><!--PHP : Adresse de départ-->
+                          </div>
+                          <div class="time">
+                              <h3><?php echo $ride['departuretime']?></h3><!--PHP : Heure de départ-->
+                          </div>
+                      </div>
+                      <div class="city_sep">
+                          <img src="svg/city_sep.svg"></img>
+                      </div>
+                      <div class="to">
+                          <div class="town">
+                              <label>Marseille</label><!--PHP : Ville d'arrivée-->
+                          </div>
+                          <div class="adress">
+                              <p>Le vieux port, 13000 Marseille</p><!--PHP : Adresse d'arrivée-->
+                          </div>
+                          <div class="time">
+                              <h3>2:00 pm</h3><!--PHP : Heure d'arrivée-->
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="passengers">
+                      <div class="passengers_title">
+                          <h2>Passengers<h2>
+                      </div>
+                      <div class="passengers_team">
+                          <div class="passagers">                                                             <!--PHP : Portion à répéter--->
+      <!--0 adapter en PHP-->         <a href ="profile.php"><img src="Pictures_site/test2.jpg"></img></a>            <!-- autant de fois que ------>
+                          </div>                                                                              <!--de place dans la voiture-->
+                          <div class="passagers">
+                               <a href ="profile.php"><img src="Pictures_site/users/human_placeholder.jpg"></img></a>
+                          </div>
+                      </div>
+                  </div>
+                  <div id="last_conteneur">
+                      <div <?php echo 'id="map_'.$ride['idride'].'"' ?> class="mapid"></div>
+                      <div id="boutons">
+                          <button class="submit_button" <?php echo 'onclick="closeModal('.$ride['idride'].')"' ?>>Close</button>
+                          <button class="submit_button" <?php echo 'onClick="apply('.$ride['idride'].')"'?>>Apply</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <?php echo '<script>
+      create_map('.$ride['idride'].', '.$ride['lat'].', '.$ride['14'].', '.$ride['lon'].', '.$ride['15'].');
+      </script>'
+      ?>
+
+
     <?php endforeach?>
     <?php endif ?>
 
 
-
-            <!--Boite modale-->
-            <div id="modal"><div class="driverInfo"><!--PHP : Récupérer info du trajet séléctionné-->
-                        <h1>Driver</h1>
-                        <hr>
-                        <div class="pic">
-                            <a href=""><img src="pictures_site/test2.jpg"></img></a><!--PHP : Photo du conduecteur-->
-                            <a href=""><h3>Cyril Decaud</h3></a><!--PHP : nom conducteur-->
-                        </div>
-                        <div class="preferences">
-                            <div class="music">
-                                <div class="music_icon">
-                                    <img src="svg/music_ok.svg"></img><!--PHP : Icone préférences musicales du conducteur-->
-                                </div>
-                                <div class="music_text">
-                                    <p>I love to listen to music</p><!--PHP : texte préférences musicales du conducteur-->
-                                </div>
-                            </div>
-                            <div class="talk">
-                                <div class="talk_icon">
-                                    <img src="svg/tchat_ok.svg"></img><!--PHP : Icone préférences de discussions du conducteur-->
-                                </div>
-                                <div class="talk_text">
-                                    <p>I like to talk</p><!--PHP : texte préférences de discussions du conducteur-->
-                                </div>
-                            </div>
-                            <div class="smoke">
-                                <div class="smoke_icon">
-                                    <img src="svg/cigarette_ok.svg"></img><!--PHP : Icone préférences cigarette du conducteur-->
-                                </div>
-                                <div class="smoke_text">
-                                    <p>No smoking</p><!--PHP : texte préférences cigarette du conducteur-->
-                                </div>
-                            </div>
-                            <div class="pets">
-                                <div class="pets_icon">
-                                    <img src="svg/pets.svg"></img><!--PHP : Icone préférences cigarette du conducteur-->
-                                </div>
-                                <div class="pets_text">
-                                    <p>No pets allowed</p><!--PHP : texte préférences cigarette du conducteur-->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="">
-                            <h2>Vehicle</h2>
-                        </div>
-                        <div class="driverCar">
-                            <div class="driverCar_icon">
-                                <img src="svg/car.svg" alt="Car"></img>
-                            </div>
-                            <div class="diverCar_text">
-                                <p>White Renault Trafic</p><!--PHP : Voiture du conducteur-->
-                            </div>
-                        </div>
-                    </div>
-
-                <div id="ride_resume">
-                    <div class="title_summary">
-                        <h1>Summary</h1>
-                        <hr>
-                    </div>
-
-                    <div id="travel">
-                        <div class="travel_resume">
-                            <div class="from">
-                                <div class="town">
-                                    <label>Toulouse</label><!--PHP : Ville de départ-->
-                                </div>
-                                <div class="adress">
-                                    <p>Place du capitol, 31000 Toulouse</p><!--PHP : Adresse de départ-->
-                                </div>
-                                <div class="time">
-                                    <h3>9:00 am</h3><!--PHP : Heure de départ-->
-                                </div>
-                            </div>
-                            <div class="city_sep">
-                                <img src="svg/city_sep.svg"></img>
-                            </div>
-                            <div class="to">
-                                <div class="town">
-                                    <label>Marseille</label><!--PHP : Ville d'arrivée-->
-                                </div>
-                                <div class="adress">
-                                    <p>Le vieux port, 13000 Marseille</p><!--PHP : Adresse d'arrivée-->
-                                </div>
-                                <div class="time">
-                                    <h3>2:00 pm</h3><!--PHP : Heure d'arrivée-->
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="passengers">
-                            <div class="passengers_title">
-                                <h2>Passengers<h2>
-                            </div>
-                            <div class="passengers_team">
-                                <div class="passagers">                                                             <!--PHP : Portion à répéter--->
-    <!--0 adapter en PHP-->         <a href ="profile.php"><img src="Pictures_site/test2.jpg"></img></a>            <!-- autant de fois que ------>
-                                </div>                                                                              <!--de place dans la voiture-->
-                                <div class="passagers">
-                                     <a href ="profile.php"><img src="Pictures_site/users/human_placeholder.jpg"></img></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="last_conteneur">
-                            <div id="mapid"></div>
-                            <div id="boutons">
-                                <div id="btnClose">
-                                    <button id="close" onclick="closeModal()">Close</button>
-                                </div>
-                                <div class="btnApply">
-                                    <a href=""><button id="apply" >Apply</button></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        <script src="javascript/modal.js" type="text/javascript"></script>
-        <script type="text/javascript" src="javascript/results.js"></script>
+        <script type="text/javascript" src="javascript/modal.js"></script>
 
     </body>
 

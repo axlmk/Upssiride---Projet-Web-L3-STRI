@@ -78,13 +78,13 @@ hr{
 .header nav ul li a {
     position: relative;
 }
-/*
+
 .empty_block {
     display: block;
     background-color: #f3ddc6;
     width: 100%;
     height: 90px;
-}*/
+}
 
 #logo{
     height: auto;
