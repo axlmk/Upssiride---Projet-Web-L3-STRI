@@ -170,7 +170,7 @@
                         <?php if ($_SESSION['id']==$ride['idaccount']): ?> <!-- Si l'utilisateur est conducteur -->
                             <a href="#">Modify</a>
                             <div class="button_container">
-                                <a href="#" onclick="openModal()">Approve passenger</a>
+                                <a href="#" <?php echo 'onclick="openModal('.$ride['idride'].')"' ?>>Approve passenger</a>
                             </div>
                         <?php endif ?>
                     </div>
@@ -205,7 +205,7 @@
                         </div>
                     <?php endforeach ?>
                     <div id="btnClose">
-                        <button id="close" onclick="closeModal()">Close</button>
+                        <button id="close" <?php echo 'onclick="closeModal('.$ride['idride'].')"' ?>>Close</button>
                     </div>
                 </div>
             <?php endif ?>
