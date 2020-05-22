@@ -19,7 +19,7 @@
                 <li>
                     <a href="my_rides.php" id="notified">
                         My Rides
-                        <?php if (is_connected() && check_notification($_SESSION['id'])==true):?>
+                        <?php if (is_connected() && check_notification($_SESSION['id'])):?>
                             <img src="svg/notification.svg" alt="notification" class="notification">
                         <?php endif ?>
                     </a>

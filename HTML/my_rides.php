@@ -38,15 +38,11 @@
         $bdd->query($query);
     }
 
-    /*if(isset($_POST['id_passenger'])) {
-
+    if(isset($_POST['id_ride_ac'])) {
         if($_POST['accepted']) {
-
-            accept($_POST['id_passenger'], $_POST['id_ride']);
-        } else {
-
+            accept_pass($_POST['id_passenger_ac'], $_POST['id_ride_ac']);
         }
-    }*/
+    }
 
     $resultrequire = get_my_rides_required($_SESSION['id']);
     $resultride = get_my_rides($_SESSION['id']);
@@ -183,13 +179,11 @@
             <?php if ($_SESSION['id']==$ride['idaccount']): ?>
             <?php $resume = get_passengers_request($ride['idride']); ?>
                 <!--Boite modale-->
-                <div id="modal">
+                <div <?php echo 'id="modal_'.$ride['idride'].'"' ?> class="modal">
                     <h1>New request</h1>
                     <hr>
                     <?php foreach($resume as $passenger): ?>
                         <?php
-                            //$passenger_name = get_name_firstname($passenger['idaccount']);
-                            //$pdd = get_picture_profile($passenger['idaccount']);
                             $passenger_resume = get_resume_passenger($passenger['idaccount']);
                         ?>
                         <div class="aRequest"><!--PHP : Récupérer info du trajet séléctionné-->
@@ -203,10 +197,10 @@
                                 <p><?=$passenger_resume['description']?></p><!--PHP : Description du passager-->
                             </div>
                             <div class="choice">
-                                <button <?php echo 'onClick="accept('.$passenger['idaccount'].', '.$ride['idride'].')"'?>><img src="svg/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
+                                <button <?php echo 'onClick="accept('.$passenger['idaccount'].', '.$ride['idride'].', true)"'?>><img src="svg/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
                             </div>
                             <div class="choice">
-                                <button action="" method="POST"><img src="svg/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
+                                <button <?php echo 'onClick="accept('.$passenger['idaccount'].', '.$ride['idride'].', false)"'?>><img src="svg/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
                             </div>
                         </div>
                     <?php endforeach ?>

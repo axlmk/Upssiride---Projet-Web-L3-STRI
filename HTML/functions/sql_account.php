@@ -89,7 +89,7 @@
 
     function get_resume_passenger($id){
         $bdd = connect_db();
-        $query = 'SELECT name, firstname, pictureprofil, description FROM account WHERE idaccount=?';
+        $query = 'SELECT name, firstname, pictureprofil, description, idaccount FROM account WHERE idaccount=?';
         $stmt = $bdd->prepare($query);
         $stmt->execute(array($id));
         $result = $stmt->fetch();
