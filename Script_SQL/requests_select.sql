@@ -191,3 +191,36 @@
     -- Example
 
     SELECT idplace FROM place WHERE address='My_address' AND postcode='123456' AND city='London' AND country='United Kingdom';
+
+
+-- Search and display 'music' attribut for a specific account
+
+    SELECT music FROM account WHERE idaccount=$Idaccount;
+
+    -- Example 
+
+    SELECT music FROM account WHERE idaccount=1;
+
+-- Search and display 'chatting' attribut for a specific account
+
+    SELECT chatting FROM account WHERE idaccount=$Idaccount;
+
+    -- Example 
+
+    SELECT chatting FROM account WHERE idaccount=1;
+
+-- Search and display 'smoke' attribut for a specific account
+
+    SELECT smoke FROM account WHERE idaccount=$Idaccount;
+
+    -- Example 
+
+    SELECT smoke FROM account WHERE idaccount=1;
+
+-- Search and display 'pets' attribut for a specific account
+
+    SELECT pets FROM account WHERE idaccount=$Idaccount;
+
+    -- Example 
+
+    SELECT pets FROM account WHERE idaccount=1;
