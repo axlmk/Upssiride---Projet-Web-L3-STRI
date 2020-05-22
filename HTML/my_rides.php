@@ -27,14 +27,11 @@
     }
 
     if (isset($_POST['id_ride'])){
-        $bdd = connect_db();
-        if ($bdd == null){
-            return false;
+        if(apply($_POST['id_ride'],$_SESSION['id']) == false){
+            $apply = "Sorry, this ride is completed";
+            //echo "Sorry, this ride is completed php";
+            
         }
-        $id_ride = $_POST['id_ride'];
-        $id_passenger = $_SESSION['id'];
-        $query = "INSERT INTO require VALUES('$id_passenger','$id_ride','processing')";
-        $bdd->query($query);
     }
 
     if(isset($_POST['id_ride_canceled'])) {
@@ -63,6 +60,9 @@
         <link rel="stylesheet" href="style/my_rides.css"/>
     </head>
     <body>
+    <?php if (isset($apply)):?>
+            <?=$apply?>
+    <?php endif ?>
     <?php if ($resultrequire!=null): ?>
         <div class="title_div">
             <img src="svg/hourglass.svg"/>
