@@ -4,9 +4,7 @@
     require_once 'functions/sql_place.php';
     require_once 'header.php';
 
-    if (!is_connected()){
-        header("Location: connection.php");
-    }
+    is_connected();
 
     if(isset($_POST['find_from_country'])){
         if ($_POST['find_from_city']=="undefined"){
@@ -18,7 +16,12 @@
             $_POST['find_to_address'] = '';
         }
        // echo $_POST['find_hour']."<br>". $_POST['find_minutes']."<br>".$_POST['find_date_ride']."<br>". $_POST['find_from_city']."<br>". $_POST['find_to_city']."<br>".$_POST['find_time_type']."<br>". $_POST['find_from_zip']."<br>". $_POST['find_to_zip'];
-        $results = get_search_results($_POST);
+       if (!isset($_SESSION['id'])){
+           $id_session = 0;
+       }else {
+           $id_session = $_SESSION['id'];
+       }
+       $results = get_search_results($_POST,$id_session);
        // echo $_POST['find_from_country']."<br>".$_POST['find_from_zip']."<br>".$_POST['find_from_city']."<br>".$_POST['find_from_address']."<br>";
        // echo $_POST['find_to_country']."<br>".$_POST['find_to_zip']."<br>".$_POST['find_to_city']."<br>".$_POST['find_to_address']."<br>";
     }
