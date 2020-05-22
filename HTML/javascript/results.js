@@ -21,7 +21,7 @@ function apply(it) {
     var form = document.createElement("form");
     form.style.display = 'none';
     form.method = "POST";
-    form.action = "scripts/apply.php";
+    form.action = "my_rides.php";
     document.body.appendChild(form);
     var form_title = document.createElement("input");
     form_title.name = "id_ride";

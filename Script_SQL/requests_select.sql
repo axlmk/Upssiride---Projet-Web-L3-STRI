@@ -90,11 +90,11 @@
 
 -- Search and display the city with a specific 'idplace' attribut in the 'place' entity
 
-    SELECT city FROM place WHERE idplace=?;
+    SELECT city FROM place WHERE idplace=$Idplace;
 
     -- Example 
 
-    SELECT city FROM place WHERE idplace=?;
+    SELECT city FROM place WHERE idplace=2;
 
 -- Search and display list ride for a specific account with the 'idaccount' attribut
 

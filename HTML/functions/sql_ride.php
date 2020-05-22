@@ -6,14 +6,15 @@
         if ($bdd==null){
             return false;
         }
-        $query = 'SELECT recquire.idaccount FROM recquire,ride,account WHERE account.idaccount=? AND ride.idaccount=? AND recquire.idride=ride.idride';
+        $query = 'SELECT require.idaccount FROM require,ride WHERE ride.idaccount=? AND require.idride=ride.idride';
         $stmt = $bdd->prepare($query);
-        $stmt->execute(array($id,$id));
-        $result = $stmt->fetchAll();
-        $stmt->closeCursor();
-        if (count($result)>0){
+        $stmt->execute(array($id));
+
+        if ($stmt->rowCount() > 0){
+            $stmt->closeCursor();
             return true;
         }
+        $stmt->closeCursor();
         return false;
     }
 
@@ -154,15 +155,15 @@
         $bdd = connect_db();
         $mintime = getDateModified($filters['find_hour'], $filters['find_minutes'], $filters['find_time_type'], 59, "-");
         $maxtime = getDateModified($filters['find_hour'], $filters['find_minutes'], $filters['find_time_type'], 59, "+");
-        $query ='SELECT * FROM ride, place AS place1 , place AS place2 
-                    WHERE ride.departuredate=? AND ride.departuretime>=? AND ride.departuretime<=? 
+        $query ='SELECT * FROM ride, place AS place1 , place AS place2
+                    WHERE ride.departuredate=? AND ride.departuretime>=? AND ride.departuretime<=?
                     AND place1.city=? AND place1.postcode =? AND place1.idplace = ride.idplace_departure
                     AND place2.city=? AND place2.postcode =? AND place2.idplace = ride.idplace_arrived
                     ORDER BY ride.departuretime ASC';
        // echo "<br/>" .$filters['find_date_ride'],$filters['find_from_city'],$filters['find_from_zip'],$filters['find_to_city'],$filters['find_to_zip']."<br/>";
         $stmt = $bdd->prepare($query);
         $retour = $stmt->execute(array($filters['find_date_ride'],$mintime,$maxtime,$filters['find_from_city'],$filters['find_from_zip'],$filters['find_to_city'],$filters['find_to_zip']));
-        
+
         $results = $stmt->fetchAll();
         //echo "nb lignes".count($results);
         $stmt->closeCursor();
@@ -181,14 +182,14 @@
 
 
     /*
-    SELECT * FROM ride, place as place1 , place as place2 
-WHERE ride.departuredate='2020/05/15' AND ride.departuretime='01:00:00' 
+    SELECT * FROM ride, place as place1 , place as place2
+WHERE ride.departuredate='2020/05/15' AND ride.departuretime='01:00:00'
 AND place1.city='Bulls Cross' AND place1.postcode ='EN2 9HE' AND place1.idplace = ride.idplace_departure
 AND place2.city='Effiat' AND place2.postcode ='63260' AND place2.idplace = ride.idplace_arrived;
 
-SELECT * FROM ride, place AS place1 , place AS place2 
+SELECT * FROM ride, place AS place1 , place AS place2
 WHERE ride.departuredate='2020-05-24' AND ride.departuretime>='15:1:00' AND ride.departuretime<='16:59:00'
-AND place1.city='Tarbes' AND place1.postcode ='65000' AND place1.idplace = ride.idplace_departure 
+AND place1.city='Tarbes' AND place1.postcode ='65000' AND place1.idplace = ride.idplace_departure
 AND place2.city='Pau' AND place2.postcode = '64000' AND place2.idplace = ride.idplace_arrived;
 */
 ?>

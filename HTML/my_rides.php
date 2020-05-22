@@ -6,6 +6,7 @@
     require_once 'header.php';
     require_once 'scripts/cookies.php';
     require_once 'scripts/utils.php';
+    require_once 'scripts/accept_passenger.php';
 
 
     if (!is_connected()){
@@ -25,6 +26,27 @@
     if(isset($_POST['del_ride'])) {
         del_full_ride($_POST['del_ride']);
     }
+
+    if (isset($_POST['id_ride'])){
+        $bdd = connect_db();
+        if ($bdd == null){
+            return false;
+        }
+        $id_ride = $_POST['id_ride'];
+        $id_passenger = $_SESSION['id'];
+        $query = "INSERT INTO require VALUES('$id_passenger','$id_ride','processing')";
+        $bdd->query($query);
+    }
+
+    /*if(isset($_POST['id_passenger'])) {
+
+        if($_POST['accepted']) {
+
+            accept($_POST['id_passenger'], $_POST['id_ride']);
+        } else {
+
+        }
+    }*/
 
     $resultrequire = get_my_rides_required($_SESSION['id']);
     $resultride = get_my_rides($_SESSION['id']);
@@ -181,7 +203,7 @@
                                 <p><?=$passenger_resume['description']?></p><!--PHP : Description du passager-->
                             </div>
                             <div class="choice">
-                                <button action="" method="POST"><img src="svg/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
+                                <button <?php echo 'onClick="accept('.$passenger['idaccount'].', '.$ride['idride'].')"'?>><img src="svg/validate_checkbox.svg"></img></button><!--PHP : Requête passager accepté-->
                             </div>
                             <div class="choice">
                                 <button action="" method="POST"><img src="svg/cancel_checkbox.svg"></img></button><!--PHP : Requête passager refusé-->
@@ -248,6 +270,7 @@
         <?php endforeach?>
     <?php endif?>
         <script src="javascript/modal.js" type="text/javascript"></script>
+        <script src="javascript/my_rides.js" type="text/javascript"></script>
 
     </body>
 
