@@ -36,6 +36,7 @@ ul {
 
 a:hover{
     color: #C26500;
+    cursor: pointer;
 }
 
 a:active{

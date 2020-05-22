@@ -18,3 +18,16 @@ function accept(it, id_ride, acc) {
     form.appendChild(accept_or_not);
     form.submit();
 }
+
+function cancel(it) {
+    var form = document.createElement("form");
+    form.style.display = 'none';
+    form.method = "POST";
+    form.action = "my_rides.php";
+    document.body.appendChild(form);
+    var form_title = document.createElement("input");
+    form_title.name = "id_ride_canceled";
+    form_title.value = it;
+    form.appendChild(form_title);
+    form.submit();
+}
