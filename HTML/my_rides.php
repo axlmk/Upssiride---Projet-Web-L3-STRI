@@ -3,7 +3,6 @@
     require_once 'functions/sql_ride.php';
     require_once 'functions/sql_account.php';
     require_once 'functions/sql_place.php';
-    require_once 'header.php';
     require_once 'scripts/cookies.php';
     require_once 'scripts/utils.php';
     require_once 'scripts/accept_passenger.php';
@@ -33,12 +32,19 @@
         }
     }
 
+    if(isset($_POST['id_ride_canceled'])) {
+        cancel_ride($_SESSION['id'], $_POST['id_ride_canceled']);
+    }
+
     if(isset($_POST['id_ride_ac'])) {
-        if($_POST['accepted']) {
+        if($_POST['accepted'] == 'true') {
             accept_pass($_POST['id_passenger_ac'], $_POST['id_ride_ac']);
+        } else {
+            decline_pass($_POST['id_passenger_ac'], $_POST['id_ride_ac']);
         }
     }
 
+    require_once 'header.php';
     $resultrequire = get_my_rides_required($_SESSION['id']);
     $resultride = get_my_rides($_SESSION['id']);
     $resultcompleted = get_my_rides_completed($_SESSION['id']);
@@ -106,7 +112,7 @@
                 <div class="dropdown">
                     <img src="svg/checkbox.svg" alt="Option button" class="dropbtn"></img>
                     <div class="dropdown-content">
-                        <a href="#">Cancel</a><!-- PHP : Requête d'annulation de participation -->
+                        <a <?php echo 'onClick="cancel('.$require['idride'].')"'?>>Cancel</a><!-- PHP : Requête d'annulation de participation -->
                     </div>
                 </div>
             </div>
@@ -167,9 +173,8 @@
                     <div class="dropdown-content">
                         <button type="submit" class="submit_button_2" <?php echo 'form="remove_form_'.$ride['idride'].'" value="'.$ride['idride'].'"' ?> name="del_ride">Remove</button>
                         <?php if ($_SESSION['id']==$ride['idaccount']): ?> <!-- Si l'utilisateur est conducteur -->
-                            <a href="#">Modify</a>
                             <div class="button_container">
-                                <a href="#" onclick="openModal()">Approve passenger</a>
+                                <a href="#" <?php echo 'onclick="openModal('.$ride['idride'].')"' ?>>Approve passenger</a>
                             </div>
                         <?php endif ?>
                     </div>
@@ -204,7 +209,7 @@
                         </div>
                     <?php endforeach ?>
                     <div id="btnClose">
-                        <button id="close" onclick="closeModal()">Close</button>
+                        <button id="close" <?php echo 'onclick="closeModal('.$ride['idride'].')"' ?>>Close</button>
                     </div>
                 </div>
             <?php endif ?>

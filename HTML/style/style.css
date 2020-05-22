@@ -36,6 +36,7 @@ ul {
 
 a:hover{
     color: #C26500;
+    cursor: pointer;
 }
 
 a:active{
@@ -221,7 +222,7 @@ input{
     transition-duration: 0.5s;
 }
 
-#modal{
+.modal{
     width: 80%;
     height: auto;
     max-height: 50%;
