@@ -63,6 +63,7 @@
         <title>Confirm your ride</title>
     </head>
     <body>
+        <form action=""></form><!--Script pour le formulaire-->
         <div class="tile">
             <div class="ride_info">
                 <div class="global_info">
@@ -85,10 +86,16 @@
                         <p>City: <?php echo "$to_city" ?></p>
                     </div>
                 </div>
+                <div id="description">
+                    <p>Description (optional)</p>
+                    <textarea form="add_description" rows="4" cols="86" name="description" class="text_area"></textarea>
+                </div>
             </div>
             <div class="action_div">
                 <a href="index.php"><button type="button" name="button" class="submit_button" >Edit ride</button></a>
-                <a href="my_rides.php"><button type="button" name="button" class="submit_button">Confirm</button></a>
+                <form action="add_description"><!--Mets ce que tu veux ! :)-->
+                   <a href="my_rides.php"><button type="submit" name="button" class="submit_button">Confirm</button></a>
+                </form>    
             </div>
         </div>
         <script src="javascript/confirm.js" type="text/javascript"></script>
