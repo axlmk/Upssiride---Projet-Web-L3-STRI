@@ -81,7 +81,11 @@
 
     if(isset($_POST['new_brand'])) {
         edit_vehicle($_POST['new_brand'], $_POST['new_model'], $_POST['new_color'], $_POST['new_registration']);
+        if(isset($_FILES['new_pp_vehicle'])) {
+            upload_pp($_POST['new_registration'], $_FILES['new_pp_vehicle'], "Pictures_site/vehicles/", "vehicle");
+        }
     }
+
 
     if(isset($_POST['del_vehicle'])) {
         delete_vehicle($_POST['del_vehicle']);
@@ -229,7 +233,7 @@
                                         <span class="helper"></span><img src=<?=$row['picture']?> alt=<?=$row["brand"]?>>
                                     </div>
                                     <form action="my_account.php" method="POST" enctype="multipart/form-data" class="file_form" <?php echo 'id="pp_modif_'.$row['registration'].'"' ?>>
-                                        <input type="file" name="new_pp" class="image" <?php echo 'id="image_'.$row['registration'].'"' ?>/>
+                                        <input type="file" name="new_pp_vehicle" class="image" <?php echo 'id="image_'.$row['registration'].'"' ?>/>
                                         <label <?php echo 'for="image_'.$row['registration'].'"' ?> class="pic_container file_button">
                                             <span class="helper"></span><img src=<?=$row['picture']?> alt=<?=$row["brand"]?>>
                                         </label>

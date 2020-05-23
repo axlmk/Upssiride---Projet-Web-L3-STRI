@@ -86,11 +86,9 @@ function modify(it) {
         new_registration.setAttribute('id', 'registration_inp_' + it);
         new_registration.setAttribute('form', 'pp_modif_' + it);
         new_registration.setAttribute('name', 'new_registration');
-        previous_registration_str = old_registration.innerHTML;
 
+        new_registration.style.display = 'none';
         old_registration.parentNode.insertBefore(new_registration, old_registration);
-        old_registration.parentNode.removeChild(old_registration);
-
 
         panel_open = true;
         selected_id = it;
@@ -121,12 +119,6 @@ function cancel(it) {
         new_color.setAttribute('id', 'color_' + it);
         old_color.parentNode.insertBefore(new_color, old_color);
         old_color.parentNode.removeChild(old_color);
-
-        var new_registration = document.createElement('h3');
-        new_registration.innerHTML = previous_registration_str;
-        new_registration.setAttribute('id', 'registration_' + it);
-        old_registration.parentNode.insertBefore(new_registration, old_registration);
-        old_registration.parentNode.removeChild(old_registration);
 
         panel_open = false;
     }

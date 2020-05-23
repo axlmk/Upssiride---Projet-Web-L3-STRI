@@ -36,6 +36,10 @@
     padding-top: 8px;
 }
 
+.pic_label img {
+    margin-right: 0;
+}
+
 .end_pic_label {
     display: flex;
     flex-direction: row;
@@ -46,7 +50,7 @@
     margin-left: 50px;
 }
 
-.pic{
+.pic {
     margin-top: 20px;
     display: flex;
     flex-direction: row;
@@ -55,11 +59,11 @@
 
 .pic img {
     border-radius: 50%;;
-    /*border: solid 4px #191A1C;*/
     border: none;
     height: 70px;
-    width: auto;
+    width: 70px;
     right: 0px;
+    object-fit: cover;
 }
 
 .pic p {

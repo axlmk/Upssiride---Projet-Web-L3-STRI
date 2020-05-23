@@ -31,8 +31,15 @@
                 }
             } else if($type == "new_sponsor") {
                 return $path.$username.'.'.$file_ext;
+            } else if($type == "vehicle") {
+                $result = save_pp_vehicle($path.$username.'.'.$file_ext, $username);
+                if ($result) {
+                    $returnPP = "Your pp has been changed";
+                } else {
+                    $returnPP = "An error has occured, please retry later";
+                }
             } else {
-                $result = save_pp_account($path.$username.'.'.$file_ext, $_SESSION['id']);
+                $result = save_pp_account($path.$username.'.'.$file_ext, $username);
                 if ($result) {
                     $returnPP = "Your pp has been changed";
                 } else {

@@ -30,6 +30,17 @@
         return false;
     }
 
+    function save_pp_vehicle($path, $registration){
+        $bdd = connect_db();
+        $stmt = $bdd->prepare('UPDATE vehicule SET picture=? WHERE registration=?');
+        $result = $stmt->execute(array($path, $registration));
+        $stmt->closeCursor();
+        if ($result){
+            return true;
+        }
+        return false;
+    }
+
     function get_email($id){
         $bdd = connect_db();
         $stmt = $bdd->prepare('SELECT email FROM account WHERE idaccount=?');
