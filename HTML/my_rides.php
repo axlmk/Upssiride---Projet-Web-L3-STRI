@@ -276,12 +276,9 @@
     <?php endif?>
         <script src="javascript/modal.js" type="text/javascript"></script>
         <script src="javascript/my_rides.js" type="text/javascript"></script>
-
+        <br><br><br><br>
     </body>
-
-</HTML>
-
-
 <?php
     include_once 'footer.php';
 ?>
+</html>

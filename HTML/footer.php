@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="style/style.css"/>
 </head>
 
-<div class="footer">
+<div class ="footer">
     <div class="creator_names">
         <br>
         <p>Website created by : V.ACILA - H.BONNET - C.DECAUD - A.GAUTHIER</p>
