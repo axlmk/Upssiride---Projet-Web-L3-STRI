@@ -5,7 +5,7 @@
         $data = $bdd->query("SELECT * FROM account ORDER BY idaccount ASC");
         return $data->fetchAll();
     }
-
+    
     function change_pass($id,$pass){
         $bdd = connect_db();
         $query = "UPDATE account SET password=? WHERE idaccount=?";
