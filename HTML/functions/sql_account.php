@@ -124,7 +124,7 @@
         $query = 'SELECT * FROM vehicule WHERE idaccount=?';
         $stmt = $bdd->prepare($query);
         $stmt->execute(array($id));
-        $result = $stmt->fetchAll();
+        $result = $stmt->fetch();
         $stmt->closeCursor();
         return $result;
     }
@@ -163,5 +163,14 @@
         $bdd->query("DELETE FROM require WHERE idaccount=$id");
         $bdd->query("DELETE FROM participate WHERE idaccount=$id");
         $bdd->query("DELETE FROM account WHERE idaccount=$id");
+    }
+
+    function get_preferences($id){
+        $bdd = connect_db();
+        $stmt = $bdd->prepare('SELECT music, chatting, smoke,pets FROM account WHERE idaccount=?');
+        $stmt->execute(array($id));
+        $data = $stmt->fetch();
+        $stmt->closeCursor();
+        return $data;
     }
 ?>
