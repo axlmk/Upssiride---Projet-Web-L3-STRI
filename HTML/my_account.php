@@ -16,7 +16,10 @@
         $user_info['email'] = htmlentities(trim($_POST['emailField']));
         $user_info['phone'] = htmlentities(trim($_POST['phoneField']));
         $user_info['description'] = htmlentities(trim($_POST['descriptionField']));
-
+        $user_info['music'] = $_POST['music_v'];
+        $user_info['tchat'] = $_POST['tchat_v'];
+        $user_info['cigarette'] = $_POST['cigarette_v'];
+        
         if (strcmp($user_info['email'],get_email($_SESSION['id']))){
             $err_email = check_email($user_info['email']);
             if ($err_email!=null){
@@ -96,6 +99,9 @@
     }
 
     $info = get_account_info($_SESSION['id']);
+    $music = $info['music']; 
+    $chat = $info['chatting']; 
+    $cigarette = $info['smoke']; 
     $vehicles = get_vehicles($_SESSION['id']);
 ?>
 <!DOCTYPE html>
@@ -125,6 +131,7 @@
                     <button class="tab_button" onClick="openTab(event, 'password_information')" type="button" name="button" id="default_tab">Change password</button>
                 <?php endif ?>
                     <button class="tab_button" onClick="openTab(event, 'vehicles_information')" type="button" name="button">Vehicles</button>
+                    <button class="delete_button" onClick="" type="button" name="button">Delete account</button>
                 </div>
             </aside>
 
@@ -153,45 +160,35 @@
                                 <span class="error"><?php echo $err_phone ?></span>
                             <?php endif ?>
                         </div>
+                        
                         <div class="radio_input">
+                        <label>Preferences<br/></label>
                             <label class="music_val">
-                                <input type="radio" name="music_v" checked>
-                                <img src="svg/music_forbidden.svg"/>
+                                <input type="radio" name="music_v" value="0" <?php echo (!$music) ?  "checked" : "" ;  ?>/>
+                                <img src="svg/music_forbidden.svg" />
                             </label>
                             <label class="music_val">
-                                <input type="radio" name="music_v" >
-                                <img src="svg/music.svg"/>
-                            </label>
-                            <label class="music_val">
-                                <input type="radio" name="music_v">
+                                <input type="radio" name="music_v" value="1" <?php echo ($music) ?  "checked" : "" ;  ?>>
                                 <img src="svg/music_ok.svg"/>
                             </label>
                         </div>
                         <div class="radio_input">
                             <label class="tchat_val">
-                                <input type="radio" name="tchat_v" checked>
+                                <input type="radio" name="tchat_v" value="0" <?php echo (!$chat) ?  "checked" : "" ;  ?>/>
                                 <img src="svg/tchat_forbidden.svg"/>
                             </label>
                             <label class="tchat_val">
-                                <input type="radio" name="tchat_v" >
-                                <img src="svg/tchat.svg"/>
-                            </label>
-                            <label class="tchat_val">
-                                <input type="radio" name="tchat_v">
+                                <input type="radio" name="tchat_v" value="1" <?php echo ($chat) ?  "checked" : "" ;  ?>>
                                 <img src="svg/tchat_ok.svg"/>
                             </label>
                         </div>
                         <div class="radio_input">
                             <label class="cigarette_val">
-                                <input type="radio" name="cigarette_v" checked>
+                                <input type="radio" name="cigarette_v" value="0" <?php echo (!$cigarette) ?  "checked" : "" ;  ?>/>
                                 <img src="svg/cigarette_forbidden.svg"/>
                             </label>
                             <label class="cigarette_val">
-                                <input type="radio" name="cigarette_v" >
-                                <img src="svg/cigarette.svg"/>
-                            </label>
-                            <label class="cigarette_val">
-                                <input type="radio" name="cigarette_v">
+                                <input type="radio" name="cigarette_v" value="1" <?php echo ($cigarette) ?  "checked" : "" ;  ?>>
                                 <img src="svg/cigarette_ok.svg"/>
                             </label>
                         </div>
