@@ -101,3 +101,7 @@
         <script src="javascript/confirm.js" type="text/javascript"></script>
     </body>
 </html>
+
+<?php
+    include_once 'footer.php';
+?>

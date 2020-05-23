@@ -75,6 +75,21 @@ hr{
     z-index: 3;
 }
 
+.footer{
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+    justify-content: space-between;
+    position: fixed;
+    overflow: hidden;
+    background-color: #f3ddc6;
+    width: 100%;
+    box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.2);
+    z-index: 3;
+    bottom: 0;
+    font-size: small;
+}
+
 .header nav ul li a {
     position: relative;
 }
@@ -91,6 +106,10 @@ hr{
     width: 400px;
     padding-left: 20px;
     padding-top: 10px;
+}
+
+#logo_stri{
+    width: 35%;
 }
 
 #login{
