@@ -19,6 +19,7 @@
         $user_info['music'] = $_POST['music_v'];
         $user_info['tchat'] = $_POST['tchat_v'];
         $user_info['cigarette'] = $_POST['cigarette_v'];
+        $user_info['pets'] = $_POST['pets_v'];
         
         if (strcmp($user_info['email'],get_email($_SESSION['id']))){
             $err_email = check_email($user_info['email']);
@@ -101,7 +102,8 @@
     $info = get_account_info($_SESSION['id']);
     $music = $info['music']; 
     $chat = $info['chatting']; 
-    $cigarette = $info['smoke']; 
+    $cigarette = $info['smoke'];
+    $pets= $info['pets'];
     $vehicles = get_vehicles($_SESSION['id']);
 ?>
 <!DOCTYPE html>
@@ -190,6 +192,16 @@
                             <label class="cigarette_val">
                                 <input type="radio" name="cigarette_v" value="1" <?php echo ($cigarette) ?  "checked" : "" ;  ?>>
                                 <img src="svg/cigarette_ok.svg"/>
+                            </label>
+                        </div>
+                        <div class="radio_input">
+                            <label class="pets_val">
+                                <input type="radio" name="pets_v" value="0" <?php echo (!$pets) ?  "checked" : "" ;  ?>/>
+                                <img src="svg/pets.svg"/>
+                            </label>
+                            <label class="pets_val">
+                                <input type="radio" name="pets_v" value="1" <?php echo ($pets) ?  "checked" : "" ;  ?>>
+                                <img src="svg/pets.svg"/>
                             </label>
                         </div>
                         <input class="submit_button" type="submit" name="saveSubmit" value="Save">

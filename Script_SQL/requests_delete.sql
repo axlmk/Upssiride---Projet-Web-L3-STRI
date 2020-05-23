@@ -14,6 +14,12 @@
     DELETE FROM participate WHERE idaccount=(  SELECT idaccount FROM account WHERE name = $Name AND firstname = $Firstname);
     DELETE FROM account WHERE idaccount=(  SELECT idaccount FROM account WHERE name = $Name AND firstname = $Firstname);
 
+    DELETE FROM vehicule WHERE idaccount=$idaccount;
+    DELETE FROM ride WHERE idaccount=$idaccount;
+    DELETE FROM require WHERE idaccount=$idaccount;
+    DELETE FROM participate WHERE idaccount=$idaccount;
+    DELETE FROM account WHERE idaccount=$idaccount;
+
     -- Example
 
     DELETE FROM vehicule WHERE idaccount=(  SELECT idaccount FROM account WHERE name = 'rr' AND firstname = 'rr');

@@ -10,8 +10,8 @@
 
     function save_info_account($info,$id){
         $bdd = connect_db();
-        $stmt = $bdd->prepare('UPDATE account SET email=?, description = ?, phone = ?, music=?, chatting=?, smoke=? WHERE idaccount=?');
-        $result = $stmt->execute(array($info['email'],$info['description'],$info['phone'],$info['music'],$info['tchat'],$info['cigarette'],$id));
+        $stmt = $bdd->prepare('UPDATE account SET email=?, description = ?, phone = ?, music=?, chatting=?, smoke=?, pets=? WHERE idaccount=?');
+        $result = $stmt->execute(array($info['email'],$info['description'],$info['phone'],$info['music'],$info['tchat'],$info['cigarette'],$info['pets'],$id));
         $stmt->closeCursor();
         if ($result){
             return true;
@@ -154,5 +154,9 @@
         if (!$value){
             return ;
         }
+    }
+
+    function delete_account($id){
+
     }
 ?>
