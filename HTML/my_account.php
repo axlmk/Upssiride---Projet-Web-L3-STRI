@@ -223,15 +223,23 @@
                     <?php endif ?>
                     <h2>Change my password</h2>
                     <form class="" action="my_account.php" method="post">
-                        <input class="input_button" id="previous" type="text" name="previousField" placeholder="Previous password">
+                        <input class="input_button" id="previous" type="password" name="previousField" placeholder="Previous password">
                         <?php if (isset($err_previousPass)): ?>
                                 <span class="error"><?php echo $err_previousPass?></span>
                         <?php endif ?>
-                        <input class="input_button" type="text" name="passwordField" placeholder="New password">
-                        <input class="input_button" type="text" name="confirmField" placeholder="Confirm password">
-                        <?php if (isset($err_pass)): ?>
-                        <span class="error"><?php echo $err_pass ?></span>
-                         <?php endif ?>
+                        
+                        <div class="password_errors">
+                            <p id="minlen" class="error_info">At least 6 digits</p>
+                            <p id="upper" class="error_info">At least 1 Upperletter</p>
+                            <p id="special" class="error_info">At least 1 special characters (+@,;:!)</p>
+                            <p id="number" class="error_info">At least 1 number</p>
+                        </div>
+                        <input type="password" name="passwordField" value="" placeholder="Password *" class="input_button" id="password_button" onkeyup="checkConstraints()">
+                        <div class="password_errors">
+                            <span id="equal" class="error_info">Passwords are not equals</span>
+                        </div>
+                        <input type="password" name="confirmField" value="" placeholder="Confirm password *" class="input_button" id="password_confirm_button" onkeyup="checkEquality()">
+                        
                         <input class="submit_button" type="submit" name="passwordSubmit" value="Confirm">
 
                     </form>
@@ -283,6 +291,7 @@
 
         <script src="javascript/my_account.js" type="text/javascript"></script>
         <script src="javascript/vehicle.js" type="text/javascript"></script>
+        <script src="javascript/register.js" type="text/javascript"></script>
     </body>
 </html>
 

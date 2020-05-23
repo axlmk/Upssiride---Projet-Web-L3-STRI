@@ -191,7 +191,7 @@
                       </div>
                       <div class="pets">
                           <div class="pets_icon">
-                              <img src="svg/pets.svg"></img><!--PHP : Icone préférences cigarette du conducteur-->
+                              <img src="svg/pets_ok.svg"></img><!--PHP : Icone préférences cigarette du conducteur-->
                           </div>
                           <div class="pets_text">
                               <p><?php echo ($preferences['pets']) ? "Smoke are allowed" : "Pets are forbidden" ?></p><!--PHP : texte préférences cigarette du conducteur-->

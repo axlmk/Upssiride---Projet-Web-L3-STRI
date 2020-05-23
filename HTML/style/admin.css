@@ -10,10 +10,9 @@
     flex-direction: row;
     height: 100px;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: #f3ddc6;
     border-radius: 15px;
-    margin-top: 10px;
     margin-top: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -54,3 +53,26 @@
     background-color: #e28400;
 }
 
+.userId{
+    width: 16%;
+}
+
+.userPic{
+    width: 16%;
+}
+
+.userName{
+    width: 16%;
+}
+
+.submitButton{
+    width: 16%;
+}
+
+.removeButton{
+    width: 16%;
+}
+
+.input{
+    width: 16%;
+}
