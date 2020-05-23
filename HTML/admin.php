@@ -45,7 +45,7 @@
                     <div class="user_elem">
                             <p id="user_id"><?=$profile['idaccount']?><!--PHP : faire sortir l'ID utilisateur--></p>
                             <a href="my_account.php">
-                            <img value src="Pictures_site/users/4.jpg" alt="user_picture_profile" id="picture_profile">
+                            <img value src=<?=$profile['pictureprofil']?> alt="user_picture_profile" id="picture_profile">
                             <label for="picture_profile"><?=$profile['firstname'] . " " . $profile['name']?></label>
                         </a>
                         <form action="admin.php" method="post">
