@@ -51,17 +51,17 @@
     padding-top: 8px;
 }
 
-.pic{
+.pic {
     margin-top: 20px;
 }
-
 
 .pic img {
     border-radius: 25px;
     border: solid 8px #191A1C;
     height: 100px;
-    width: auto;
+    width: 100px;
     right: 0px;
+    object-fit: cover;
 }
 
 .pic p {
@@ -69,7 +69,7 @@
     font-size: 18px;
 }
 
-.pic a{
+.pic a {
     height: 200px;
     width: auto;
     right: 0px;
@@ -234,16 +234,16 @@
     flex-direction: row;
 }
 
-#ride_resume {
+.ride_resume {
     display: flex;
     flex-direction: column;
 }
 
-#ride_resume:nth-child(1) {
+.ride_resume:nth-child(1) {
     flex: 1;
 }
 
-#ride_resume:nth-child(2) {
+.ride_resume:nth-child(2) {
     flex: 2;
 }
 
@@ -359,9 +359,22 @@
 
 .travel_resume {
     display: flex;
+    flex-direction: column;
 }
 
-.from {
+.place_info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.time_info {
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+}
+
+.from, .to {
     display: flex;
     flex-direction: column;
     align-items: space-around;
@@ -382,19 +395,10 @@
     height: auto;
 }
 
-.to {
+.passengers_info {
     display: flex;
     flex-direction: column;
-    align-items: space-around;
-    /*border: 2px solid #191A1C;*/
-    padding: 5px;
-    border-radius: 10px;
-    background-color: #f9f6f1;
-}
-
-.passengers{
-    display: flex;
-    justify-content: space-around;
+    align-items: center;
     margin-top: 40px;
     border-radius: 10px 10px 10px 10px;
 }
@@ -405,27 +409,33 @@
     margin: 0px;
     padding: 0px;
     width: 100px;
+    height: 100px;
+    object-fit: cover;
 }
 
 .passengers_team{
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
 }
 
-#last_conteneur {
+.last_conteneur {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.summary_boutons {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-}
-
-#boutons {
-    display: flex;
-    justify-content: space-around;
     align-items: center;
-    margin-right: 20%;
+    width: 60%;
 }
 
-#boutons div{
+.summary_boutons div{
     margin: 20px;
 }
 
@@ -451,3 +461,5 @@
     filter: brightness(120%);
     cursor: pointer;
 }
+
+.travel

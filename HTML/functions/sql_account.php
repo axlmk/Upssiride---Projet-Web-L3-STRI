@@ -99,7 +99,7 @@
 
     function get_profile($id){
         $bdd = connect_db();
-        $query = 'SELECT name, firstname, description, pictureprofil, registrationdate FROM account WHERE idaccount=?';
+        $query = 'SELECT * FROM account WHERE idaccount=?';
         $stmt = $bdd->prepare($query);
         $stmt->execute(array($id));
         $result = $stmt->fetch();

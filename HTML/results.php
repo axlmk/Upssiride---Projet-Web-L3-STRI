@@ -101,11 +101,12 @@
         <?php
                 $place_departure = get_place($ride['idplace_departure']);
                 $place_arrived = get_place($ride['idplace_arrived']);
-                $name_firstname = get_name_firstname($ride['idaccount']);
-                $picture_profile = get_picture_profile($ride['idaccount']);
+                $driver_profile = get_profile($ride['idaccount']);
+                $picture_profile = $driver_profile['pictureprofil'];
+                $name_firstname = $driver_profile['firstname'];
+                $accounts = get_all_passengers($ride['idride'], $ride['idaccount']);
 
         ?>
-        <?php ?>
         <!-- Un trajet -->
         <div class="ride" <?php echo 'id="traj_'.$ride['idride'].'"'?>>
             <div class=info>
@@ -156,8 +157,8 @@
                   <h1>Driver</h1>
                   <hr>
                   <div class="pic">
-                      <a href=""><img src="pictures_site/test2.jpg"></img></a><!--PHP : Photo du conduecteur-->
-                      <a href=""><h3>Cyril Decaud</h3></a><!--PHP : nom conducteur-->
+                      <img src="<?=$driver_profile['pictureprofil']?>"></img><!--PHP : Photo du conduecteur-->
+                      <h3><?php echo $driver_profile['firstname']." ".$driver_profile['name']?></h3><!--PHP : nom conducteur-->
                   </div>
                   <div class="preferences">
                       <div class="music">
@@ -206,57 +207,73 @@
                   </div>
               </div>
 
-          <div id="ride_resume">
+          <div class="ride_resume">
               <div class="title_summary">
                   <h1>Summary</h1>
                   <hr>
               </div>
 
-              <div id="travel">
+              <div class="travel">
                   <div class="travel_resume">
-                      <div class="from">
-                          <div class="town">
-                              <label>Toulouse</label><!--PHP : Ville de départ-->
-                          </div>
-                          <div class="adress">
-                              <p>Place du capitol, 31000 Toulouse</p><!--PHP : Adresse de départ-->
-                          </div>
-                          <div class="time">
-                              <h3><?php echo $ride['departuretime']?></h3><!--PHP : Heure de départ-->
-                          </div>
+                      <div class="time_info">
+                          <p><?php echo $ride['departuredate']?> </p>
+                          <p> <?php echo $ride['departuretime']?></p><!--PHP : Heure de départ-->
                       </div>
-                      <div class="city_sep">
-                          <img src="svg/city_sep.svg"></img>
-                      </div>
-                      <div class="to">
-                          <div class="town">
-                              <label>Marseille</label><!--PHP : Ville d'arrivée-->
+                      <div class="place_info">
+                          <div class="from">
+                              <div class="town">
+                                  <p><?php echo $ride['city']?></p><!--PHP : Ville de départ-->
+                              </div>
+                              <?php
+                                  if($ride['address'] != "") {
+                                    echo "
+                                    <div class=\"adress\">
+                                    <p>".$ride['address']."</p>
+                                    </div>
+                                    ";
+                                  }
+                              ?>
+
                           </div>
-                          <div class="adress">
-                              <p>Le vieux port, 13000 Marseille</p><!--PHP : Adresse d'arrivée-->
+                          <div class="city_sep">
+                              <img src="svg/city_sep.svg"></img>
                           </div>
-                          <div class="time">
-                              <h3>2:00 pm</h3><!--PHP : Heure d'arrivée-->
+                          <div class="to">
+                              <div class="town">
+                                  <p><?php echo $ride['12']?></p><!--PHP : Ville d'arrivée-->
+                              </div>
+                              <?php
+                                  if($ride['10'] != "") {
+                                    echo "
+                                    <div class=\"adress\">
+                                    <p>".$ride['10']."</p>
+                                    </div>
+                                    ";
+                                  }
+                              ?>
                           </div>
-                      </div>
+                    </div>
                   </div>
 
                   <div class="passengers">
                       <div class="passengers_title">
                           <h2>Passengers<h2>
                       </div>
-                      <div class="passengers_team">
-                          <div class="passagers">                                                             <!--PHP : Portion à répéter--->
-      <!--0 adapter en PHP-->         <a href ="profile.php"><img src="Pictures_site/test2.jpg"></img></a>            <!-- autant de fois que ------>
-                          </div>                                                                              <!--de place dans la voiture-->
-                          <div class="passagers">
-                               <a href ="profile.php"><img src="Pictures_site/users/human_placeholder.jpg"></img></a>
+                      <?php if($accounts != null):?>
+                          <div class="passengers_team">
+                              <?php foreach ($accounts as $account): ?>
+                                  <div class="passagers_info" <?php echo 'id="passenger_id_'.$account['idaccount'].'"' ?>>                                                             <!--PHP : Portion à répéter--->
+                                    <a href="profile.php?id=<?=$account['idaccount']?>"><img <?php echo 'src="'.$account['pictureprofil'].'"' ?>></img></a>
+                                  </div>
+                              <?php endforeach?>
                           </div>
-                      </div>
+                      <?php else: ?>
+                          <p>There is no passenger on this ride yet</p>
+                      <?php endif ?>
                   </div>
-                  <div id="last_conteneur">
+                  <div class="last_conteneur">
                       <div <?php echo 'id="map_'.$ride['idride'].'"' ?> class="mapid"></div>
-                      <div id="boutons">
+                      <div class="summary_boutons">
                           <button class="submit_button" <?php echo 'onclick="closeModal('.$ride['idride'].')"' ?>>Close</button>
                           <button class="submit_button" <?php echo 'onClick="apply('.$ride['idride'].')"'?>>Apply</button>
                       </div>

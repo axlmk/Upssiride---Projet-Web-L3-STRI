@@ -190,7 +190,7 @@
 
     function check_number_passenger($idride){
         $bdd = connect_db();
-        
+
         $query = "SELECT maxpassengersnb FROM ride WHERE idride=$idride";
         $maxpassengers = $bdd->query($query)->fetch();
         $query = "SELECT count(*) FROM participate WHERE idride=$idride";
@@ -199,6 +199,22 @@
             return false;
         }
         return true;
+    }
+
+    function get_all_passengers($idride, $driver) {
+        $bdd = connect_db();
+        $query ='SELECT account.idaccount, account.pictureprofil
+                    FROM participate, account
+                    WHERE participate.idaccount=account.idaccount AND participate.idride=? AND participate.idaccount!=?';
+        $stmt = $bdd->prepare($query);
+        $stmt->execute(array($idride, $driver));
+        $results = $stmt->fetchAll();
+        $stmt->closeCursor();
+        if($stmt->rowCount() > 0) {
+            return $results;
+        } else {
+            return null;
+        }
     }
 
     /*
