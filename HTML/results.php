@@ -221,10 +221,8 @@
 
               <div class="travel">
                   <div class="travel_resume">
-                      <div class="time_info">
-                          <p><?php echo $ride['departuredate']?> </p>
-                          <p> <?php echo $ride['departuretime']?></p><!--PHP : Heure de départ-->
-                      </div>
+                          <p><?php echo "Date : ".$ride['departuredate']?></p>
+                          <p><?php echo "Time : ".$ride['departuretime']?></p>
                       <div class="place_info">
                           <div class="from">
                               <div class="town">
