@@ -38,3 +38,8 @@
     <div class="empty_block">
         &nbsp;
     </div>
+
+
+    <?php
+    include_once 'footer.php';
+?>

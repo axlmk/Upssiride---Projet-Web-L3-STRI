@@ -123,3 +123,8 @@
         <script src="javascript/index.js" type="text/javascript"></script>
     </body>
 </html>
+
+
+<?php
+    include_once 'footer.php';
+?>
