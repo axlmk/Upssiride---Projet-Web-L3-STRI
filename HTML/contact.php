@@ -28,8 +28,8 @@
     <body>
         <div id="tuile">
             <div class="tile">
-                <h2>Administrator informations:</h2>
-                <span>Email: admin@upssiride.fr</span>
+                <h2>Administrator informations :</h2>
+                <span>Email: <a href="mailto:admin@upssiride.fr">admin@upssiride.fr</a></span>
             </div>
         </div>
     </body>
