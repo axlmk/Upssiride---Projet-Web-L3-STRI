@@ -1,8 +1,17 @@
-<div class="footer">
+<head>
+    <link rel="stylesheet" href="style/style.css"/>
+</head>
+
+<div class ="footer">
     <div class="creator_names">
-        <p>Website created by:Vincent ACILA - Hugo BONNET - Cyril DECAUD - Axel GAUTHIER.</p>
+        <br>
+        <p>Website created by : V.ACILA - H.BONNET - C.DECAUD - A.GAUTHIER</p>
+    </div>
+    <div>
+        <img src="svg/logo_stri.svg" alt="" id="logo_stri">
     </div>
     <div class="contact_information">
-        <p>To get more information: <a href="contact.php">Administrator information</a></p>
+        <br>
+        <p>To get more information : <a href="contact.php">Contact Administrator</a></p>
     </div>
 </div>

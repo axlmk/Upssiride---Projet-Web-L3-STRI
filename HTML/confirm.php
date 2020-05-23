@@ -63,6 +63,7 @@
         <title>Confirm your ride</title>
     </head>
     <body>
+        <form action=""></form><!--Script pour le formulaire-->
         <div class="tile">
             <div class="ride_info">
                 <div class="global_info">
@@ -88,9 +89,13 @@
             </div>
             <div class="action_div">
                 <a href="index.php"><button type="button" name="button" class="submit_button" >Edit ride</button></a>
-                <a href="my_rides.php"><button type="button" name="button" class="submit_button">Confirm</button></a>
+                   <a href="my_rides.php"><button type="button" name="button" class="submit_button">Confirm</button></a>
             </div>
         </div>
         <script src="javascript/confirm.js" type="text/javascript"></script>
     </body>
 </html>
+
+<?php
+    include_once 'footer.php';
+?>

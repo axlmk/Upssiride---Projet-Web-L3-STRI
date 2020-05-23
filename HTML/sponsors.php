@@ -81,7 +81,12 @@
         </div>
 
         <script src="javascript/sponsors.js" type="text/javascript"></script>
-        <?php endif ?>
+        <?php endif ?><br>
    </body>
 
 </html>
+
+
+<?php
+    include_once 'footer.php';
+?>

@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="style/index.css"/>
         <?php
             require_once('header.php');
+            require_once('footer.php');
             require_once('scripts/cookies.php');
             if(isset($_COOKIE['from_address'])) {
                 remove_cookies();
@@ -123,3 +124,8 @@
         <script src="javascript/index.js" type="text/javascript"></script>
     </body>
 </html>
+
+
+<?php
+    include_once 'footer.php';
+?>

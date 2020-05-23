@@ -16,7 +16,11 @@
         $user_info['email'] = htmlentities(trim($_POST['emailField']));
         $user_info['phone'] = htmlentities(trim($_POST['phoneField']));
         $user_info['description'] = htmlentities(trim($_POST['descriptionField']));
-
+        $user_info['music'] = $_POST['music_v'];
+        $user_info['tchat'] = $_POST['tchat_v'];
+        $user_info['cigarette'] = $_POST['cigarette_v'];
+        $user_info['pets'] = $_POST['pets_v'];
+        
         if (strcmp($user_info['email'],get_email($_SESSION['id']))){
             $err_email = check_email($user_info['email']);
             if ($err_email!=null){
@@ -95,7 +99,16 @@
         add_vehicle($_SESSION['id']);
     }
 
+    if (isset($_POST['delete_account'])){
+        delete_account($_SESSION['id']);
+        header("Location: scripts/logout.php");
+    }
+
     $info = get_account_info($_SESSION['id']);
+    $music = $info['music']; 
+    $chat = $info['chatting']; 
+    $cigarette = $info['smoke'];
+    $pets= $info['pets'];
     $vehicles = get_vehicles($_SESSION['id']);
 ?>
 <!DOCTYPE html>
@@ -125,6 +138,9 @@
                     <button class="tab_button" onClick="openTab(event, 'password_information')" type="button" name="button" id="default_tab">Change password</button>
                 <?php endif ?>
                     <button class="tab_button" onClick="openTab(event, 'vehicles_information')" type="button" name="button">Vehicles</button>
+                    <form action="my_account.php" method="post">
+                        <button class="delete_button" type="submit" name="delete_account">Delete account</button>
+                    </form>
                 </div>
             </aside>
 
@@ -153,46 +169,46 @@
                                 <span class="error"><?php echo $err_phone ?></span>
                             <?php endif ?>
                         </div>
+                        
                         <div class="radio_input">
+                        <label>Preferences<br/></label>
                             <label class="music_val">
-                                <input type="radio" name="music_v" checked>
-                                <img src="svg/music_forbidden.svg"/>
+                                <input type="radio" name="music_v" value="0" <?php echo (!$music) ?  "checked" : "" ;  ?>/>
+                                <img src="svg/music_forbidden.svg" />
                             </label>
                             <label class="music_val">
-                                <input type="radio" name="music_v" >
-                                <img src="svg/music.svg"/>
-                            </label>
-                            <label class="music_val">
-                                <input type="radio" name="music_v">
+                                <input type="radio" name="music_v" value="1" <?php echo ($music) ?  "checked" : "" ;  ?>>
                                 <img src="svg/music_ok.svg"/>
                             </label>
                         </div>
                         <div class="radio_input">
                             <label class="tchat_val">
-                                <input type="radio" name="tchat_v" checked>
+                                <input type="radio" name="tchat_v" value="0" <?php echo (!$chat) ?  "checked" : "" ;  ?>/>
                                 <img src="svg/tchat_forbidden.svg"/>
                             </label>
                             <label class="tchat_val">
-                                <input type="radio" name="tchat_v" >
-                                <img src="svg/tchat.svg"/>
-                            </label>
-                            <label class="tchat_val">
-                                <input type="radio" name="tchat_v">
+                                <input type="radio" name="tchat_v" value="1" <?php echo ($chat) ?  "checked" : "" ;  ?>>
                                 <img src="svg/tchat_ok.svg"/>
                             </label>
                         </div>
                         <div class="radio_input">
                             <label class="cigarette_val">
-                                <input type="radio" name="cigarette_v" checked>
+                                <input type="radio" name="cigarette_v" value="0" <?php echo (!$cigarette) ?  "checked" : "" ;  ?>/>
                                 <img src="svg/cigarette_forbidden.svg"/>
                             </label>
                             <label class="cigarette_val">
-                                <input type="radio" name="cigarette_v" >
-                                <img src="svg/cigarette.svg"/>
-                            </label>
-                            <label class="cigarette_val">
-                                <input type="radio" name="cigarette_v">
+                                <input type="radio" name="cigarette_v" value="1" <?php echo ($cigarette) ?  "checked" : "" ;  ?>>
                                 <img src="svg/cigarette_ok.svg"/>
+                            </label>
+                        </div>
+                        <div class="radio_input">
+                            <label class="pets_val">
+                                <input type="radio" name="pets_v" value="0" <?php echo (!$pets) ?  "checked" : "" ;  ?>/>
+                                <img src="svg/pet_ok.svg"/>
+                            </label>
+                            <label class="pets_val">
+                                <input type="radio" name="pets_v" value="1" <?php echo ($pets) ?  "checked" : "" ;  ?>>
+                                <img src="svg/pet_forbidden.svg"/>
                             </label>
                         </div>
                         <input class="submit_button" type="submit" name="saveSubmit" value="Save">
@@ -207,15 +223,23 @@
                     <?php endif ?>
                     <h2>Change my password</h2>
                     <form class="" action="my_account.php" method="post">
-                        <input class="input_button" id="previous" type="text" name="previousField" placeholder="Previous password">
+                        <input class="input_button" id="previous" type="password" name="previousField" placeholder="Previous password">
                         <?php if (isset($err_previousPass)): ?>
                                 <span class="error"><?php echo $err_previousPass?></span>
                         <?php endif ?>
-                        <input class="input_button" type="text" name="passwordField" placeholder="New password">
-                        <input class="input_button" type="text" name="confirmField" placeholder="Confirm password">
-                        <?php if (isset($err_pass)): ?>
-                        <span class="error"><?php echo $err_pass ?></span>
-                         <?php endif ?>
+                        
+                        <div class="password_errors">
+                            <p id="minlen" class="error_info">At least 6 digits</p>
+                            <p id="upper" class="error_info">At least 1 Upperletter</p>
+                            <p id="special" class="error_info">At least 1 special characters (+@,;:!)</p>
+                            <p id="number" class="error_info">At least 1 number</p>
+                        </div>
+                        <input type="password" name="passwordField" value="" placeholder="Password *" class="input_button" id="password_button" onkeyup="checkConstraints()">
+                        <div class="password_errors">
+                            <span id="equal" class="error_info">Passwords are not equals</span>
+                        </div>
+                        <input type="password" name="confirmField" value="" placeholder="Confirm password *" class="input_button" id="password_confirm_button" onkeyup="checkEquality()">
+                        
                         <input class="submit_button" type="submit" name="passwordSubmit" value="Confirm">
 
                     </form>
@@ -267,5 +291,11 @@
 
         <script src="javascript/my_account.js" type="text/javascript"></script>
         <script src="javascript/vehicle.js" type="text/javascript"></script>
+        <script src="javascript/register.js" type="text/javascript"></script>
     </body>
 </html>
+
+
+<?php
+    include_once 'footer.php';
+?>

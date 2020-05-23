@@ -107,7 +107,9 @@
                 $driver_profile = get_profile($ride['idaccount']);
                 $picture_profile = $driver_profile['pictureprofil'];
                 $name_firstname = $driver_profile['firstname'];
+                $preferences = get_preferences($ride['idaccount']);
                 $accounts = get_all_passengers($ride['idride'], $ride['idaccount']);
+                $vehicle = get_vehicles($ride['idaccount']);
 
         ?>
         <!-- Un trajet -->
@@ -154,7 +156,6 @@
           </div>
       </div>
 
-
       <!--Boite modale-->
       <div <?php echo 'id="modal_'.$ride['idride'].'"' ?> class="modal"><div class="driverInfo"><!--PHP : Récupérer info du trajet séléctionné-->
                   <h1>Driver</h1>
@@ -169,7 +170,7 @@
                               <img src="svg/music_ok.svg"></img><!--PHP : Icone préférences musicales du conducteur-->
                           </div>
                           <div class="music_text">
-                              <p>I love to listen to music</p><!--PHP : texte préférences musicales du conducteur-->
+                              <p><?php echo ($preferences['music']) ? "I like to listen to music" : "I don't like to listen to music" ?></p><!--PHP : texte préférences musicales du conducteur-->
                           </div>
                       </div>
                       <div class="talk">
@@ -177,7 +178,7 @@
                               <img src="svg/tchat_ok.svg"></img><!--PHP : Icone préférences de discussions du conducteur-->
                           </div>
                           <div class="talk_text">
-                              <p>I like to talk</p><!--PHP : texte préférences de discussions du conducteur-->
+                              <p><?php echo ($preferences['chatting']) ? "I like to talk" : "I don't like to talk" ?></p><!--PHP : texte préférences de discussions du conducteur-->
                           </div>
                       </div>
                       <div class="smoke">
@@ -185,15 +186,15 @@
                               <img src="svg/cigarette_ok.svg"></img><!--PHP : Icone préférences cigarette du conducteur-->
                           </div>
                           <div class="smoke_text">
-                              <p>No smoking</p><!--PHP : texte préférences cigarette du conducteur-->
+                              <p><?php echo ($preferences['smoke']) ? "Smoke is allowed" : "Smoke is forbidden" ?></p><!--PHP : texte préférences cigarette du conducteur-->
                           </div>
                       </div>
                       <div class="pets">
                           <div class="pets_icon">
-                              <img src="svg/pets.svg"></img><!--PHP : Icone préférences cigarette du conducteur-->
+                              <img src="svg/pets_ok.svg"></img><!--PHP : Icone préférences cigarette du conducteur-->
                           </div>
                           <div class="pets_text">
-                              <p>No pets allowed</p><!--PHP : texte préférences cigarette du conducteur-->
+                              <p><?php echo ($preferences['pets']) ? "Smoke are allowed" : "Pets are forbidden" ?></p><!--PHP : texte préférences cigarette du conducteur-->
                           </div>
                       </div>
                   </div>
@@ -205,7 +206,9 @@
                           <img src="svg/car.svg" alt="Car"></img>
                       </div>
                       <div class="diverCar_text">
-                          <p>White Renault Trafic</p><!--PHP : Voiture du conducteur-->
+                          <p><?= $vehicle['brand']?></p><!--PHP : Voiture du conducteur-->
+                          <p><?= $vehicle['model']?>
+                          <p><?= $vehicle['color']?>
                       </div>
                   </div>
               </div>
@@ -299,3 +302,8 @@
     </body>
 
 </HTML>
+
+
+<?php
+    include_once 'footer.php';
+?>
