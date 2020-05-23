@@ -31,3 +31,16 @@ function cancel(it) {
     form.appendChild(form_title);
     form.submit();
 }
+
+function cancel_ride(it) {
+    var form = document.createElement("form");
+    form.style.display = 'none';
+    form.method = "POST";
+    form.action = "my_rides.php";
+    document.body.appendChild(form);
+    var form_title = document.createElement("input");
+    form_title.name = "id_ride_remove";
+    form_title.value = it;
+    form.appendChild(form_title);
+    form.submit();
+}

@@ -157,21 +157,21 @@
         $maxtime = getDateModified($filters['find_hour'], $filters['find_minutes'], $filters['find_time_type'], 59, "+");
         $query ='SELECT * FROM ride, place AS place1 , place AS place2
                     WHERE ride.idaccount<>? AND ride.departuredate=? AND ride.departuretime>=? AND ride.departuretime<=?
-                    AND place1.city=? AND place1.postcode =? AND place1.idplace = ride.idplace_departure
-                    AND place2.city=? AND place2.postcode =? AND place2.idplace = ride.idplace_arrived
+                    AND place1.city=? AND place1.idplace = ride.idplace_departure
+                    AND place2.city=? AND place2.idplace = ride.idplace_arrived
                     ORDER BY ride.departuretime ASC';
-       // echo "<br/>" .$filters['find_date_ride'],$filters['find_from_city'],$filters['find_from_zip'],$filters['find_to_city'],$filters['find_to_zip']."<br/>";
         $stmt = $bdd->prepare($query);
-        $retour = $stmt->execute(array($id_session,$filters['find_date_ride'],$mintime,$maxtime,$filters['find_from_city'],$filters['find_from_zip'],$filters['find_to_city'],$filters['find_to_zip']));
+        $retour = $stmt->execute(array($id_session,$filters['find_date_ride'],$mintime,$maxtime,$filters['find_from_city'],$filters['find_to_city']));
 
         $results = $stmt->fetchAll();
-        //echo "nb lignes".count($results);
         $stmt->closeCursor();
         return $results;
     }
 
     function del_full_ride($idride) {
         $dtb = connect_db();
+        $stmt = $dtb->prepare('DELETE FROM require WHERE idride=?');
+        $stmt->execute(array($idride));
         $stmt = $dtb->prepare('DELETE FROM participate WHERE idride=?');
         $stmt->execute(array($idride));
         $stmt = $dtb->prepare('DELETE FROM ride WHERE idride=?');

@@ -107,30 +107,6 @@ input{
     margin-left: 5px;
     margin-right: 5px;
 }
-/*
-#formUp {
-    text-align: center;
-    clear: both;
-}
-
-#formUp h2 {
-    margin: auto;
-    margin-top: 40px;
-}
-
-.vertical_line{
-    width: 2px;
-    border-left: 2px solid #1B191E;
-    height : 250px;
-}
-
-.little_vertical_line{
-    width: 2px;
-    border-left: 2px solid #1B191E;
-    height : 60px;
-}*/
-
-/* ------------------------------ */
 
 .input_button {
     border: none;
@@ -222,7 +198,7 @@ input{
     transition-duration: 0.5s;
 }
 
-.modal{
+.modal {
     width: 80%;
     height: auto;
     max-height: 50%;
@@ -240,4 +216,9 @@ input{
     transition: 0.3s ease-in-out;
     visibility: hidden;
     overflow-y: auto;
+}
+
+.error_picture {
+    color: red;
+    font-size: 14px;
 }

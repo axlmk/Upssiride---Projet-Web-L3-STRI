@@ -33,4 +33,13 @@
         $query = "DELETE FROM require WHERE idaccount=$id_passenger AND idride=$id_ride";
         $bdd->query($query);
     }
+
+    function remove_from_ride($id_passenger, $id_ride) {
+        $bdd = connect_db();
+        if ($bdd == null){
+            return false;
+        }
+        $query = "DELETE FROM participate WHERE idaccount=$id_passenger AND idride=$id_ride";
+        $bdd->query($query);
+    }
 ?>

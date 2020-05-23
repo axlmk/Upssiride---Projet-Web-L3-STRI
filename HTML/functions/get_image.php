@@ -17,11 +17,11 @@
             $errors[]="extension not allowed, please choose a JPEG or PNG file.".$file_ext.$file_name;
         }
 
-        if($file_size > 2097152){ // verify the size
+        if($file_size > 2097152) { // verify the size
             $errors[]='file size must be under 2 MB';
         }
 
-        if(empty($errors) == true){ // if there is not error
+        if(empty($errors) == true) { // if there is not error
             move_uploaded_file($file_tmp,$path.$username.'.'.$file_ext);
 
             if($type == "sponsor") {
@@ -46,8 +46,9 @@
                     $returnPP = "An error has occured, please retry later";
                 }
             }
+            return $returnPP;
         } else {
-            print_r($errors);
+            return $errors;
         }
     }
 

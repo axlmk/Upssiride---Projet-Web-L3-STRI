@@ -28,7 +28,7 @@
 
     if (isset($_POST['id_ride'])){
         $result_apply = apply($_POST['id_ride'],$_SESSION['id']);
-        if(!$result_apply){    
+        if(!$result_apply){
             $apply = "Request sent!";
         }
         else if ($result_apply==1) {
@@ -276,7 +276,9 @@
     <?php endif?>
         <script src="javascript/modal.js" type="text/javascript"></script>
         <script src="javascript/my_rides.js" type="text/javascript"></script>
-
+        <br><br><br><br>
     </body>
-
-</HTML>
+<?php
+    include_once 'footer.php';
+?>
+</html>
