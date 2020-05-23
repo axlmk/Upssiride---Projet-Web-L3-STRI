@@ -180,12 +180,19 @@
     }
 
     function apply($id_ride,$id_passenger){
+        if (!is_connected()){
+            header("Location: connection.php");
+        }
+        if (check_already_request($id_ride,$id_passenger)){
+            return 2;
+        }
         if (!check_number_passenger($id_ride)){
-            return false;
+            return 1;
         }
         $bdd = connect_db();
         $query = "INSERT INTO require VALUES('$id_passenger','$id_ride','processing')";
         $bdd->query($query);
+        return 0;
     }
 
     function check_number_passenger($idride){
@@ -216,6 +223,19 @@
             return null;
         }
     }
+
+    function check_already_request($idride, $id_passenger){
+        $bdd = connect_db();
+        $query = "SELECT count(*) FROM require WHERE idride=$idride AND idaccount=$id_passenger";
+        $result1 = $bdd->query($query)->fetchColumn();
+        $query = "SELECT count(*) FROM participate WHERE idride=$idride AND idaccount=$id_passenger";
+        $result2 = $bdd->query($query)->fetchColumn();
+        if ($result1>0 || $result2>0){
+            return true;
+        }
+        return false;
+    }
+
 
     /*
     SELECT * FROM ride, place as place1 , place as place2
