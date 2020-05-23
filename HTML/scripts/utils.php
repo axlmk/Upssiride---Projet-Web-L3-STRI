@@ -47,4 +47,6 @@
 
         return convertToFullTime($myhour, $myminute, $mymeridien);
     }
+
+    
 ?>

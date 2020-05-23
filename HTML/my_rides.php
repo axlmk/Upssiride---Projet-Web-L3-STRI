@@ -27,10 +27,15 @@
     }
 
     if (isset($_POST['id_ride'])){
-        if(apply($_POST['id_ride'],$_SESSION['id']) == false){
+        $result_apply = apply($_POST['id_ride'],$_SESSION['id']);
+        if(!$result_apply){    
+            $apply = "Request sent!";
+        }
+        else if ($result_apply==1) {
             $apply = "Sorry, this ride is completed";
-            //echo "Sorry, this ride is completed php";
-            
+        }
+        else {
+            $apply= "You have already requested or joined this ride";
         }
     }
 
@@ -61,6 +66,7 @@
     </head>
     <body>
     <?php if (isset($apply)):?>
+        <br/><br/><br/><br/><br/>
             <?=$apply?>
     <?php endif ?>
     <?php if ($resultrequire!=null): ?>
