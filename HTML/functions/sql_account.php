@@ -157,6 +157,11 @@
     }
 
     function delete_account($id){
-
+        $bdd= connect_db();
+        $bdd->query("DELETE FROM vehicule WHERE idaccount=$id");
+        $bdd->query("DELETE FROM ride WHERE idaccount=$id");
+        $bdd->query("DELETE FROM require WHERE idaccount=$id");
+        $bdd->query("DELETE FROM participate WHERE idaccount=$id");
+        $bdd->query("DELETE FROM account WHERE idaccount=$id");
     }
 ?>

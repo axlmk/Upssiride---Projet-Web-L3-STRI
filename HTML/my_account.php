@@ -99,6 +99,11 @@
         add_vehicle($_SESSION['id']);
     }
 
+    if (isset($_POST['delete_account'])){
+        delete_account($_SESSION['id']);
+        header("Location: scripts/logout.php");
+    }
+
     $info = get_account_info($_SESSION['id']);
     $music = $info['music']; 
     $chat = $info['chatting']; 
@@ -133,7 +138,9 @@
                     <button class="tab_button" onClick="openTab(event, 'password_information')" type="button" name="button" id="default_tab">Change password</button>
                 <?php endif ?>
                     <button class="tab_button" onClick="openTab(event, 'vehicles_information')" type="button" name="button">Vehicles</button>
-                    <button class="delete_button" onClick="" type="button" name="button">Delete account</button>
+                    <form action="my_account.php" method="post">
+                        <button class="delete_button" type="submit" name="delete_account">Delete account</button>
+                    </form>
                 </div>
             </aside>
 
