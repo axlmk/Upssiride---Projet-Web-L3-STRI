@@ -197,11 +197,11 @@
                         <div class="radio_input">
                             <label class="pets_val">
                                 <input type="radio" name="pets_v" value="0" <?php echo (!$pets) ?  "checked" : "" ;  ?>/>
-                                <img src="svg/pets.svg"/>
+                                <img src="svg/pet_ok.svg"/>
                             </label>
                             <label class="pets_val">
                                 <input type="radio" name="pets_v" value="1" <?php echo ($pets) ?  "checked" : "" ;  ?>>
-                                <img src="svg/pets.svg"/>
+                                <img src="svg/pet_forbidden.svg"/>
                             </label>
                         </div>
                         <input class="submit_button" type="submit" name="saveSubmit" value="Save">
