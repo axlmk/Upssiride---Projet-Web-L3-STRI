@@ -43,18 +43,30 @@
                 <?php foreach($profiles as $profile): ?>
                 <div class="user_container">
                     <div class="user_elem">
+                        <div class="userId">
                             <p id="user_id"><?=$profile['idaccount']?><!--PHP : faire sortir l'ID utilisateur--></p>
+                        </div>
+                        <div class="userPic">
                             <a href="my_account.php">
                             <img value src="Pictures_site/users/4.jpg" alt="user_picture_profile" id="picture_profile">
+                        </div>
+                        <div class="userName">
                             <label for="picture_profile"><?=$profile['firstname'] . " " . $profile['name']?></label>
-                        </a>
+                            </a>
+                        </div>
+                        <div class="input">
                         <form action="admin.php" method="post">
                             <input type="password" name="pass">
+                        </div>
+                        <div class="submitButton">
                             <button type="submit" value=<?=$profile['idaccount']?> name="reset">Reset password</button>
                         </form>
+                        </div>
+                        <div class="removeButton">
                         <form action="admin.php" method="post">
                             <button type="submit" value=<?=$profile['idaccount']?> name="delete">Remove user</button>
                         </form>
+                        </div>
                     </div>
                 <?php endforeach ?>
                 </div>
