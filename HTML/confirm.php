@@ -86,16 +86,10 @@
                         <p>City: <?php echo "$to_city" ?></p>
                     </div>
                 </div>
-                <div id="description">
-                    <p>Description (optional)</p>
-                    <textarea form="add_description" rows="4" cols="86" name="description" class="text_area"></textarea>
-                </div>
             </div>
             <div class="action_div">
                 <a href="index.php"><button type="button" name="button" class="submit_button" >Edit ride</button></a>
-                <form action="add_description"><!--Mets ce que tu veux ! :)-->
-                   <a href="my_rides.php"><button type="submit" name="button" class="submit_button">Confirm</button></a>
-                </form>    
+                   <a href="my_rides.php"><button type="button" name="button" class="submit_button">Confirm</button></a>
             </div>
         </div>
         <script src="javascript/confirm.js" type="text/javascript"></script>
